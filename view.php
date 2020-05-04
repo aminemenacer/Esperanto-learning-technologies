@@ -92,10 +92,17 @@ if(!$conn){
 		                                </div>
 		                              </div>
                                  
-                                  <div class="form-group row">
+                                 <div class="form-group row">
 		                                <label for="email" class="col-4 col-form-label"><b>Date created:</b></label>
 		                                <div class="col-8">
 		                                  <p><?php echo $row['date_created']; ?></p>
+		                                </div>
+		                              </div>
+
+																																<div class="form-group row">
+		                                <label for="email" class="col-4 col-form-label"><b>Last login time:</b></label>
+		                                <div class="col-8">
+		                                  <p><?php echo $row['last_activity']; ?></p>
 		                                </div>
 		                              </div>
                                
