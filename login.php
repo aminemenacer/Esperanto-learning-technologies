@@ -1,9 +1,6 @@
 <?php
 session_start();
 ob_start();
-
-
-
 //error_reporting(0);
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 include_once('C:\xampp\htdocs\esperanto\template\navbar_general.php');
@@ -23,11 +20,14 @@ if($db_connect){
       $password=mysqli_real_escape_string($db_connect,$_POST['password']);
       $password=md5($password);
 
-      $sql="SELECT * FROM users WHERE  email='$email' AND password='$password'";
-      $result=mysqli_query($db_connect,$sql);
+      $sql="SELECT * FROM users WHERE email='$email' AND password='$password'";
+						$result=mysqli_query($db_connect,$sql);
+						
+						
 
       if ($sql = mysqli_fetch_array($result)) {
           // Now you can set the session variables
+          
           $_SESSION['id'] = $sql['id'];
           $_SESSION['type'] = $sql['type'];
           $_SESSION['email'] = $sql['email'];
@@ -35,18 +35,30 @@ if($db_connect){
           $_SESSION['firstname'] = $sql['firstname'];
           $_SESSION['phone'] = $sql['phone'];
           $_SESSION['date_of_birth'] = $sql['date_of_birth'];
-          $_SESSION['date_created'] = $sql['date_created'];
+										$_SESSION['date_created'] = $sql['date_created'];
+										$_SESSION['last_activity'] = $sql['last_activity'];
 
-
+										
+										
           if ($sql['type'] == 0){
-            header ("location: index.php");
+												header ("location: index.php");
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
+												$result = mysqli_query($db_connect,$sql);
+												
           } else if ($sql['type'] == 1){
-            header ("location: index.php");
+												header ("location: index.php");
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
+												$result = mysqli_query($db_connect,$sql); 
+
           } else if ($sql['type'] == 2){
-            header ("location: index.php");
+												header ("location: index.php");
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
+												$result = mysqli_query($db_connect,$sql);
+
           } else {
             echo "error";
-          }
+										}
+										
     }
   }
 }

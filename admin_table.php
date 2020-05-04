@@ -137,7 +137,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     ?>
 
 						<br>
-      <div class="row ml-5 mt-3">
+      <div class="row ml-3 mt-3">
         <div class="col-sm-2 col-md-2">
           <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
         </div>
@@ -165,12 +165,13 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
         </div>
 							
       <?php								
-									echo "<table class='table table-striped table-hover mr-5 mb-5' style='overflow: hidden;'>";
+									echo "<table class='table table-striped table-hover mb-5' style='overflow: hidden;'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";
 														echo "<th>Email</th>";
 														echo "<th>Type</th>";
+														echo "<th>Last Login time</th>";
 														echo "<th>Actions</th>";
 										
          while($row = mysqli_fetch_array($result)){									
@@ -178,7 +179,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                 // echo "<td>" . $row['id'] . "</td>";
                  echo "<td>" . $row['firstname'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
-																	echo "<td>" . $row['type'] . "</td>";			
+																	echo "<td>" . $row['type'] . "</td>";		
+																	echo "<td>" . $row['last_activity'] . "</td>";	
               echo "<td>
                  <button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"view.php?id=".$row['id']."\">View</a></button>
 																	<button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"edit.php?id=".$row['id']."\">Edit</a></button>																
