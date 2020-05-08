@@ -1,6 +1,7 @@
 
 <?php 
 session_start();
+include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 		if(!$conn){
@@ -33,11 +34,6 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 </html>
   <body>
       
-
-    <!-- header-->
-   <?php
- 			include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
-   ?>
 
 
 		<div class="container" style="padding: 20px">

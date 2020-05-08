@@ -138,7 +138,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 						<br>
       <div class="row ml-3 mt-3">
-        <div class="col-sm-2 col-md-2">
+        <div class="col-sm-4 col-md-4">
           <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
         </div>
 
@@ -160,16 +160,19 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
         <div class="col-sm-4 col-md-4 ">
           <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
             <input class="form-control mr-sm-2 mr-md-2 mt-2" name="search" type="text" placeholder="Search" aria-label="Search">
+												<!--
             <button class="btn btn-primary" name="query" type="submit">Search</button>
+												-->
           </form>
         </div>
 							
       <?php								
-									echo "<table class='table table-striped table-hover mb-5' style='overflow: hidden;'>";
+									echo "<table class='table table-striped table-hover table-responsive overflow-hidden'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";
 														echo "<th>Email</th>";
+														echo "<th>Date of birth</th>";
 														echo "<th>Type</th>";
 														echo "<th>Last Login time</th>";
 														echo "<th>Actions</th>";
@@ -179,8 +182,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                 // echo "<td>" . $row['id'] . "</td>";
                  echo "<td>" . $row['firstname'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
+																	echo "<td>" . $row['date_of_birth'] . "</td>";
 																	echo "<td>" . $row['type'] . "</td>";		
-																	echo "<td>" . $row['last_activity'] . "</td>";	
+																	echo "<td style='color:blue' >" . $row['last_activity'] . "</td>";	
               echo "<td>
                  <button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"view.php?id=".$row['id']."\">View</a></button>
 																	<button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"edit.php?id=".$row['id']."\">Edit</a></button>																
@@ -194,6 +198,9 @@ echo "</tr>";
 									echo "</table>";
          mysqli_free_result($result);
      } else{
+						?>
+							<button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button><br><br>
+						<?php
          echo "No users available.";
      }
  } else{
@@ -207,6 +214,13 @@ echo "</tr>";
   color: white;}
 </style>
 
+		<script>
+				$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+									window.location.hash= event.target.hash;
+					});
+		</script>
+
+	<script type="text/javascript" src="custom.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		<script src="sweetalert2.all.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>

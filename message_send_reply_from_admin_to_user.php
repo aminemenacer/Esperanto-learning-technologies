@@ -61,7 +61,7 @@ if(isset($_POST['register_btn'])){
 
 	<div class="container" style="padding: 30px">
 
-		<p class="h1 text-center mb-3">Send Message</p>
+		<p class="h1 text-center mb-3">Reply Message</p>
 
 				<form method="POST" action="message_send_reply_from_admin_to_user.php" padding="30px">
 						<div class="card border-primary mt-31">

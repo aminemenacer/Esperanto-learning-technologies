@@ -2,6 +2,7 @@
 <?php 
 session_start();
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+error_reporting(0);
 $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 		if(!$conn){
@@ -9,11 +10,16 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		};
 
 		$id = mysqli_real_escape_string($conn, $_GET['id']);
-		$query = "SELECT academic_title, academic_desc FROM academic_support WHERE id = $id";
-		$result = mysqli_query($conn,$query) or die(mysqli_error());
+  $sql = "SELECT subject_title FROM messages WHERE email='$email'";
+
+		$result = mysqli_query($conn,$query);
 
 		echo "<table class='table table-striped'>";
 		$row = mysqli_fetch_array($result);
+
+		$email = $_SESSION['email'];
+
+
 ?>
 
 
@@ -21,7 +27,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 <html lang="en">
   <head>
-    <title>Dellys website</title>
+    <title>Esperanto</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,47 +41,55 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
   <body>
       
 
-
-		<div class="container" style="padding: 20px">
-		<div class="row">
-		<div class="col-md-12 col-sm-12">
-			<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<h4>View Information</h4>
-						<hr>
+    <div class="container" style="padding: 20px">
+						<h1 class="mb-3 text-center">View message</h1>
+				<div class="card mt-3">
+					<div class="card-header"><b>View message</b>	
 					</div>
+    <form>
+
+				<div class="row ml-3 mt-3">
+							<div class="col-sm-6 col-md-6">
+								<label><b>Sender:</b></label>
+									<p><?php echo $row['sender_name']; ?></p>
+							</div>
+							<div class="col-sm-5 col-md-5 mt-1">
+								<label><b>Receiver:</b></label>
+								<p><?php echo $row['email']; ?></p>
+							</div>
+							
+					</div> 
+
+					<div class="row ml-3 mt-5 mt-1">
+							<div class="col-md-6 col-sm-6">
+								<label><b>Subject:</b></label>
+									<p><?php echo $_SESSION['subject_title']; ?></p>
+							</div>
+							<div class="col-md-4 col-sm-4 mt-1">
+								<label><b>Date:</b></label>
+								<p><?php echo $row['date_created']; ?></p>
+							</div>
+					</div>
+
+					<div class="row mt-5 ml-3 mt-1">
+							<div class="col-md-8 col-sm-8">
+								<label><b>Message:</b></label>
+								<p class="word-wrap: break-word;"><?php echo $row['messages']; ?></p>
+							</div>
+					</div>
+
+			</form>
+
+				</card>
+						
+					<div class="form-group btn pull-left">
+							<form action="messages_view_between_users.php">
+									<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
+							</form>	
 						</div>
-						<div class="row">
-							<div class="col-md-12 col-sm-12">
-							<form method="post">
-								<div class="form-group row">                                                          
-									</div>
-									<div class="form-group row">
-												<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Academic support title:</b></label> 
-												<div class="col-sm-8 col-md-8">
-													<p><?php echo $row['academic_title']; ?></p>
-												</div>
-										</div>
-										<div class="form-group row">
-												<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Academic support Description:</b></label> 
-												<div class="col-sm-8 col-sm-8">
-													<p style="white-space: pre-line;"><?php echo $row['academic_desc']; ?></p>
-												</div>
-										</div>                              
-										
-									<form action="academic_support_view.php">
-											<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
-										</form>
-											</div>
-								</form>
-									</div>
-						</div>
-			</div>
-		</div>
-</div>
-		</div>
+					</div>
+				</div>
+  </div>
 
 				<?php
      include_once('C:\xampp\htdocs\esperanto\template\footer.php');
@@ -91,6 +105,11 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </html>
+
+
+
+
+
 
 <style type="text/css">
 table {

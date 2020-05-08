@@ -115,18 +115,16 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
   </head>
   <body style="overflow-x: hidden;">
 
-    <div class="container">
-
     <?php
     error_reporting(0);
-				$sql = "SELECT * FROM messages";
+				$sql = "SELECT * FROM messages ORDER BY date_created DESC LIMIT 0, 1000";
 				
     if(isset($_GET['id'])){
 
      // escape sql chars
      $id = mysqli_real_escape_string($conn, $_GET['id']);
      // make sql
-					$sql = "SELECT * FROM messages";
+     $sql = "SELECT * FROM messages ORDER BY date_created DESC LIMIT 0, 1000";
      // get the query result
      $result = mysqli_query($conn, $sql);
      // fetch result in array format
@@ -140,18 +138,14 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
     ?>
       <br>
-      <div class="row">
-        <div class="col-sm-6" style="padding:5px">							
-          <button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
-									</div>
-      </div>
+      
       <?php
-         echo "<table class='table table-striped table-responsive'>";
+         echo "<table class='table table-striped table-responsive col-lg-10 col-xl-10'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-                // echo "<th>Type</th>";
+																 echo "<th>Message</th>";
 																	echo "<th>Date</th>";
 																//	echo "<th>Seen</th>";
                  echo "<th>Actions</th>";
@@ -162,14 +156,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
                  echo "<td>" . $row['subject_title'] . "</td>";
-                // echo "<td>" . $row['type'] . "</td>";
+                 echo "<td>" . $row['messages'] . "</td>";
 																	echo "<td>" . $row['date_created'] . "</td>";
-																//	echo "<td>" . $row['open'] . "</td>";
-																	
-																	
-
-              echo "<td>
-                 <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_from_admin_to_user.php?id=".$row['id']."\">View</a></button>                                 
+															//		echo "<td>" . $row['open'] . "</td>";
+	            echo "<td>
+                 <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_between_users.php?id=".$row['id']."\">View</a></button>                                 
                  ";
 
                ?>
@@ -188,7 +179,6 @@ echo "</tr>";
  }
 
 ?>
-
 
 
 

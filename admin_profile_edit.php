@@ -1,31 +1,36 @@
+
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
-$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-	if(!$conn){
-		echo 'Connection error: '. mysqli_connect_error();
-	}
-	
+ if(isset($_POST['update'])){
 
-if(isset($_POST['update'])) {
-	
-	$firstname = $_POST['firstname'];
-	$email = $_POST['email'];
+		$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-	$query = "UPDATE users SET email='$email', firstname='$firstname' WHERE id= '$id'"; 
-	$result = mysqli_query($conn,$query); 
+		if(!$conn){
+			echo 'Connection error: '. mysqli_connect_error();
+		}
 
-	if ($result) {
-	//header("location:user_logged_in.php");
-	 echo 'successfully updated';
-	}else{
-		echo "error";
-	}
+		$id = $_POST['id'];
+		$firstname = $_POST['firstname'];
+		$surname = $_POST['surname'];
+		$email = $_POST['email'];
+		$date_of_birth = $_POST['date_of_birth'];
+
+		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email' WHERE id='$id'";
+		$result = mysqli_query($conn, $query);
+
+		if($result){
+			echo 'data updated';
+		} else{
+			echo 'data not updated';
+		}
+
 		mysqli_close($conn);
-}
+
+	}
 
 ?>
 
@@ -61,11 +66,11 @@ if(isset($_POST['update'])) {
 									<div class="col-md-12 col-sm-12">
 											<form method="POST" action="admin_profile_edit.php">
 												<div class="form-group row">
-													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>ID:</b></label>
 													<div class="col-sm-4 col-md-4">
-																<p><?php echo $_SESSION['id']; ?></p>
+														<input type="hidden" name="id" aria-label="text" class="form-control" placeholder="ID" value="<?php echo $_SESSION['id'] ?>"/>
 													</div>
 												</div>
+												
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Date:</b></label>
 													<div class="col-sm-4 col-md-4">
@@ -78,10 +83,11 @@ if(isset($_POST['update'])) {
 														<p><?php echo $_SESSION['type']; ?></p>
 													</div>
 												</div>
+												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Firstname:</b></label>
 													<div class="col-sm-4 col-md-4">
-															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $_SESSION['firstname']; ?>"/>
+															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $_SESSION['firstname'] ?>"/>
 													</div>
 												</div>
 												
@@ -91,6 +97,7 @@ if(isset($_POST['update'])) {
 														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo $_SESSION['surname'] ?>">
 													</div>
 												</div>
+												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Date of birth:</b></label>
 													<div class="col-sm-4 col-md-4">
@@ -104,7 +111,7 @@ if(isset($_POST['update'])) {
  														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>"/>
 													</div>
 												</div>
-											
+											<!--
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Phone:</b></label>
 													<div class="col-sm-4 col-md-4">
@@ -123,11 +130,11 @@ if(isset($_POST['update'])) {
 														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $_SESSION['password2']; ?>">
 													</div>
 												</div>
+												-->
 												
-												<form method="POST" action="admin_profile_edit.php">
-														<button type="submit" name="update" class="btn btn-primary">Update</button>
-														<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
-												</form>
+												<input type="submit" name="update" value="Update Data">
+													<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+										</form>
 							</div>
 
 					</div>
@@ -135,6 +142,22 @@ if(isset($_POST['update'])) {
 	</div>
 	</div>
 	</div>
+
+	-->
+
+				<form action="admin_profile_edit.php" method="post">
+
+			ID To Update: <input type="text" name="id" ><br><br>
+
+			New First Name:<input type="text" name="firstname" required><br><br>
+
+			email:<input type="text" name="email" required><br><br>
+
+
+			<input type="submit" name="update" value="Update Data">
+
+</form>
+	
 	</div>
 
 

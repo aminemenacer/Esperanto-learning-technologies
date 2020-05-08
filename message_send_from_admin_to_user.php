@@ -116,7 +116,7 @@ if(isset($_POST['register_btn'])){
 					<div class="container btn pull-end" style="padding: 20px">
 						<div class="form-group btn pull-right">
 							<form action="message_send_from_admin_to_user.php">
-								<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
+								<a href="admin_logged_in.php" class="btn btn-primary" id="#v-pills-messages" role="button" aria-pressed="true">Back</a>
 								<div class="form-group btn pull-right">
 									<button type="submit" name="register_btn" class="btn btn-primary"  class="form-group">Submit</button>
 								</div>
@@ -136,6 +136,13 @@ if(isset($_POST['register_btn'])){
 
 </div>
 
+	<script>
+			$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+        window.location.hash= event.target.hash;
+    });
+	</script>
+
+			<script type="text/javascript" src="custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
 <!-- Optional: include a polyfill for ES6 Promises for IE11 -->

@@ -84,22 +84,15 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
   		?>
 					</div>
 
-    <script>
-						$(function() { 
-    // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
-								$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-												// save the latest tab; use cookies if you like 'em better:
-												localStorage.setItem('lastTab', $(this).attr('href'));
-								});
+					<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    
+			<script type="text/javascript" src="custom.js"></script>
 
-								// go to the latest tab, if it exists:
-								var lastTab = localStorage.getItem('lastTab');
-								if (lastTab) {
-												$('[href="' + lastTab + '"]').tab('show');
-								}
-				});
-    </script>
-			
+			<script>
+				$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+									window.location.hash= event.target.hash;
+					});
+				</script>
 	
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

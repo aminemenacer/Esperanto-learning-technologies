@@ -147,7 +147,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       <div class="row">
 
         <div class="col-sm-6" style="padding:5px">							
-          <button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+          <button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
 									</div>
       </div>
 
@@ -183,6 +183,9 @@ echo "</tr>";
          echo "</table>";
          mysqli_free_result($result);
      } else{
+      ?>
+      <button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button><br><br>
+      <?php
          echo "Inbox messages box empty.";
      }
  } else{

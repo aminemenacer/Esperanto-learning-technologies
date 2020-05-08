@@ -25,14 +25,14 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 			<nav>
 				<div class="nav nav-tabs" id="nav-tab" role="tablist">
 					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Inbox Messages</a>
-					<a class="nav-item nav-link" id="nav-message-tab" data-toggle="tab" href="#nav-message" role="tab" aria-controls="nav-message" aria-selected="false">Reply Messages</a>
+					<a class="nav-item nav-link" id="nav-message-tab" data-toggle="tab" href="#nav-message" role="tab" aria-controls="nav-message" aria-selected="false">Sent Messages</a>
 					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">All Messages</a>
 				</div>
 		</nav>
 
 		<div class="tab-content" id="nav-tabContent">
 			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><?php require('messages_sent_to_admin_table.php'); ?></div>
-			<div class="tab-pane fade" id="nav-message" role="tabpanel" aria-labelledby="nav-message-tab"><?php require('messages_reply_from_admin_table.php'); ?></div>
+			<div class="tab-pane fade" id="nav-message" role="tabpanel" aria-labelledby="nav-message-tab"><?php require('messages_sent_from_admin_table.php'); ?></div>
 			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php require('messages_sent_between_user_table.php'); ?></div>
 		</div>
 

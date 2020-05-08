@@ -87,20 +87,20 @@
 
   <?php
 
-         echo "<table class='table table-striped' id='table-size border-collapse: collapse;' ";
+         echo "<table class='table table-striped table-responsive' ";
 
              echo "<tr>";
               echo "<th class='bg-primary text-light text-center' width='50px'>Title</th>";
            	  echo "<th class='bg-primary text-light' width='500px'>Description</th>";
-														echo "<th class='bg-primary text-light text-center' width='100px'>Actions</th>";
+														echo "<th class='bg-primary text-light text-center' width='50px'>Actions</th>";
 
              echo "</tr>";
 
          while($row = mysqli_fetch_array($result)){
                  echo "<td style='text-align: center' width='50px'>" . $row['academic_title'] . "</td>";
-                 echo "<td style='white-space: pre-line;'  style='text-align: center' width='300px' >" . $row['academic_desc'] . "</td>";
+                 echo "<td style='white-space: pre-line;'  style='text-align: center' >" . $row['academic_desc'] . "</td>";
 														echo "
-														<td style='text-align: center' width='100px'>
+														<td style='text-align: center' width='50px'>
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"academic_support_view.php?id=".$row['id']."\">View</a></button>
 																	<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"academic_support_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
                ?>

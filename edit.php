@@ -1,6 +1,8 @@
+
 <?php
+
 session_start();
-//error_reporting(0);
+error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -23,7 +25,7 @@ if(isset($_GET['id'])){
 		$password=md5($password); //hash password before storing for security purposes
 		$password2=md5($password2); //hash password before storing for security purposes
 		
-		$query3=mysqli_query($conn,"update users set firstname='$firstname', email='$email', surname='$surname', date_of_birth='$date_of_birth', phone='$phone', password='$password', password2='$password2' where id='$id'");
+		$query3=mysqli_query($conn,"update users set firstname='$firstname' where email='$email'");
 		if($query3){
 		header("Location: admin_logged_in.php");
 		//echo "<script type='text/javascript'>alert('Updated successfully');</script>";
@@ -36,6 +38,8 @@ if(isset($_GET['id'])){
 }
 
 ?>
+
+
 
 
 
@@ -84,46 +88,46 @@ if(isset($_GET['id'])){
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Firstname:</b></label>
 													<div class="col-sm-4">
-															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['firstname']?>">
+															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $row['first_name']; ?>">
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Surname:</b></label>
 													<div class="col-sm-4">
-														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo $query2['surname'] ?>">
+														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo "$surname" ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Date of birth:</b></label>
 													<div class="col-sm-4">
-														<input type="date" name="date_of_birth" id="date_of_birth" aria-label="text"  placeholder="Date of birth" class="form-control" value="<?php echo $query2['date_of_birth']; ?>">
+														<input type="date" name="date_of_birth" id="date_of_birth" aria-label="text"  placeholder="Date of birth" class="form-control" value="<?php echo $query2['date_of_birth']?>">
 													</div>
 												</div>
 
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>Email:</b></label>
 													<div class="col-sm-4">
-														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $query2['email']; ?>" required />
+														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $query2['email']?>"/>
 													</div>
 												</div>
 
 												<div class="form-group row">
 													<label for="name" class="col-4 col-form-label"><b>Phone:</b></label>
 													<div class="col-sm-4">
-														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $query2['phone']; ?>">
+														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $query2['phone']?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>New password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $query2['password']; ?>">
+														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $query2['password']?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>Confirm new password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $query2['password2']; ?>">
+														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $query2['password2']?>">
 													</div>
 												</div>
 												<form action="edit.php">
@@ -148,4 +152,3 @@ if(isset($_GET['id'])){
 
 include_once('C:\xampp\htdocs\esperanto\template\footer.php');
 ?>
-

@@ -105,6 +105,8 @@ echo "</tr>";
          }
          echo "</table>";
          mysqli_free_result($result);
+         
+
      } else{
          echo "No records matching your query were found.";
      }

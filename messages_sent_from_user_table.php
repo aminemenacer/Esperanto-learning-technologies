@@ -1,4 +1,5 @@
 
+
 <style type="text/css">
 table {
 }
@@ -62,8 +63,8 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .col_e{
-background-color: blue;
-display: inline-block;
+ background-color: blue;
+ display: inline-block;
 padding: 9px 12px;
 padding-top: 7px;
 margin-bottom: 0;
@@ -84,13 +85,20 @@ box-shadow: none;
 transition: all 0.12s linear 0s !important;
 font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-
 .abtn{
  color: white;
 }
 
+a:hover {
+}
+
 </style>
 
+<?php
+
+include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+
+ ?>
 
 <!doctype html>
 <html lang="en">
@@ -105,87 +113,108 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
     <title>Esperanto</title>
   </head>
-  <body>
-
-
-
+  <body style="overflow-x: hidden;">
 
     <div class="container">
-     <?php
-     session_start();
-		 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
-    $sql = "SELECT id, name, email, feedback from feedback";
+		<?php 
+				session_start();
+				$email = $_SESSION['email']; 
+				error_reporting(0); 
 
-    $name = $email = $feedback = '';
-    $errors = array('name' => '', 'email' => '', 'feedback' => '');
+    $sql = "SELECT * FROM reply_messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+				
 
-    ?>
-
-    <h2 class="text-center pt-4 pb-4 font-weight-bold">User to User</h2>
-
-
-    <div class="row">
-      <div class="col-7">
-        <button type="button" class="btn btn-primary"><a class='abtn' href="admin_send_new_message.php">Send new message</a></button>
-      </div>
-
-      <div class="col-5">
-        <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
-          <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary" name="query" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-
-    </div>
-
-    <?php
+    if(isset($_GET['id'])){
+						// escape sql chars
+						$id = mysqli_real_escape_string($conn, $_GET['id']);
+						// make sql
+						$sql = "SELECT * FROM reply_messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+						// get the query result
+						$result = mysqli_query($conn, $sql);
+						// fetch result in array format
+						$pizza = mysqli_fetch_assoc($result);
+						mysqli_free_result($result);
+						mysqli_close($conn);
+    }
 
    if($result = mysqli_query($conn, $sql)){
        if(mysqli_num_rows($result) > 0){
 
-        ?>
+    ?>
+      <br>
+      <div class="row">
 
+        <div class="col-sm-6">
+          <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
+            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+												<!--
+            <button class="btn btn-primary" name="query" type="submit">Search</button>
+												-->
+          </form>
+        </div>
 
+      </div>
 
-  <?php
-
-         echo "<table class='table table-striped'>";
+      <?php								
+         echo "<table class='table table-striped table-responsive'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
-                 echo "<th>Date</th>";
-                 echo "<th>Subject</th>";
                  echo "<th>Message</th>";
-                 echo "<th>Actions</th>";
+                 echo "<th>Date</th>";
+																	echo "<th>Actions</th>";
 
          while($row = mysqli_fetch_array($result)){
              echo "<tr>";
-                 echo "<td>" . $row['sender'] . "</td>";
-                 echo "<td>" . $row['reciever'] . "</td>";
-                 echo "<td>" . $row['date'] . "</td>";
-                 echo "<td>" . $row['subject'] . "</td>";
-                 echo "<td>" . $row['messages'] . "</td>";
+																	echo "<td>" . $row['reply_sender'] . "</td>";
+																	echo "<td>" . $row['email'] . "</td>";
+                 echo "<td>" . $row['reply_message'] . "</td>";
+                 echo "<td>" . $row['reply_date'] . "</td>";
               echo "<td>
-                 <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"user_view_messages.php?id=".$row['id']."\">View</a></button> </td>";
-               ?>
+                 <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_user.php?id=".$row['id']."\">View</a></button>";
 
+               ?>
   <?php
 
 echo "</tr>";
          }
          echo "</table>";
          mysqli_free_result($result);
+  
      } else{
-         echo "No records matching your query were found.";
+         echo "Reply messages empty.";
      }
  } else{
      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
  }
 
+?>
 
-   ?>
+
+<script>
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+</script>
+
+
+
+<style type="text/css">
+
+
+.btn_reg{
+  color: white;
+}
+
+
+</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -195,4 +224,5 @@ echo "</tr>";
   </body>
 </html>
 
- 
+
+   </div>

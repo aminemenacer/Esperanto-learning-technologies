@@ -1,5 +1,4 @@
 <?php
-//session_start();
 error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
@@ -10,7 +9,7 @@ if(!$conn){
 }
 
 
-   ?>
+ ?>
 
 <!doctype html>
 <html lang="en">

@@ -121,7 +121,11 @@ echo "</tr>";
          echo "</table>";
          mysqli_free_result($result);
      } else{
-         echo "No records matching your query were found.";
+						?>
+						<button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_announcement.php">Add new announcment</a></button><br><br>
+						<?php
+
+         echo "No announcements found.";
      }
  } else{
      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);

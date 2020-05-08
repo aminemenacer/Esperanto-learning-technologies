@@ -10,50 +10,52 @@ $_SESSION['user'] = 'user';
 $_SESSION['teacher'] = 'teacher';
 $_SESSION['admin'] = 'admin';
 
+$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
+		if(!$conn){
+			echo 'Connection error: '. mysqli_connect_error();
+		}
 
-//connect to database
-$db_connect=mysqli_connect("localhost","amine","test1234","esperanto");
-if($db_connect){
+	
   if(isset($_POST['login_btn'])){
-      $email=mysqli_real_escape_string($db_connect,$_POST['email']);
-      $password=mysqli_real_escape_string($db_connect,$_POST['password']);
-      $password=md5($password);
 
-      $sql="SELECT * FROM users WHERE email='$email' AND password='$password'";
-						$result=mysqli_query($db_connect,$sql);
-						
-						
+      $email=mysqli_real_escape_string($conn,$_POST['email']);
+						$password1=mysqli_real_escape_string($conn,$_POST['password1']);
+      $password1=md5($password1);
 
+      $sql="SELECT * FROM users WHERE email='$email' AND password1='$password1'";
+						$result=mysqli_query($conn,$sql);
+						
+					
       if ($sql = mysqli_fetch_array($result)) {
           // Now you can set the session variables
-          
-          $_SESSION['id'] = $sql['id'];
+										$_SESSION['email'] = $sql['email'];
+										$_SESSION['password1'] = $sql['password1'];										
+										$_SESSION['id'] = $sql['id'];
           $_SESSION['type'] = $sql['type'];
-          $_SESSION['email'] = $sql['email'];
           $_SESSION['surname'] = $sql['surname'];
           $_SESSION['firstname'] = $sql['firstname'];
           $_SESSION['phone'] = $sql['phone'];
           $_SESSION['date_of_birth'] = $sql['date_of_birth'];
 										$_SESSION['date_created'] = $sql['date_created'];
-										$_SESSION['last_activity'] = $sql['last_activity'];
-
-										
+										$_SESSION['last_activity'] = $sql['last_activity'];									
+										$_SESSION['password2'] = $sql['password2'];
+									
 										
           if ($sql['type'] == 0){
 												header ("location: index.php");
-												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
-												$result = mysqli_query($db_connect,$sql);
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email = '".$_SESSION['email']."'";
+												$result = mysqli_query($conn,$sql); 
 												
           } else if ($sql['type'] == 1){
 												header ("location: index.php");
-												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
-												$result = mysqli_query($db_connect,$sql); 
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email = '".$_SESSION['email']."'";
+												$result = mysqli_query($conn,$sql); 
 
           } else if ($sql['type'] == 2){
 												header ("location: index.php");
-												$sql = "UPDATE users SET last_activity = NOW() WHERE email='$email'";
-												$result = mysqli_query($db_connect,$sql);
+												$sql = "UPDATE users SET last_activity = NOW() WHERE email = '".$_SESSION['email']."'";
+												$result = mysqli_query($conn,$sql); 
 
           } else {
             echo "error";
@@ -61,7 +63,7 @@ if($db_connect){
 										
     }
   }
-}
+
 
 
 ?>
@@ -89,11 +91,11 @@ if($db_connect){
 
       <p class="h1 text-center">Login</p>
 
-      <div class="container">
+      <div class="container ">
 
       <form method="POST" action="login.php">
 
-        <div class="card border-primary mt-4">
+        <div class="card border-primary mt-4 ">
          <div class="card-header"><b>Login details</b></div>
          <div class="card-body">
 
@@ -105,7 +107,7 @@ if($db_connect){
 
            <div class="form-group col-md-8">
              <label for="exampleInputPassword1">Password:</label>
-             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+             <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
              <span class='error' style="color: red"> </span>
            </div>
 

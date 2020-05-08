@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -37,7 +37,7 @@ if(!$conn){
 
 		<div class="container">
 
-  <div class="row mb-3">
+  <div class="row">
 
     <div class="col-sm-12">
         <div class="card">
