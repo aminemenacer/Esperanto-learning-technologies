@@ -20,17 +20,17 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
   if(isset($_POST['login_btn'])){
 
       $email=mysqli_real_escape_string($conn,$_POST['email']);
-						$password1=mysqli_real_escape_string($conn,$_POST['password1']);
-      $password1=md5($password1);
+						$firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
+						//$password=md5($password);
 
-      $sql="SELECT * FROM users WHERE email='$email' AND password1='$password1'";
+      $sql="SELECT * FROM users WHERE email='$email' AND firstname='$firstname'";
 						$result=mysqli_query($conn,$sql);
 						
 					
       if ($sql = mysqli_fetch_array($result)) {
           // Now you can set the session variables
 										$_SESSION['email'] = $sql['email'];
-										$_SESSION['password1'] = $sql['password1'];										
+										$_SESSION['password'] = $sql['password'];										
 										$_SESSION['id'] = $sql['id'];
           $_SESSION['type'] = $sql['type'];
           $_SESSION['surname'] = $sql['surname'];
@@ -39,7 +39,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
           $_SESSION['date_of_birth'] = $sql['date_of_birth'];
 										$_SESSION['date_created'] = $sql['date_created'];
 										$_SESSION['last_activity'] = $sql['last_activity'];									
-										$_SESSION['password2'] = $sql['password2'];
+										$_SESSION['passwordconfirm'] = $sql['passwordconfirm'];
 									
 										
           if ($sql['type'] == 0){
@@ -58,15 +58,12 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 												$result = mysqli_query($conn,$sql); 
 
           } else {
-            echo "error";
-										}
 										
-    }
-  }
-
-
-
-?>
+												}
+										}
+							
+  			}
+		?>
 
 
 
@@ -107,7 +104,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
            <div class="form-group col-md-8">
              <label for="exampleInputPassword1">Password:</label>
-             <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+             <input type="password" name="firstname" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
              <span class='error' style="color: red"> </span>
            </div>
 

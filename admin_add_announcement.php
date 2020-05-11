@@ -18,15 +18,10 @@ if(isset($_POST[register_btn])){
 
 	$sql ="INSERT INTO news(news_title, news_desc, news_time)VALUES('$news_title', '$news_desc', '$news_time');";
 	$result = mysqli_query($conn, $sql);
-	
-	if($result){
-		header("Location: admin_logged_in.php");
-	}else{
-		echo "Unsuccessfull";
-	}
-
-	mysqli_free_result($result);
-	mysqli_close($conn);
+ ?>								
+			<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+			Announcement successfully added.</div>       
+	<?php
 
 }
 ?>

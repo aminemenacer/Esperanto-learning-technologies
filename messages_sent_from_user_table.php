@@ -122,14 +122,14 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
 				error_reporting(0); 
 
-    $sql = "SELECT * FROM reply_messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+    $sql = "SELECT * FROM messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
 				
 
     if(isset($_GET['id'])){
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
-						$sql = "SELECT * FROM reply_messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+						$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
 						// get the query result
 						$result = mysqli_query($conn, $sql);
 						// fetch result in array format
@@ -161,16 +161,16 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
-                 echo "<th>Message</th>";
+                 echo "<th>Subject</th>";
                  echo "<th>Date</th>";
 																	echo "<th>Actions</th>";
 
          while($row = mysqli_fetch_array($result)){
              echo "<tr>";
-																	echo "<td>" . $row['reply_sender'] . "</td>";
+																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
-                 echo "<td>" . $row['reply_message'] . "</td>";
-                 echo "<td>" . $row['reply_date'] . "</td>";
+                 echo "<td>" . $row['subject_title'] . "</td>";
+                 echo "<td>" . $row['date_created'] . "</td>";
               echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_user.php?id=".$row['id']."\">View</a></button>";
 

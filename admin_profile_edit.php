@@ -23,9 +23,17 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$result = mysqli_query($conn, $query);
 
 		if($result){
-			echo 'data updated';
+						?>
+							<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+									Data successfully updated.
+							</div>
+						<?php
 		} else{
-			echo 'data not updated';
+						?>
+							<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+									Data not updated.
+							</div>
+						<?php
 		}
 
 		mysqli_close($conn);
@@ -111,7 +119,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
  														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>"/>
 													</div>
 												</div>
-											<!--
+											
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Phone:</b></label>
 													<div class="col-sm-4 col-md-4">
@@ -121,19 +129,19 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-md-4col-form-label"><b>New password:</b></label>
 													<div class="col-sm-4 col-md-4">
-														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password']; ?>">
+														<input type="password" name="password" aria-label="password1" class="form-control" placeholder="Password">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Confirm new password:</b></label>
 													<div class="col-sm-4 col-md-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $_SESSION['password2']; ?>">
+														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password">
 													</div>
 												</div>
-												-->
+												
 												
 												<input type="submit" name="update" value="Update Data">
-													<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+													<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 										</form>
 							</div>
 
@@ -142,21 +150,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 	</div>
 	</div>
 	</div>
-
-	-->
-
-				<form action="admin_profile_edit.php" method="post">
-
-			ID To Update: <input type="text" name="id" ><br><br>
-
-			New First Name:<input type="text" name="firstname" required><br><br>
-
-			email:<input type="text" name="email" required><br><br>
-
-
-			<input type="submit" name="update" value="Update Data">
-
-</form>
 	
 	</div>
 

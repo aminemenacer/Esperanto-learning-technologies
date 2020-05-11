@@ -1,7 +1,10 @@
 <?php
 //Database Connection
-$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 session_start();
+include_once('C:\xampp\htdocs\esperanto\navbar_check.php');			
+
+$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
   if(!$conn){
     echo 'Connection error: '. mysqli_connect_error();
   }
@@ -22,7 +25,10 @@ if(isset($_POST['btn-update'])){
  $update = "UPDATE content_update SET num_of_children='$num_of_children', weekly_attendance='$weekly_attendance', monthly_attendance='$monthly_attendance', online_attendance='$online_attendance' WHERE id=". $_GET['edit_id'];
  $update = mysqli_query($conn, $update);
 
- header("location: admin_logged_in.php");
+ ?>								
+			<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+			Updated successfully</div>       
+	<?php
 
 }
 ?>
@@ -44,14 +50,6 @@ if(isset($_POST['btn-update'])){
 </head>
 </html>
   <body>
-      
-			<?php
-				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');			
-			?>
-
-            <!-- about us-->
-
-
 
 	<div class="container" style="padding: 20px">
   <div class="row">
@@ -99,7 +97,7 @@ if(isset($_POST['btn-update'])){
                              <form action="content_update_edit.php" method="GET">
                                <button type="submit" name="btn-update" class="btn btn-primary">Update</button>
 
-                               <a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+                               <a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
                               </form>
 
                               </div>

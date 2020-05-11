@@ -1,16 +1,18 @@
 <?php
 //Database Connection
-$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 session_start();
+include_once('C:\xampp\htdocs\esperanto\navbar_check.php');			
+$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
   if(!$conn){
     echo 'Connection error: '. mysqli_connect_error();
   }
 
 if(isset($_GET['edit_id'])){
  $edit_id = mysqli_real_escape_string($conn, $_GET['edit_id']);
- $sql = "SELECT * FROM research WHERE id =" .$_GET['edit_id'];
- $result = mysqli_query($conn, $sql);
- $row = mysqli_fetch_array($result);
+ $update = "SELECT * FROM research WHERE id =" .$_GET['edit_id'];
+ $update = mysqli_query($conn, $update);
+ $row = mysqli_fetch_array($update);
 }
 
 if(isset($_POST['btn-update'])){
@@ -20,7 +22,10 @@ if(isset($_POST['btn-update'])){
  $update = "UPDATE research SET rd_title='$rd_title', rd_desc='$rd_desc' WHERE id=". $_GET['edit_id'];
  $update = mysqli_query($conn, $update);
 
- header("location: admin_logged_in.php");
+ ?>								
+			<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+			Updated successfully</div>       
+	<?php
 
 }
 ?>
@@ -42,14 +47,6 @@ if(isset($_POST['btn-update'])){
 </head>
 </html>
   <body>
-      
-			<?php
-				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');			
-			?>
-
-            <!-- about us-->
-
-
 
 	<div class="container" style="padding: 20px">
   <div class="row">
@@ -71,12 +68,12 @@ if(isset($_POST['btn-update'])){
                               </div>
                               <div class="form-group row">
                                 <label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Research & development title:</b></label> 
-                                <div class="col-sm-4 col-md-4">
+                                <div class="col-sm-4 col-md-4 ">
                                  <input type="text" name="rd_title" aria-label="text" class="form-control" value="<?php echo $row['rd_title']; ?>"> 
                                 </div>
                               </div>                              
                               <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Research & development description:</b></label> 
+                                <label for="email" class="col-4 col-form-label"><b>Research & development description:</b></label> 
                                 <div class="col-sm-8 col-md-8">
 																																		<textarea name="rd_desc" rows="15" class="form-control"><?php echo $row['rd_desc']; ?></textarea>
                                 </div>
@@ -86,7 +83,7 @@ if(isset($_POST['btn-update'])){
                              <form action="r&d_edit.php" method="GET">
                                <button type="submit" name="btn-update" class="btn btn-primary">Update</button>
 
-                               <a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+                               <a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
                               </form>
 
                               </div>

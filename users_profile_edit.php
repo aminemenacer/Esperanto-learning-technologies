@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-error_reporting(0);
+//error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
@@ -19,26 +19,29 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$email = $_POST['email'];
 		$date_of_birth = $_POST['date_of_birth'];
 		$phone = $_POST['phone'];
+		$password = $_POST['password'];
+		$passwordconfirm = $_POST['passwordconfirm'];
 		
-		$password1 = $_POST['password1'];
-		$password2 = $_POST['password2'];
-		
-		$password1=md5($password1); //hash password before storing for security purposes
-		$password2=md5($password2); //hash password before storing for security purposes
+		$password=md5($password); //hash password before storing for security purposes
+		$passwordconfirm=md5($passwordconfirm); //hash password before storing for security purposes
 
-		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', password1='$password1', password2='$password2' WHERE id='$id'";
+		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
 		$result = mysqli_query($conn, $query);
 
 		if($result){
-			echo 'data updated';
 			?>
-
-			<div class="alert alert-success" role="alert">
-				data updated
-			</div>
+				<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+						Data successfully updated.
+				</div>
+			<?php
+			?>
 			<?php
 		} else{
-			echo 'data not updated';
+			?>
+				<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+						Data not updated.
+				</div>
+			<?php
 		}
 
 		mysqli_close($conn);
@@ -127,13 +130,13 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>New password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password1" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password1']; ?>">
+														<input type="password" name="password1" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Confirm new password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $_SESSION['password2']; ?>">
+														<input type="password" name="passwordconfirm" aria-label="passwordconfirm" class="form-control" placeholder="Confirm password" value="<?php echo $_SESSION['passwordconfirm']; ?>">
 													</div>
 												</div>
 												
@@ -141,7 +144,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 													<!--
 															<button type="submit" name="update" class="btn btn-primary">Update</button>
 														-->
-														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>
 							</div>
 

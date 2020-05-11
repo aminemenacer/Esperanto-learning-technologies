@@ -23,9 +23,15 @@ if(isset($_POST['register_btn'])){
 
 	
 	if($result){
-		header("Location: user_logged_in.php");
+		?>								
+				<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+				Message successfully sent.</div>       
+		<?php
 	}else{
-		echo "Unsuccessfull";
+		?>								
+				<div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
+				Message unsuccessfully sent. Try again</div>       
+		<?php
 	}
 
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -68,46 +74,47 @@ if(isset($_POST['register_btn'])){
 							<div class="card-body">
 
 							<div class="form-row">
-								<div class="form-group col-md-4">
-									<label for="inputEmail4">Email from:</label>
-									<input  class="form-control" id="inputEmail4" placeholder="Enter email here" name="sender_name" required>
+								<label for="inputEmail4" class="mt-1">Email from:</label>
+								<div class="form-group col-sm-4 col-md-4">									
+									<input class="form-control ml-2" id="inputEmail4" placeholder="Enter email here" name="sender_name" required>
 								</div>
 							</div>
 
 							<div class="form-row">
-								<div class="form-group col-md-4">
-									<label for="inputEmail4">Email to:</label>
-									<select name="email" class="form-control" id="exampleFormControlSelect1">
-										<option>Select:</option>
-											<?php 
-														$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+								<label for="inputEmail4" class="mt-1">Email to:</label>
+									<div class="form-group col-sm-4 col-md-4">
+										
+										<select name="email" class="form-control ml-2" id="exampleFormControlSelect1">
+											<option>Select:</option>
+												<?php 
+															$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-														if(!$conn){
-															echo 'Connection error: '. mysqli_connect_error();
-														};
+															if(!$conn){
+																echo 'Connection error: '. mysqli_connect_error();
+															};
 
-														$query = "SELECT * FROM users ORDER BY email";
-														$result = mysqli_query($conn, $query);
-														while($row = mysqli_fetch_array($result)){
+															$query = "SELECT * FROM users ORDER BY email";
+															$result = mysqli_query($conn, $query);
+															while($row = mysqli_fetch_array($result)){
 
-															echo '<option>'.$row['email'].'</option>';
-														}						
-												?>
-										</select>
-								</div>
+																echo '<option>'.$row['email'].'</option>';
+															}						
+													?>
+											</select>
+									</div>
 							</div>
 
 						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="inputEmail4">Subject:</label>
-								<input type="textbox" class="form-control" id="inputEmail4" placeholder="Enter subject here" name="subject_title" required>
+							<label for="inputEmail4" class="mt-1">Subject:</label>
+							<div class="form-group col-sm-4 col-md-4">								
+								<input type="textbox" class="form-control ml-2" id="inputEmail4" placeholder="Enter subject here" name="subject_title" required>
 							</div>
 						</div>
 
 								<div class="form-row">
-										<div class="form-group col-md-8">
-												<label for="inputPassword4">Message:</label>
-												<textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required></textarea>
+									<label for="inputPassword4">Message:</label>
+										<div class="form-group col-md-6 col-sm-6">											
+											<textarea class="form-control ml-2" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required></textarea>
 										</div>
 								</div>
 							</div>
@@ -115,14 +122,9 @@ if(isset($_POST['register_btn'])){
 
 					<div class="container btn pull-end" style="padding: 20px">
 						<div class="form-group btn pull-right">
-							<form action="message_send_from_user_to_admin.php">
 								<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
-								<div class="form-group btn pull-right">
-									<button type="submit" name="register_btn" class="btn btn-primary"  class="form-group">Submit</button>
-								</div>
-							</form>
-						</div>
-						
+								<button type="submit" name="register_btn" class="btn btn-primary"  class="form-group">Submit</button>
+						</div>					
 					</div>
 				</div>
 		</div>

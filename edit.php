@@ -27,9 +27,19 @@ if(isset($_GET['id'])){
 		
 		$query3=mysqli_query($conn,"update users set firstname='$firstname' where email='$email'");
 		if($query3){
-		header("Location: admin_logged_in.php");
-		//echo "<script type='text/javascript'>alert('Updated successfully');</script>";
 
+			?>
+				<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+						Data successfully updated.
+				</div>
+			<?php
+
+		}else{
+			?>
+				<div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
+						Data not updated.
+				</div>
+			<?php
 		}
 	}
 
@@ -38,10 +48,6 @@ if(isset($_GET['id'])){
 }
 
 ?>
-
-
-
-
 
 
 <!--Create Edit form -->
@@ -68,9 +74,8 @@ if(isset($_GET['id'])){
 									<div class="col-sm-12">
 											<form method="get" action="edit.php">
 												<div class="form-group row">
-													<label for="name" class="col-sm-4 col-form-label"><b>ID:</b></label>
 													<div class="col-sm-4">
-																<p><?php echo $_SESSION['id']; ?></p>
+														<input type="hidden" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['id']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -88,14 +93,14 @@ if(isset($_GET['id'])){
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Firstname:</b></label>
 													<div class="col-sm-4">
-															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $row['first_name']; ?>">
+															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['firstname']; ?>">
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Surname:</b></label>
 													<div class="col-sm-4">
-														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo "$surname" ?>">
+														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo $query2['surname']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -121,16 +126,16 @@ if(isset($_GET['id'])){
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>New password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $query2['password']?>">
+														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" >
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>Confirm new password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password" value="<?php echo $query2['password2']?>">
+														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password">
 													</div>
 												</div>
-												<form action="edit.php">
+											
 														<button type="submit" name="btn-update" class="btn btn-primary">Update</button>
 														<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
 												</form>

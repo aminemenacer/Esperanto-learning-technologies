@@ -17,6 +17,8 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		$row = mysqli_fetch_array($result);
 
 		$email = $_SESSION['email'];
+		$sql = "UPDATE users SET date ='".$_POST['date']."' where name= '".$_POST['name']."'";
+
 
 
 ?>

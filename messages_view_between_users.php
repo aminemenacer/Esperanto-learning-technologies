@@ -10,11 +10,10 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		};
 
 		$id = mysqli_real_escape_string($conn, $_GET['id']);
-  $sql = "SELECT subject_title FROM messages WHERE email='$email'";
+  $sql = "SELECT * FROM messages WHERE id='$id'";
 
 		$result = mysqli_query($conn,$query);
 
-		echo "<table class='table table-striped'>";
 		$row = mysqli_fetch_array($result);
 
 		$email = $_SESSION['email'];
@@ -48,7 +47,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 					</div>
     <form>
 
-				<div class="row ml-3 mt-3">
+				<div class="row ml-3 mt-3 ">
 							<div class="col-sm-6 col-md-6">
 								<label><b>Sender:</b></label>
 									<p><?php echo $row['sender_name']; ?></p>
@@ -63,7 +62,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 					<div class="row ml-3 mt-5 mt-1">
 							<div class="col-md-6 col-sm-6">
 								<label><b>Subject:</b></label>
-									<p><?php echo $_SESSION['subject_title']; ?></p>
+									<p><?php echo $row['subject_title']; ?></p>
 							</div>
 							<div class="col-md-4 col-sm-4 mt-1">
 								<label><b>Date:</b></label>

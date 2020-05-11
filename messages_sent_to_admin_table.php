@@ -139,11 +139,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
    		mysqli_query($conn, $update_query);
 				}
 
-
-
-
-
-
 				$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";				
 
     if(isset($_GET['id'])){
@@ -197,34 +192,34 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 															echo "<td>" . $row['sender_name'] . "</td>";
 															echo "<td>" . $row['email'] . "</td>";
 															echo "<td>" . $row['subject_title'] . "</td>";
-														// echo "<td>" . $row['messages'] . "</td>";
+														 echo "<td>" . $row['messages'] . "</td>";
 															echo "<td>" . $row['date_created'] . "</td>";
-															echo "<td>" . $row['open'] . "</td>";
-              echo "<td>
+													//		echo "<td>" . $row['open'] . "</td>";
+														echo "<td>
+														
+
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"messages_view_from_admin_to_user.php?id=".$row['id']."\">View</a></button>                
                  <button style='background-color:#2D62F5' class='col_d'><a class='abtn' href=\"message_send_reply_from_admin_to_user.php?id=".$row['id']."\">Reply</a></button>               
-                 ";
+																	";
 
-               ?>
-  <?php
-
-echo "</tr>";
-         }
-         echo "</table>";
-         mysqli_free_result($result);
-     } else{
-
-						?>
-							<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button><br><br>
-						<?php
-         echo "Inbox messages box empty.";
-     }
- } else{
-     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
- }
-
-?>
-
+																	?>
+				<?php
+		
+		echo "</tr>";
+											}
+											echo "</table>";
+											mysqli_free_result($result);
+							} else{
+								?>
+								<button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button><br><br>
+								<?php
+											echo "Inbox messages box empty.";
+							}
+			} else{
+							echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+			}
+		
+		?>
 	
 <script>
 $(document).ready(function() {

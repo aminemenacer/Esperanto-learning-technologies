@@ -92,7 +92,7 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 </style>
 
 <?php
-
+//header("Location:protect.php");
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
  ?>

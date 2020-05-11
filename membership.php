@@ -1,14 +1,20 @@
 <?php
 ob_start();
 session_start();
-error_reporting(0);
+//error_reporting(0);
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
+$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+		if(!$conn){
+			echo 'Connection error: '. mysqli_connect_error();
+		}
+
 if(isset($_POST['register_btn'])){
     $email=mysqli_real_escape_string($conn,$_POST['email']);
-    $password1=mysqli_real_escape_string($conn,$_POST['password1']);
-    $password2=mysqli_real_escape_string($conn,$_POST['password2']);
+    $password=mysqli_real_escape_string($conn,$_POST['password']);
+    $passwordconfirm=mysqli_real_escape_string($conn,$_POST['passwordconfirm']);
     $firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
     $surname=mysqli_real_escape_string($conn,$_POST['surname']);
     $phone=mysqli_real_escape_string($conn,$_POST['phone']);
@@ -17,31 +23,33 @@ if(isset($_POST['register_btn'])){
     $query = "SELECT * FROM users WHERE email = '$email'";
     $result=mysqli_query($conn,$query);
     if($result){
-					
-					if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-						echo("$email is a valid email address");
-					} else {
-									echo("$email is not a valid email address");
-					}
 
     if( mysqli_num_rows($result) > 0){
-      echo '<script language="javascript">';
-      echo 'alert("Email already exists")';
-      echo '</script>';
+      ?>
+							<div class="alert alert-warning mt-5 ml-5 mr-5" role="alert">
+									Email already exists, please try again.
+							</div>
+						<?php
     }else{
-      if($password1==$password2){           //Create User
-        $password1=md5($password1); //hash password before storing for security purposes
-        $password2=md5($password2); //hash password before storing for security purposes
-        $sql="INSERT INTO users(email, password1, password2, firstname, surname, phone, date_of_birth)VALUES('$email','$password1','$password2','$firstname','$surname','$phone','$date_of_birth')";
+      if($password==$passwordconfirm){           //Create User
+        $password=md5($password); //hash password before storing for security purposes
+        $passwordconfirm=md5($passwordconfirm); //hash password before storing for security purposes
+        $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth')";
 
         mysqli_query($conn,$sql);
 								$_SESSION['email']=$email;
-								$_SESSION['password1']=$password1;
-								$_SESSION['password2']=$password2;
-
-        header("location:login.php");  //redirect home page
+								$_SESSION['password']=$password;
+								$_SESSION['passwordconfirm']=$passwordconfirm;
+								?>								
+									<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+									Registered successfully. Click<a href="login.php" class="alert-link"> here</a> to login</div>       
+							<?php
       }else{
-        $_SESSION['message']="The two password do not match";
+        ?>
+									<div class="alert alert-warning mt-5 ml-5 mr-5" role="alert">
+											The passwords do not match.
+									</div>
+								<?php
         }
           }
       }
@@ -90,12 +98,12 @@ if(isset($_POST['register_btn'])){
                <div class="form-row">
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Password:</label>
-                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password1" required>
+                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password" required>
                  </div>
 																	
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Retype Password:</label>
-                   <input type="password" class="form-control" id="inputPassword4" placeholder="Retype password" name="password2" required>
+                   <input type="password" class="form-control" id="inputPassword4" placeholder="Retype password" name="passwordconfirm" required>
                  </div>
 																	
                </div>
@@ -137,28 +145,18 @@ if(isset($_POST['register_btn'])){
 
          <!--
          <script>
-
-
            $('input:radio[name="customRadioInline1"]').change(function() {
                    $('select[name="qual_type"]').attr('disabled',this.value!="Enabled")
                    $('select[name="institute"]').attr('disabled',this.value!="Enabled")
                    $('select[name="upload"]').attr('disabled',this.value!="Enabled")
-
                    $("exampleFormControlTextarea1").prop('disabled', false);
                   //$("textarea").prop('disabled', false);
-
-
                });
-
                $(document).ready(function(){
                    $("#customRadioInline1").click(function(){
                        $("#exampleFormControlTextarea1").prop("disabled", false);
                    });
                });
-
-
-
-
                $('input:radio[name="customRadioInline1"]').change(function() {
                        $('select[name="course_date"]').attr('disabled',this.value!="Disabled")
                        $('select[name="course_time"]').attr('disabled',this.value!="Disabled")
@@ -166,18 +164,12 @@ if(isset($_POST['register_btn'])){
                        $('select[name="course_subject"]').attr('disabled',this.value!="Disabled")
                        $('select[name="name_of_kin"]').attr('disabled',this.value!="Disabled")
                        $('select[name="school_year"]').attr('disabled',this.value!="Disabled")
-
                    });
-
-
          </script>
-
          <div class="card border-primary mt-4" >
           <div class="card-header"><b>Educational details</b></div>
           <div class="card-body">
-
             <div class="form-row">
-
              <div class="form-group col-md-6">
               <label>School year:</label>
                <select class="form-control" name="school_year" id="school_year" disabled>
@@ -194,7 +186,6 @@ if(isset($_POST['register_btn'])){
                 <option value="year_thirteen">Year 13</option>
               </select>
              </div>
-
              <div class="form-group col-md-6" method="POST" action="register.php">
               <label>Course subject:</label>
                <select class="form-control" name="course_subject" id="course_subject" disabled>
@@ -204,13 +195,8 @@ if(isset($_POST['register_btn'])){
                 <option value="arabic">Arabic</option>
               </select>
              </div>
-
-
-
            </div>
-
             <div class="form-row">
-
              <div class="form-group col-md-6">
               <label>Course level:</label>
                <select class="form-control" name="course_level" id="course_level" disabled>
@@ -222,7 +208,6 @@ if(isset($_POST['register_btn'])){
                 <option>A levels</option>
               </select>
              </div>
-
              <div class="form-group col-md-6">
               <label>Course date:</label>
                <select class="form-control" name="course_date" id="course_date" disabled>
@@ -233,9 +218,7 @@ if(isset($_POST['register_btn'])){
               </select>
              </div>
            </div>
-
              <div class="form-row">
-
                <div class="form-group col-md-6">
                 <label>Course time:</label>
                  <select class="form-control" name="course_time" id="course_time" disabled>
@@ -248,16 +231,11 @@ if(isset($_POST['register_btn'])){
             </div>
           </div>
            </div>
-
-
            <div class="card border-primary mt-4" >
             <div class="card-header"><b>Teachers details</b></div>
             <div class="card-body">
-
               <div class="form-row">
-
                <div class="form-group col-md-6" method="POST" action="membership.php">
-
                 <label>Qualification type:</label>
                  <select class="form-control" name="qual_type" id="qual_type" disabled>
                   <option value="empty">Select an option</option>
@@ -268,11 +246,8 @@ if(isset($_POST['register_btn'])){
                   <option value="masters">Master's Degree</option>
                   <option value="doctor">Doctoral Degree</option>
                 </select>
-
                </div>
-
              </div>
-
               <div class="form-row">
                <div class="form-group col-md-6" method="POST" action="membership.php">
                 <label>Institute:</label>
@@ -283,33 +258,22 @@ if(isset($_POST['register_btn'])){
                   <option value="birmingham">Birmingham</option>
                 </select>
                </div>
-
              </div>
-
                <div class="form-row">
                  <div class="form-group col-md-6">
                   <label>Achievments:</label>
                      <textarea class="form-control" name="achievments" id="exampleFormControlTextarea1" rows="5" disabled></textarea>
                  </div>
               </div>
-
             </div>
-
              </div>
-
-
          <div class="card border-primary mt-4" >
           <div class="card-header"><b>Payment details</b></div>
           <div class="card-body">
-
             <div class="form-row justify-content-center">
-
              <div class="form-group">
-
-
          <div class="col-12">
                    <span class="anchor" id="formPayment"></span>
-
                            <form >
                                <div class="form-group">
                                    <label for="cc_name">Card Holder's Name</label>
@@ -369,10 +333,7 @@ if(isset($_POST['register_btn'])){
                                        <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
                                    </div>
                                </div>
-
-
                            </form>
-
                  </div>
                 </div>
               </div>

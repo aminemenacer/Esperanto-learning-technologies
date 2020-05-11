@@ -1,46 +1,54 @@
-<?php
-ob_start();
+<?php 
 session_start();
-error_reporting(0);
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
-
-if(isset($_POST['register_btn'])){
-
-	$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-	if(!$conn){
-			echo 'Connection error: '. mysqli_connect_error();
-	}
-
-	$subject_title = $_POST['subject_title'];
-	$reply_sender = $_POST['reply_sender'];
-	$reply_message = $_POST['reply_message'];
-	$reply_date = $_POST['reply_date'];
-	$email = $_POST['email'];
-
-	$sql ="INSERT INTO reply_messages(subject_title, reply_message, reply_sender, email)VALUES('$subject_title', '$reply_message', '$reply_sender', '$email');";
-	$result = mysqli_query($conn, $sql);
-
-	$_SESSION['subject_title'] = 'subject_title';
+error_reporting(0);
 
 
 
-	
-	if($result){
-		header("Location: user_logged_in.php");
-	}else{
-		echo "Unsuccessfull";
-	}
+		if(isset($_POST['register_btn'])){
 
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  echo"";
- } else {
-   echo"";
- }
-	//mysqli_free_result($result);
-	mysqli_close($conn);
+			$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+		
+			if(!$conn){
+					echo 'Connection error: '. mysqli_connect_error();
+			}
+		
+			$subject_title = $_POST['subject_title'];
+			$sender_name = $_POST['sender_name'];
+			$messages = $_POST['messages'];
+			$date_created = $_POST['date_created'];
+			$email = $_POST['email'];
+		
+		
+			$id = mysqli_real_escape_string($conn, $_GET['id']);
+			$sql ="INSERT INTO messages(subject_title, messages, sender_name, email)VALUES('$subject_title', '$messages', '$sender_name', '$email');";
 
-}
+			$result = mysqli_query($conn, $sql);
+		
+			$row = mysqli_fetch_array($result);
+		
+		
+			if($result){
+				?>								
+					<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+					Message successfully sent.</div>       
+			<?php
+			}else{
+				?>								
+					<div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
+					Message unsuccessfully sent.</div>       
+			<?php
+			}
+		
+			if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				echo"";
+			} else {
+					echo"";
+			}
+			//mysqli_free_result($result);
+			mysqli_close($conn);
+		
+		}
 ?>
 
 
@@ -65,23 +73,31 @@ if(isset($_POST['register_btn'])){
 	<div class="container" style="padding: 30px">
 
 		<p class="h1 text-center mb-3">Reply Message</p>
+		<?php echo $row['subject_title']; ?><br>
+		<?php echo $row['messages']; ?><br>
+		<?php echo $row['date_created']; ?><br>
+		<?php echo $row['email']; ?><br>
+		<?php echo $row['sender_name']; ?><br>
 
-				<form method="POST" action="message_send_reply_from_user_to_admin.php" padding="30px">
+
+				<form method="POST" action="message_send_reply_from_admin_to_user.php" padding="30px">
 						<div class="card border-primary mt-3">
 							<div class="card-header"><b>Message details</b></div>
 							<div class="card-body">
 
+
 							<div class="form-row">
-								<div class="form-group col-md-4">
-									<label for="inputEmail4">Email from:</label>
-									<input class="form-control" id="inputEmail4" placeholder="Enter email here" name="reply_sender" required>
+								<label for="inputEmail4" class="mt-1 mr-2 font-weight-bold">Email from:</label>
+								<div class="form-group col-md-4 col-sm-4">									
+								<input type="text" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['sender_name']; ?>">
+
 								</div>
 							</div>
 
-							<div class="form-row">
-								<div class="form-group col-md-4">
-								<label for="inputEmail4">Email to:</label>
-									<select name="email" class="form-control" id="exampleFormControlSelect1">
+							<div class="form-row ">
+							<label for="inputEmail4" class="mt-1 font-weight-bold">Email to: </label>
+								<div class="form-group col-md-4 col-sm-4">
+								<select name="email" class="form-control ml-2" id="exampleFormControlSelect1">
 										<option>Select:</option>
 										<?php 
 													$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -101,39 +117,67 @@ if(isset($_POST['register_btn'])){
 								</div>
 							</div>
 
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="inputEmail4">Subject:</label>							
-								<input type="textbox" class="form-control" id="inputEmail4" placeholder="Enter subject here" name="subject_title" required>
-								<p><?php echo $_SESSION['subject_title']; ?></p>
+						<div class="form-row mt-2">
+						<label for="inputEmail4" class="mt-1 mb-1 font-weight-bold">Subject: RE</label>
+							<div class="form-group col-sm-4 col-md-4 ml-2">				
+							<input type="text" class="form-control" name="subject_title" placeholder="Subject" value="<?php echo $row['subject_title']; ?>">
+
 							</div>
 						</div>
 
-								<div class="form-row">
-										<div class="form-group col-md-8">
-												<label for="inputPassword4">Message:</label>
-												<textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="reply_message" rows="8" required></textarea>
-										</div>
-								</div>
+					<div class="form-row">
+					<label for="inputEmail4" class="font-weight-bold">Message:</label>
+							<div class="form-group col-md-6 col-sm-6 ml-1">
+									<textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required></textarea>
 							</div>
 					</div>
+				</div>
+	
+							
+					<div class="card-header"><b>Original message</b></div>
+
+							<div class="form-row ml-3 mt-3">
+								<label class="mt-1 font-weight-bold">Email from: </label>
+								<div class="form-group col-md-4 col-sm-4">									
+									<p class="mt-1"><?php echo $row['sender_name']; ?></p>
+								</div>
+								<label class="mt-1 font-weight-bold">Date: </label>
+								<div class="form-group col-md-4 col-sm-4">									
+									<p class="mt-1"><?php echo $row['date_created']; ?></p>
+								</div>
+							</div>
+
+							<div class="form-row ml-3">
+								<label class="mt-1 font-weight-bold">Email to: </label>
+								<div class="form-group col-md-4 col-sm-4">									
+									<p class="mt-1"><?php echo $row['email']; ?></p>
+								</div>
+								<label class="mt-1 font-weight-bold">Subject: </label>
+								<div class="form-group col-md-4 col-sm-4">									
+								<?php echo $row['subject_title']; ?>
+								</div>
+							</div>
+							
+							<div class="form-row ml-3 mb-4">
+								<label class="mt-1 font-weight-bold">Message: </label>
+								<div class="form-group col-md-6 col-sm-6">									
+									<p class="mt-1"><?php echo $row['messages']; ?></p>
+								</div>
+							</div>
+
+							</div>
 
 					<div class="container btn pull-end" style="padding: 20px">
 						<div class="form-group btn pull-right">
-							<form action="message_send_reply_from_user_to_admin.php">
-								<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
-								<div class="form-group btn pull-right">
-									<button type="submit" name="register_btn" class="btn btn-primary"  class="form-group">Submit</button>
-								</div>
-							</form>
-						</div>
-						
+								<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
+								<button type="submit" name="register_btn" class="btn btn-primary"  class="form-group">Submit</button>
+						</div>					
 					</div>
+
 				</div>
 		</div>
 
 			</form>
-
 	</div>
 
 

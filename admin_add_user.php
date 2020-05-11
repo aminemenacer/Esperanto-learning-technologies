@@ -7,7 +7,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 if(isset($_POST['register_btn'])){
     $email=mysqli_real_escape_string($conn,$_POST['email']);
-    $password=mysqli_real_escape_string($conn,$_POST['password']);
+    $password1=mysqli_real_escape_string($conn,$_POST['password1']);
     $password2=mysqli_real_escape_string($conn,$_POST['password2']);
     $firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
     $surname=mysqli_real_escape_string($conn,$_POST['surname']);
@@ -24,18 +24,24 @@ if(isset($_POST['register_btn'])){
       echo 'alert("Username already exists")';
       echo '</script>';
     }else{
-      if($password==$password2){           //Create User
-        $password=md5($password); //hash password before storing for security purposes
+      if($password1==$password2){           //Create User
+        $password1=md5($password1); //hash password before storing for security purposes
         $password2=md5($password2); //hash password before storing for security purposes
-        $sql="INSERT INTO users(email, password, password2, firstname, surname, phone, date_of_birth, type)VALUES('$email','$password','$password2','$firstname','$surname','$phone','$date_of_birth','$type')";
+        $sql="INSERT INTO users(email, password1, password2, firstname, surname, phone, date_of_birth, type)VALUES('$email','$password1','$password2','$firstname','$surname','$phone','$date_of_birth','$type')";
 
         mysqli_query($conn,$sql);
         $_SESSION['email']=$email;
-        header("location:admin_logged_in.php");  //redirect home page
-        
+        ?>								
+									<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+									Registered successfully.
+									</div>       
+							<?php        
       }else{
-        $_SESSION['message']="The two password do not match";
-        }
+							?>
+								<div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
+										The passwords do not match.
+								</div>
+							<?php
           }
       }
   }
@@ -83,7 +89,7 @@ if(isset($_POST['register_btn'])){
                <div class="form-row">
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Password:</label>
-                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password">
+                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password1">
                  </div>
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Retype Password:</label>

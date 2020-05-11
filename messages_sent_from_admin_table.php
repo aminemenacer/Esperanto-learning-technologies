@@ -125,6 +125,7 @@ a:hover {
 				
 
     if(isset($_GET['id'])){
+
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
@@ -154,7 +155,7 @@ a:hover {
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
-                 echo "<th>Message</th>";
+                 echo "<th>Subject</th>";
                  echo "<th>Date</th>";
 																	echo "<th>Actions</th>";
 
@@ -162,7 +163,7 @@ a:hover {
              echo "<tr>";
 																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
-                 echo "<td>" . $row['messages'] . "</td>";
+                 echo "<td>" . $row['subject_title'] . "</td>";
                  echo "<td>" . $row['date_created'] . "</td>";
               echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_admin.php?id=".$row['id']."\">View</a></button>";
@@ -179,7 +180,7 @@ echo "</tr>";
          mysqli_free_result($result);
      } else{
 						?>
-							<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button><br><br>
+							<button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button><br><br>
 						<?php
          echo "Reply messages empty.";
      }

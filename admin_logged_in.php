@@ -1,6 +1,7 @@
 <?php
-session_start();
+//header("Location:protect.php");
 
+session_start();
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
@@ -74,26 +75,18 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 
-
 								</div>
 							
 							</div>
+
 					</div>
-					<?php
+					
+					</div>
+
+				<?php
 	  		include_once('C:\xampp\htdocs\esperanto\template\footer.php');
   		?>
-					</div>
 
-					<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    
-			<script type="text/javascript" src="custom.js"></script>
-
-			<script>
-				$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
-									window.location.hash= event.target.hash;
-					});
-				</script>
-	
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
