@@ -121,7 +121,7 @@ a:hover {
 				$sender_name = $_SESSION['sender_name']; 
 				error_reporting(0); 
 
-    $sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
+    $sql = "SELECT * FROM messages WHERE sender_name='med_amine-jsk@hotmail.com' ORDER BY date_created DESC LIMIT 0, 1000";
 				
 
     if(isset($_GET['id'])){
@@ -129,7 +129,7 @@ a:hover {
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
-						$sql = "SELECT * FROM messages WHERE sender_name='$email' ORDER BY date_created DESC LIMIT 0, 1000";
+						$sql = "SELECT * FROM messages WHERE sender_name='med_amine-jsk@hotmail.com' ORDER BY date_created DESC LIMIT 0, 1000";
 						// get the query result
 						$result = mysqli_query($conn, $sql);
 						// fetch result in array format

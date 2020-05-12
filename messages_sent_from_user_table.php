@@ -122,14 +122,14 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
 				error_reporting(0); 
 
-    $sql = "SELECT * FROM messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+    $sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
 				
 
     if(isset($_GET['id'])){
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
-						$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY reply_date DESC LIMIT 0, 1000";
+						$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
 						// get the query result
 						$result = mysqli_query($conn, $sql);
 						// fetch result in array format

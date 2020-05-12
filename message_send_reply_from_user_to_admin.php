@@ -94,22 +94,14 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 
 	<div class="container" style="padding: 30px">
-		<?php echo $row['subject_title']; ?><br>
-		<?php echo $row['messages']; ?><br>
-		<?php echo $row['date_created']; ?><br>
-		<?php echo $row['email']; ?><br>
-		<?php echo $row['sender_name']; ?><br>
+
 
 				<form method="POST" action="message_send_reply_from_user_to_admin.php" padding="30px">
 						<div class="card border-primary mt-3">
 							<div class="card-header"><b>Reply Message details</b></div>
 							<div class="card-body">
 
-
 							<div class="form-row">
-							<!--
-								<label for="inputEmail4" class="mt-1 mr-2 font-weight-bold">Email from:</label>
-								-->
 								<div class="form-group col-md-4 col-sm-4">									
 								<input type="hidden" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['email']; ?>">
 								</div>
@@ -127,80 +119,27 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 								<div class="form-group col-md-4 col-sm-4">
 								<input type="text" class="form-control" name="email" placeholder="Enter email here" value="<?php echo $row['sender_name']; ?>">
 
-
-								<!--
-								<select name="email" class="form-control ml-2" id="exampleFormControlSelect1">
-										<option>Select:</option>
-										<?php 
-													$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-													if(!$conn){
-														echo 'Connection error: '. mysqli_connect_error();
-													};
-
-													$query = "SELECT * FROM users ORDER BY email";
-													$result = mysqli_query($conn, $query);
-													while($row = mysqli_fetch_array($result)){
-
-														echo '<option>'.$row['email'].'</option>';
-													}						
-											?>
-									</select>
-									-->
 								</div>
 							</div>
-
-<!--
-						<div class="form-row mt-2">
-						<label for="inputEmail4" class="mt-1 mb-3 font-weight-bold">Subject: RE</label>
-							<div class="form-group col-sm-4 col-md-4 ml-2">				
-							<input type="text" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['email']; ?>">
-							</div>
-						</div>
--->
-
+		
 					<div class="form-row">
 					<label for="inputEmail4" class="font-weight-bold">Message:</label>
 							<div class="form-group col-md-6 col-sm-6 ml-1">
 									<textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required></textarea>
 							</div>
+					</div>				
 					</div>
-				</div>
-	
-							<br>
-					<div class="card-header"><b>Original message</b></div>
 
-							<div class="form-row ml-3 mt-3">
-								<label class="mt-1 font-weight-bold">Email from: </label>
-								<div class="form-group col-md-4 col-sm-4">									
-									<p class="mt-1"><?php echo $row['sender_name']; ?></p>
-								</div>
-								<label class="mt-1 font-weight-bold">Date: </label>
-								<div class="form-group col-md-4 col-sm-4">									
-									<p class="mt-1"><?php echo $row['date_created']; ?></p>
-								</div>
-							</div>
-
-							<div class="form-row ml-3">
-								<label class="mt-1 font-weight-bold">Email to: </label>
-								<div class="form-group col-md-4 col-sm-4">									
-									<p class="mt-1"><?php echo $row['email']; ?></p>
-								</div>
-								<label class="mt-1 font-weight-bold">Subject: </label>
-								<div class="form-group col-md-4 col-sm-4">									
-								<?php echo $row['subject_title']; ?>
-								</div>
-							</div>
-							
-							<div class="form-row ml-3 mb-4">
-								<label class="mt-1 font-weight-bold">Message: </label>
-								<div class="form-group col-md-6 col-sm-6">									
-									<p class="mt-1"><?php echo $row['messages']; ?></p>
-								</div>
-							</div>
-
-							</div>
-
+						<div class="card-header"><b>Original message</b></div>
+							<div class="ml-4 mt-3 mb-3">
+								<h6 class="">Email from: <?php echo $row['sender_name']; ?><br></h6>
+								<h6 class="">Email to: <?php echo $row['email']; ?><br></h6>
+								<h6 class="">Subject: <?php echo $row['subject_title']; ?><br></h6>
+								<h6 class="">Message: <?php echo $row['messages']; ?><br></h6>
+								<h6 class="">Date: <?php echo $row['date_created']; ?><br></h6>
+							</div>	
+					
+						</div>
 					<div class="container btn pull-end" style="padding: 20px">
 						<div class="form-group btn pull-right">
 								<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
@@ -208,8 +147,13 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 						</div>					
 					</div>
 
+							</div>
+								</div>
+
 				</div>
+				
 		</div>
+					
 
 			</form>
 	</div>

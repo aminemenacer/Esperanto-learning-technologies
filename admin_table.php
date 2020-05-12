@@ -137,29 +137,28 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     ?>
 
 						<br>
-      <div class="row ml-3 mt-3">
-        <div class="col-sm-2 col-md-2 ">
-          <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
-        </div>
+						<div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
 
-								<div class="col-sm-2 col-md-2 mt-2">
-								<?php 
+    </div>
+    <div class="col-md-auto">
+				<?php 
 
-									$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+					$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-									if(!$conn){
-										echo 'Connection error: '. mysqli_connect_error();
-									}
+					if(!$conn){
+						echo 'Connection error: '. mysqli_connect_error();
+					}
 
-									$result=mysqli_query($conn, "SELECT count(*) as total from users");
-									$data=mysqli_fetch_assoc($result);
-								
-								?>
-									<h6 class="font-weight-bold text-primary ">Total num of users:  <?php echo $data['total']; ?> </h6>
-								</div>
-						
-									<div class="col-sm-1 col-md-1 mt-2">
-										<?php 
+					$result=mysqli_query($conn, "SELECT count(*) as total from users");
+					$data=mysqli_fetch_assoc($result);
+
+					?>
+					<h6 class="font-weight-bold text-primary mt-2">Total num of users:  <?php echo $data['total']; ?> </h6>
+    </div>	
+    <div class="col col-lg-4">
+				<?php 
 											$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 											if(!$conn){
@@ -173,17 +172,14 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 													$sql = "SELECT * FROM users";
 													$result = mysqli_query($conn,$sql);							
 											?>
-									</div>
-								
+												<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+												
 
-        <div class="col-sm-2 col-md-2 ">
-          <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
-            <input class="form-control mr-sm-2 mr-md-2 " name="search" type="text" placeholder="Search" aria-label="Search">
-												<!--
-            <button class="btn btn-primary" name="query" type="submit">Search</button>
-												-->
-          </form>
-        </div>
+    </div>
+  </div>
+
+
+								
 							
       <?php								
 									echo "<table class='table table-striped table-hover overflow-hidden'>";
