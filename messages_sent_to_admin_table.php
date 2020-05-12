@@ -131,13 +131,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		<?php 
 				session_start();
 				$email = $_SESSION['email']; 
+				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
 
-
-				if(isset($_POST['reply'])){
-					$update_query = "UPDATE users SET open = 1 WHERE email='$email'";
-   		mysqli_query($conn, $update_query);
-				}
 
 				$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";				
 

@@ -52,6 +52,29 @@ error_reporting(0);
 ?>
 
 
+<?php 
+session_start();
+include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+error_reporting(0);
+$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+		if(!$conn){
+			echo 'Connection error: '. mysqli_connect_error();
+		};
+
+		$id = mysqli_real_escape_string($conn, $_GET['id']);
+		$query = "SELECT * FROM messages WHERE id = $id";
+		$result = mysqli_query($conn,$query);
+
+		echo "<table class='table table-striped'>";
+		$row = mysqli_fetch_array($result);
+
+		$email = $_SESSION['email'];
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -72,7 +95,6 @@ error_reporting(0);
 
 	<div class="container" style="padding: 30px">
 
-		<p class="h1 text-center mb-3">Reply Message</p>
 		<?php echo $row['subject_title']; ?><br>
 		<?php echo $row['messages']; ?><br>
 		<?php echo $row['date_created']; ?><br>
@@ -82,21 +104,33 @@ error_reporting(0);
 
 				<form method="POST" action="message_send_reply_from_admin_to_user.php" padding="30px">
 						<div class="card border-primary mt-3">
-							<div class="card-header"><b>Message details</b></div>
+							<div class="card-header"><b>Reply Message details</b></div>
 							<div class="card-body">
 
 
 							<div class="form-row">
+							<!--
 								<label for="inputEmail4" class="mt-1 mr-2 font-weight-bold">Email from:</label>
+								-->
 								<div class="form-group col-md-4 col-sm-4">									
-								<input type="text" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['sender_name']; ?>">
+								<input type="hidden" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['email']; ?>">
+								</div>
+							</div>
 
+							<div class="form-row">
+								<label for="inputEmail4" class="mt-1 mr-2 font-weight-bold">Subject: RE</label>
+								<div class="form-group col-md-4 col-sm-4">									
+								<input type="text" class="form-control" name="subject_title" placeholder="Enter email here" value="<?php echo $row['subject_title']; ?>">
 								</div>
 							</div>
 
 							<div class="form-row ">
 							<label for="inputEmail4" class="mt-1 font-weight-bold">Email to: </label>
 								<div class="form-group col-md-4 col-sm-4">
+								<input type="text" class="form-control" name="email" placeholder="Enter email here" value="<?php echo $row['sender_name']; ?>">
+
+
+								<!--
 								<select name="email" class="form-control ml-2" id="exampleFormControlSelect1">
 										<option>Select:</option>
 										<?php 
@@ -114,16 +148,18 @@ error_reporting(0);
 													}						
 											?>
 									</select>
+									-->
 								</div>
 							</div>
 
+<!--
 						<div class="form-row mt-2">
-						<label for="inputEmail4" class="mt-1 mb-1 font-weight-bold">Subject: RE</label>
+						<label for="inputEmail4" class="mt-1 mb-3 font-weight-bold">Subject: RE</label>
 							<div class="form-group col-sm-4 col-md-4 ml-2">				
-							<input type="text" class="form-control" name="subject_title" placeholder="Subject" value="<?php echo $row['subject_title']; ?>">
-
+							<input type="text" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['email']; ?>">
 							</div>
 						</div>
+-->
 
 					<div class="form-row">
 					<label for="inputEmail4" class="font-weight-bold">Message:</label>
@@ -133,7 +169,7 @@ error_reporting(0);
 					</div>
 				</div>
 	
-							
+							<br>
 					<div class="card-header"><b>Original message</b></div>
 
 							<div class="form-row ml-3 mt-3">

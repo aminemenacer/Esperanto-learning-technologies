@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
@@ -10,13 +9,14 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		};
 
 		$id = mysqli_real_escape_string($conn, $_GET['id']);
-		$query = "SELECT * FROM reply_messages WHERE id = $id";
+		$query = "SELECT * FROM messages WHERE id = $id";
 		$result = mysqli_query($conn,$query);
 
 		echo "<table class='table table-striped'>";
 		$row = mysqli_fetch_array($result);
 
-	//	$subject_title = $_SESSION['subject_title'];
+		$email = $_SESSION['email'];
+		$subject_title = $_SESSION['subject_title'];
 
 
 ?>
@@ -50,12 +50,12 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 				<div class="row ml-3 mt-3">
 							<div class="col-sm-6 col-md-6">
 								<label><b>Sender:</b></label>
-									<p><?php echo $row['reply_sender']; ?></p>
+									<p><?php echo $row['sender_name']; ?></p>
 							</div>
 
 							<div class="col-sm-4 col-md-4 mt-1">
 								<label><b>Receiver:</b></label>
-								<p><?php echo $_SESSION['email']; ?></p>
+								<p><?php echo $row['email']; ?></p>
 							</div>
 						
 					</div> 
@@ -69,7 +69,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 							<div class="col-sm-4 col-md-4 mt-1">
 								<label><b>Date:</b></label>
-								<p><?php echo $row['reply_date']; ?></p>
+								<p><?php echo $row['date_created']; ?></p>
 							</div>
 							
 					</div>
@@ -77,7 +77,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 					<div class="row mt-5 ml-3 mt-1">
 							<div class="col-md-8 col-sm-8">
 								<label><b>Message:</b></label>
-								<p class="word-wrap: break-word;"><?php echo $row['reply_message']; ?></p>
+								<p class="word-wrap: break-word;"><?php echo $row['messages']; ?></p>
 							</div>
 					</div>
 

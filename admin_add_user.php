@@ -7,8 +7,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 if(isset($_POST['register_btn'])){
     $email=mysqli_real_escape_string($conn,$_POST['email']);
-    $password1=mysqli_real_escape_string($conn,$_POST['password1']);
-    $password2=mysqli_real_escape_string($conn,$_POST['password2']);
+    $password=mysqli_real_escape_string($conn,$_POST['password']);
+    $passwordconfirm=mysqli_real_escape_string($conn,$_POST['passwordconfirm']);
     $firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
     $surname=mysqli_real_escape_string($conn,$_POST['surname']);
     $phone=mysqli_real_escape_string($conn,$_POST['phone']);
@@ -24,10 +24,10 @@ if(isset($_POST['register_btn'])){
       echo 'alert("Username already exists")';
       echo '</script>';
     }else{
-      if($password1==$password2){           //Create User
-        $password1=md5($password1); //hash password before storing for security purposes
-        $password2=md5($password2); //hash password before storing for security purposes
-        $sql="INSERT INTO users(email, password1, password2, firstname, surname, phone, date_of_birth, type)VALUES('$email','$password1','$password2','$firstname','$surname','$phone','$date_of_birth','$type')";
+      if($password==$passwordconfirm){           //Create User
+        $password=md5($password); //hash password before storing for security purposes
+        $passwordconfirm=md5($passwordconfirm); //hash password before storing for security purposes
+        $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth, type)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth','$type')";
 
         mysqli_query($conn,$sql);
         $_SESSION['email']=$email;
@@ -44,7 +44,8 @@ if(isset($_POST['register_btn'])){
 							<?php
           }
       }
-  }
+		}
+	}
 ?>
 
 
@@ -89,11 +90,11 @@ if(isset($_POST['register_btn'])){
                <div class="form-row">
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Password:</label>
-                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password1">
+                   <input type="password" class="form-control" id="inputPassword4" placeholder="password" name="password">
                  </div>
                  <div class="form-group col-md-6">
                    <label for="inputPassword4">Retype Password:</label>
-                   <input type="password" class="form-control" id="inputPassword4" placeholder="Retype password" name="password2">
+                   <input type="password" class="form-control" id="inputPassword4" placeholder="Retype password" name="passwordconfirm">
                  </div>
                </div>
 

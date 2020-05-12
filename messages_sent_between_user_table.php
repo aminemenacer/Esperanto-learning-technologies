@@ -180,7 +180,7 @@ echo "</tr>";
 
 ?>
 
-
+</div>
 
 <style type="text/css">
 

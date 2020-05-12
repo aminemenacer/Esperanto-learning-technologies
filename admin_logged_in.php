@@ -46,10 +46,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<a class="nav-link" id="v-pills-content-tab" data-toggle="pill" href="#v-pills-content" role="tab" aria-controls="v-pills-content" aria-selected="true">Content</a>
 
-									<a class="nav-link" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab" aria-controls="v-pills-academic" aria-selected="true">Academic</a>
-
-									<a class="nav-link" id="v-pills-payment-tab" data-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-payment" aria-selected="true">Payment</a>						
-
 									<a class="btn btn-outline-primary" href="logout.php" role="button">Logout</a>
 
 							</div>
@@ -64,14 +60,10 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('admin_table.php'); ?></div>
 
 									<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><?php require('message_tabs.php'); ?></div>
-
-									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>	
+									
+									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>
 									
 									<div class="tab-pane fade" id="v-pills-content" role="tabpanel" aria-labelledby="v-pills-content-tab"><?php require('content_tabs.php'); ?></div>
-									
-									<div class="tab-pane fade" id="v-pills-academic" role="tabpanel" aria-labelledby="v-pills-academic-tab"><?php echo 'under development' ?></div>	
-
-									<div class="tab-pane fade" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-payment-tab"><?php echo 'under development' ?></div>
 
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 
@@ -79,7 +71,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 							
 							</div>
 
-					</div>
+				
 					
 					</div>
 

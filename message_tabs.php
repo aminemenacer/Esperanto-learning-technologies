@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 error_reporting(0);
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');

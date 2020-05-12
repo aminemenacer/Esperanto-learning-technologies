@@ -84,8 +84,10 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 				</card>
 						
 					<div class="form-group btn pull-left">
+					
 							<form action="messages_view_from_admin_to_user.php">
 									<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
+									<a href="message_send_reply_from_admin_to_user.php" class="btn btn-primary" role="button" aria-pressed="true">Reply</a>
 							</form>	
 						</div>
 					</div>

@@ -10,13 +10,15 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		};
 
 		$id = mysqli_real_escape_string($conn, $_GET['id']);
-  $sql = "SELECT * FROM messages WHERE id='$id'";
-
+		$query = "SELECT * FROM messages WHERE id = $id";
 		$result = mysqli_query($conn,$query);
 
+		echo "<table class='table table-striped'>";
 		$row = mysqli_fetch_array($result);
 
 		$email = $_SESSION['email'];
+		$sql = "UPDATE users SET date ='".$_POST['date']."' where name= '".$_POST['name']."'";
+
 
 
 ?>
@@ -39,9 +41,9 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 </html>
   <body>
       
-
     <div class="container" style="padding: 20px">
 						<h1 class="mb-3 text-center">View message</h1>
+
 				<div class="card mt-3">
 					<div class="card-header"><b>View message</b>	
 					</div>

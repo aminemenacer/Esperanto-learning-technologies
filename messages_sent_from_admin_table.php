@@ -129,7 +129,7 @@ a:hover {
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
-						$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
+						$sql = "SELECT * FROM messages WHERE sender_name='$email' ORDER BY date_created DESC LIMIT 0, 1000";
 						// get the query result
 						$result = mysqli_query($conn, $sql);
 						// fetch result in array format
@@ -155,7 +155,8 @@ a:hover {
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
-                 echo "<th>Subject</th>";
+																	echo "<th>Subject</th>";
+																	echo "<th>Message</th>";
                  echo "<th>Date</th>";
 																	echo "<th>Actions</th>";
 
@@ -163,7 +164,8 @@ a:hover {
              echo "<tr>";
 																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
-                 echo "<td>" . $row['subject_title'] . "</td>";
+																	echo "<td>" . $row['subject_title'] . "</td>";
+																	echo "<td>" . $row['messages'] . "</td>";
                  echo "<td>" . $row['date_created'] . "</td>";
               echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_admin.php?id=".$row['id']."\">View</a></button>";
