@@ -89,7 +89,6 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 					
 							<form action="messages_view_from_user_to_admin.php">
 								<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
-								<a href="message_send_reply_from_user_to_admin.php" class="btn btn-primary" role="button" aria-pressed="true">Reply</a>
 							</form>	
 						</div>
 					</div>

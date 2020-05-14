@@ -141,9 +141,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												</div>
 												
 												<input type="submit" name="update" value="submit" />
-													<!--
-															<button type="submit" name="update" class="btn btn-primary">Update</button>
-														-->
+														<button type="submit" name="update" class="btn btn-primary" value="submit" class="form-group">Submit</button>
 														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>
 							</div>

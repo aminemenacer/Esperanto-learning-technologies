@@ -171,8 +171,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
                  echo "<th>Message</th>";
-															//		echo "<th>Date</th>";
-																	echo "<th>Seen</th>";
+																	echo "<th>Date</th>";
+																//	echo "<th>Seen</th>";
 																	echo "<th>Actions</th>";
 
          while($row = mysqli_fetch_array($result)){
@@ -191,8 +191,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 														 echo "<td>" . $row['messages'] . "</td>";
 															echo "<td>" . $row['date_created'] . "</td>";
 													//		echo "<td>" . $row['open'] . "</td>";
-														echo "<td>
-														
+														echo "<td>												
 
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"messages_view_from_admin_to_user.php?id=".$row['id']."\">View</a></button>                
                  <button style='background-color:#2D62F5' class='col_d'><a class='abtn' href=\"message_send_reply_from_admin_to_user.php?id=".$row['id']."\">Reply</a></button>               

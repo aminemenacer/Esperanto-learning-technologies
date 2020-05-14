@@ -108,27 +108,26 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 							</div>
 
 							<div class="form-row">
-								<label for="inputEmail4" class="mt-1 mr-2 font-weight-bold">Subject: RE</label>
+								<label for="inputEmail4" class="col-md-2 mt-1 col-sm-2 font-weight-bold">Subject: RE</label>
 								<div class="form-group col-md-4 col-sm-4">									
 								<input type="text" class="form-control" name="subject_title" placeholder="Enter email here" value="<?php echo $row['subject_title']; ?>">
 								</div>
 							</div>
 
 							<div class="form-row ">
-							<label for="inputEmail4" class="mt-1 font-weight-bold">Email to: </label>
+							<label for="inputEmail4" class="font-weight-bold col-md-2 col-sm-2">Email to: </label>
 								<div class="form-group col-md-4 col-sm-4">
 								<input type="text" class="form-control" name="email" placeholder="Enter email here" value="<?php echo $row['sender_name']; ?>">
-
 								</div>
 							</div>
 		
-					<div class="form-row">
-					<label for="inputEmail4" class="font-weight-bold">Message:</label>
-							<div class="form-group col-md-6 col-sm-6 ml-1">
+							<div class="form-row">
+					<label for="inputEmail4" class="font-weight-bold col-md-2 col-sm-2">Message:</label>
+							<div class="form-group col-md-6 col-sm-6 ">
 									<textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required></textarea>
 							</div>
 					</div>				
-					</div>
+					</div>	
 
 						<div class="card-header"><b>Original message</b></div>
 							<div class="ml-4 mt-3 mb-3">

@@ -137,7 +137,7 @@ if(isset($_GET['id'])){
 												</div>
 											
 														<button type="submit" name="btn-update" class="btn btn-primary">Update</button>
-														<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Cancel</a>
+														<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>
 							</div>
 

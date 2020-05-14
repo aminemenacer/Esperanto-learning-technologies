@@ -30,9 +30,6 @@ if(!$conn){
 
 	<div class="container">
 
-		<p class="h1 text-center" style="padding: 10px">Profile page</p>
-
-		<p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.Ambitioni dedisse scripsisse iudicaretur. </p>
 
 		<div class="container">
 
@@ -43,7 +40,7 @@ if(!$conn){
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4>Your Profile</h4>
+                        <h4>My Profile</h4>
                         <hr>
                     </div>
                 </div>
@@ -134,5 +131,3 @@ if(!$conn){
 
   </body>
 </html>
-
-

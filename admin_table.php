@@ -136,53 +136,58 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
        if(mysqli_num_rows($result) > 0){
     ?>
 
+
 						<br>
-						<div class="row">
-    <div class="col">
-      <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
+						<div class="row ">
 
+    <div class="col-sm-5 col-md-5">
+      <button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
     </div>
-    <div class="col-md-auto">
-				<?php 
 
-					$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+    <div class="col-md-auto col-sm-auto">
+							<?php 
 
-					if(!$conn){
-						echo 'Connection error: '. mysqli_connect_error();
-					}
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-					$result=mysqli_query($conn, "SELECT count(*) as total from users");
-					$data=mysqli_fetch_assoc($result);
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+								}
 
-					?>
-					<h6 class="font-weight-bold text-primary mt-2">Total num of users:  <?php echo $data['total']; ?> </h6>
+								$result=mysqli_query($conn, "SELECT count(*) as total from users");
+								$data=mysqli_fetch_assoc($result);
+
+								?>
+						<h6 class="font-weight-bold text-primary mt-2">Total num of users:  <?php echo $data['total']; ?> </h6>
     </div>	
-    <div class="col col-lg-4">
-				<?php 
-											$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
-											if(!$conn){
-												echo 'Connection error: '. mysqli_connect_error();
-												}
 
-												if(isset($_POST['search'])){
-													$searchKey = $_POST['search'];
-													$sql = "SELECT * FROM users WHERE firstname LIKE '%$searchKey%'";
-												}else
-													$sql = "SELECT * FROM users";
-													$result = mysqli_query($conn,$sql);							
-											?>
-												<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
-												
+				<br>
+    <div class="col col-lg-3 col-md-3 col-sm-3">
 
+							<?php 
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+									}
+
+									if(isset($_POST['search'])){
+										$searchKey = $_POST['search'];
+										$sql = "SELECT * FROM users WHERE firstname LIKE '%$searchKey%'";
+									}else
+										$sql = "SELECT * FROM users";
+										$result = mysqli_query($conn,$sql);							
+								?>
+
+									<form method="POST" >
+										<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+									</form>						
     </div>
-  </div>
 
-
-								
+  </div>				
 							
       <?php								
-									echo "<table class='table table-striped table-hover overflow-hidden'>";
+									echo "<table class='table table-striped ml-3 table-hover overflow-hidden'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";

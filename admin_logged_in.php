@@ -25,18 +25,17 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 <body style="overflow-x: hidden;">
 
 
-
 		<div class="ml-3 mr-3 mt-3" style="padding: 20px">
 
 				<div class="row">
 
-					<div class="col-sm-2">
+					<div class="col-2">
 
 							<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-									<a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+									<a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Users</a>
 
-									<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Users</a>
+									<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
 
 									<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="true">Messages</a>
 
@@ -49,11 +48,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 							</div>
 					</div>
 
-					<div class="col-sm-10">
+					<div class="col-9">
 
 							<div class="tab-content" id="v-pills-tabContent">
 
-									<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><?php require('admin_profile.php'); ?></div>
+									<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><?php require('admin_table.php'); ?></div>
 
 									<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('admin_table.php'); ?></div>
 
@@ -65,16 +64,27 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 
-								</div>
-							
-							</div>
-
-					
+									</div>
+       </div>
 					</div>
+    </div>
 
-				<?php
-	  		include_once('C:\xampp\htdocs\esperanto\template\footer.php');
-  		?>
+
+<?php
+      include_once('C:\xampp\htdocs\esperanto\template\footer.php');
+    ?>
+
+
+
+
+
+
+
+
+
+
+
+    
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
