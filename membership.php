@@ -24,7 +24,7 @@ if(isset($_POST['register_btn'])){
     $result=mysqli_query($conn,$query);
     if($result){
 
-    if( mysqli_num_rows($result) > 0){
+    if(mysqli_num_rows($result) > 0){
       ?>
 							<div class="alert alert-warning mt-5 ml-5 mr-5" role="alert">
 									Email already exists, please try again.
@@ -32,8 +32,8 @@ if(isset($_POST['register_btn'])){
 						<?php
     }else{
       if($password==$passwordconfirm){           //Create User
-        $password=md5($password); //hash password before storing for security purposes
-        $passwordconfirm=md5($passwordconfirm); //hash password before storing for security purposes
+							$password=sha1($password); //hash password before storing for security purposes
+							$passwordconfirm=sha1($passwordconfirm); //hash password before storing for security purposes
         $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth')";
 
         mysqli_query($conn,$sql);

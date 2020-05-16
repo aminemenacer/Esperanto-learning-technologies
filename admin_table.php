@@ -114,9 +114,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 
     <?php
-			//	error_reporting(0);
-		//		session_start();
-				
+	
     $sql = "SELECT id, email, firstname, surname, phone, date_of_birth, date_created, type from users";
 
     if(isset($_GET['id'])){
@@ -137,32 +135,34 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     ?>
 
 
-						<br>
-						<div class="row ">
-
-    <div class="col-sm-5 col-md-5">
-      <button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
-    </div>
-
-    <div class="col-md-auto col-sm-auto">
-							<?php 
-
-								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-								if(!$conn){
-									echo 'Connection error: '. mysqli_connect_error();
-								}
-
-								$result=mysqli_query($conn, "SELECT count(*) as total from users");
-								$data=mysqli_fetch_assoc($result);
-
-								?>
-						<h6 class="font-weight-bold text-primary mt-2">Total num of users:  <?php echo $data['total']; ?> </h6>
-    </div>	
-
-
 				<br>
-    <div class="col col-lg-3 col-md-3 col-sm-3">
+				<div class="row">
+
+							<!-- new button -->
+						<div class="col-sm-5 col-md-5">
+								<button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
+						</div>
+
+							<!-- total users -->
+						<div class="col-md-auto col-sm-auto">
+									<?php 
+
+										$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+										if(!$conn){
+											echo 'Connection error: '. mysqli_connect_error();
+										}
+
+										$result=mysqli_query($conn, "SELECT count(*) as total from users");
+										$data=mysqli_fetch_assoc($result);
+
+										?>
+								<h6 class="font-weight-bold text-primary mt-2">Total num of users:  <?php echo $data['total']; ?> </h6>
+						</div>	
+
+						<!-- search -->
+						<br>	
+						<div class="col col-lg-3 col-md-3 col-sm-3">
 
 							<?php 
 								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -182,9 +182,12 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									<form method="POST" >
 										<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
 									</form>						
-    </div>
+						</div>
 
   </div>				
+
+
+
 							
       <?php								
 									echo "<table class='table table-striped ml-3 table-hover overflow-hidden'>";
@@ -211,9 +214,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                  <button style='background-color:#F94040' myFunction(); class='col_d'><a class='abtn' href=\"delete.php?id=".$row['id']."\">Delete</a></button>";
 
                ?>
-  <?php
+									<?php
 
-echo "</tr>";
+							echo "</tr>";
 									}
 									echo "</table>";
          mysqli_free_result($result);
@@ -222,28 +225,21 @@ echo "</tr>";
 							<button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button><br><br>
 						<?php
          echo "No users available.";
-     }
- } else{
-     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
- }
-   ?>
+									}
+					} else{
+									echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+					}
+							?>
 
-<style type="text/css">
 
-.btn_reg{
-  color: white;}
-</style>
-
-		<script>
-				$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
-									window.location.hash= event.target.hash;
-					});
-		</script>
-
-	<script type="text/javascript" src="custom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-		<script src="sweetalert2.all.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+					<script>
+					$(document).ready(function(){
+						$('#alertbox').click(function(){
+								$("#error").html("You Clicked on Click here Button");
+										$('#myModal').modal("show");
+								});
+						});
+					</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -252,5 +248,5 @@ echo "</tr>";
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 
-   </div>
+
 </html>

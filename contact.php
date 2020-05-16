@@ -13,11 +13,19 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
    $sql = "INSERT INTO feedback(firstname, email, feedback) VALUES('$firstname', '$email', '$feedback')";
    $result = mysqli_query($conn ,$sql);
    if($result){
-       echo 'submitted successfully';
-     //  header("Location: home.php");
+				?>
+    <div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+						Message successfully sent.
+				</div>
+				<?php
         }
-  }else{
-    // echo 'submitted unsuccessfully';
+  else{
+			?>
+    <div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
+						Message successfully sent.
+				</div>
+				<?php
+				}
   }
 
 ?>

@@ -137,7 +137,21 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
        if(mysqli_num_rows($result) > 0){
 
     ?>
-      <br>
+
+					<br>
+      <div class="row">
+							<div class="col-sm-6" style="padding:5px">							
+									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+							</div>
+
+							<div class="col col-lg-3 col-md-3 col-sm-3">
+
+									<form method="POST">
+										<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+									</form>						
+
+							</div>
+      </div>
       
       <?php
          echo "<table class='table table-striped table-responsive col-lg-10 col-xl-10'>";

@@ -33,7 +33,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 							<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-									<a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Users</a>
+									<a class="nav-link active" id="v-pills-profile" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Users</a>
 
 									<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
 
@@ -41,7 +41,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<a class="nav-link" id="v-pills-feedback-tab" data-toggle="pill" href="#v-pills-feedback" role="tab" aria-controls="v-pills-feedback" aria-selected="true">Feedback</a>
 
-									<a class="nav-link" id="v-pills-content-tab" data-toggle="pill" href="#v-pills-content" role="tab" aria-controls="v-pills-content" aria-selected="true">Content</a>
 
 									<a class="btn btn-outline-primary" href="logout.php" role="button">Logout</a>
 
@@ -52,39 +51,25 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 							<div class="tab-content" id="v-pills-tabContent">
 
-									<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"><?php require('admin_table.php'); ?></div>
+									<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile"><?php require('admin_table.php'); ?></div>
 
-									<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('admin_table.php'); ?></div>
+									<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('admin_profile.php'); ?></div>
 
 									<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><?php require('message_tabs.php'); ?></div>
 									
-									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>
+									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel"  style="float:right" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>
 									
-									<div class="tab-pane fade" id="v-pills-content" role="tabpanel" aria-labelledby="v-pills-content-tab"><?php require('content_tabs.php'); ?></div>
-
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 
 									</div>
        </div>
+
 					</div>
-    </div>
 
 
 <?php
       include_once('C:\xampp\htdocs\esperanto\template\footer.php');
     ?>
-
-
-
-
-
-
-
-
-
-
-
-    
 
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->

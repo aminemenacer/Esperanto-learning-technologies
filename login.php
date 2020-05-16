@@ -20,10 +20,10 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
   if(isset($_POST['login_btn'])){
 
       $email=mysqli_real_escape_string($conn,$_POST['email']);
-						$firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
-						//$password=md5($password);
+						$password=mysqli_real_escape_string($conn,$_POST['password']);
+						$password=sha1($password);
 
-      $sql="SELECT * FROM users WHERE email='$email' AND firstname='$firstname'";
+      $sql="SELECT * FROM users WHERE email='$email' AND password='$password'";
 						$result=mysqli_query($conn,$sql);
 						
 					
@@ -58,11 +58,11 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 												$result = mysqli_query($conn,$sql); 
 
           } else {
-										
-												}
-										}
+														echo '';
+												}										
 							
-  			}
+					}
+				}
 		?>
 
 
@@ -104,7 +104,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
            <div class="form-group col-md-8">
              <label for="exampleInputPassword1">Password:</label>
-             <input type="password" name="firstname" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
              <span class='error' style="color: red"> </span>
            </div>
 

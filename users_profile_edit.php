@@ -22,8 +22,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$password = $_POST['password'];
 		$passwordconfirm = $_POST['passwordconfirm'];
 		
-		$password=md5($password); //hash password before storing for security purposes
-		$passwordconfirm=md5($passwordconfirm); //hash password before storing for security purposes
+		$password=sha1($password); //hash password before storing for security purposes
+		$passwordconfirm=sha1($passwordconfirm); //hash password before storing for security purposes
 
 		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
 		$result = mysqli_query($conn, $query);
@@ -38,7 +38,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 			<?php
 		} else{
 			?>
-				<div class="alert alert-success mt-5 ml-5 mr-5" role="alert">
+				<div class="alert alert-danger mt-5 ml-5 mr-5" role="alert">
 						Data not updated.
 				</div>
 			<?php
@@ -130,7 +130,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>New password:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password1" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password']; ?>">
+														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -140,7 +140,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 													</div>
 												</div>
 												
-												<input type="submit" name="update" value="submit" />
 														<button type="submit" name="update" class="btn btn-primary" value="submit" class="form-group">Submit</button>
 														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>
