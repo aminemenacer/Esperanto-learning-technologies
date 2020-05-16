@@ -95,7 +95,6 @@ a:hover {
 </style>
 
 <?php
-	include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 ?>
 
 <!doctype html>
@@ -115,8 +114,42 @@ a:hover {
 
     <div class="container">
 
+				<br>
+      <div class="row">
+						<!------->
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
+									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+							</div>
+
+							<!------->
+							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+
+							<?php 
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+									}
+
+									if(isset($_POST['searchqqq'])){
+										$searchKey = $_POST['searchqqq'];
+										$sql = "SELECT * FROM messages WHERE email LIKE '%$searchKey%'";
+									}else
+										$sql = "SELECT * FROM messages";
+										$result = mysqli_query($conn,$sql);							
+								?>
+
+									<form method="POST">
+										<input class="form-control" name="searchqqq" type="text" placeholder="Search" aria-label="Search">
+									</form>		
+
+							</div>
+      </div>
+
 		<?php 
 				session_start();
+				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+
 				$email = $_SESSION['email'];
 				$sender_name = $_SESSION['sender_name']; 
 				error_reporting(0); 
@@ -142,16 +175,10 @@ a:hover {
        if(mysqli_num_rows($result) > 0){
 
     ?>
-      <br>
-      <div class="row">
-        <div class="col-sm-6" style="padding:5px">							
-          <button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
-									</div>
-      </div>
-
+  
       <?php
 								
-         echo "<table class='table table-striped table-responsive'>";
+         echo "<table class='table table-striped table-responsive col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";

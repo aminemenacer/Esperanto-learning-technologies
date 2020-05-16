@@ -139,12 +139,12 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				<div class="row">
 
 							<!-- new button -->
-						<div class="col-sm-5 col-md-5">
+						<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
 								<button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
 						</div>
 
 							<!-- total users -->
-						<div class="col-md-auto col-sm-auto">
+						<div class="col-md-auto col-sm-auto col-lg-auto col-xl-auto">
 									<?php 
 
 										$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -162,7 +162,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 						<!-- search -->
 						<br>	
-						<div class="col col-lg-3 col-md-3 col-sm-3">
+						<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
 
 							<?php 
 								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );

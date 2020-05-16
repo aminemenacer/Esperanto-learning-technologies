@@ -74,9 +74,11 @@ if(isset($_POST['register_btn'])){
 							<div class="card-body">
 
 							<div class="form-row">
+							<!--
 								<label for="inputEmail4" class="mt-1">Email from:</label>
+								-->
 								<div class="form-group col-sm-4 col-md-4">									
-									<input class="form-control ml-2" id="inputEmail4" placeholder="Enter email here" name="sender_name" required>
+									<input type="hidden" class="form-control ml-2" id="inputEmail4" placeholder="Enter email here" name="sender_name" required value="<?php echo $_SESSION['email'] ?>">
 								</div>
 							</div>
 

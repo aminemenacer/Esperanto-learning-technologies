@@ -138,23 +138,39 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
     ?>
 
-					<br>
+				<br>
       <div class="row">
-							<div class="col-sm-6" style="padding:5px">							
+						<!------->
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
 									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
 							</div>
 
-							<div class="col col-lg-3 col-md-3 col-sm-3">
+							<!------->
+							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+
+							<?php 
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+									}
+
+									if(isset($_POST['searchqq'])){
+										$searchKey = $_POST['searchqq'];
+										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%' OR email LIKE '%$searchKey%'";
+									}else
+										$sql = "SELECT * FROM messages";
+										$result = mysqli_query($conn,$sql);							
+								?>
 
 									<form method="POST">
-										<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
-									</form>						
+										<input class="form-control" name="searchqq" type="text" placeholder="Search" aria-label="Search">
+									</form>		
 
 							</div>
       </div>
-      
       <?php
-         echo "<table class='table table-striped table-responsive col-lg-10 col-xl-10'>";
+         echo "<table class='table table-striped table-responsive col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";

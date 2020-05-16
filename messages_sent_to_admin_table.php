@@ -96,7 +96,7 @@ a:hover {
 
 <?php
 
-include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+
 
  ?>
 
@@ -120,6 +120,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 		<?php 
 				session_start();
+				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
 				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
@@ -149,19 +150,33 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       <br>
       <div class="row">
 						<!------->
-							<div class="col-sm-6" style="padding:5px">							
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
 									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
 							</div>
 
 							<!------->
-							<div class="col col-lg-3 col-md-3 col-sm-3">
+							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+
+							<?php 
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+									}
+
+									if(isset($_POST['searchq'])){
+										$searchKey = $_POST['searchq'];
+										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%'";
+									}else
+										$sql = "SELECT * FROM messages";
+										$result = mysqli_query($conn,$sql);							
+								?>
 
 									<form method="POST">
 										<input class="form-control" name="searchq" type="text" placeholder="Search" aria-label="Search">
-									</form>						
+									</form>		
+
 							</div>
-
-
       </div>
 
       <?php

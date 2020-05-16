@@ -74,14 +74,16 @@ if(isset($_POST['register_btn'])){
 							<div class="card-body">
 
 							<div class="form-row">
+							<!--
 								<label for="inputEmail4" class="mt-1 ">Email from:</label>
+							-->	
 								<div class="form-group col-sm-4 col-md-4">			
-									<input class="form-control ml-2" id="inputEmail4" placeholder="Enter email here" name="sender_name" required>
+									<input type="hidden" class="form-control ml-2" id="inputEmail4" placeholder="Enter email here" name="sender_name" required value="<?php echo $_SESSION['email'] ?>">
 								</div>
 							</div>
 
-							<div class="form-row ">
-							<label for="inputEmail4">Email to:</label>
+							<div class="form-row" >
+							<label class="mt-1" for="inputEmail4">Email to:</label>
 								<div class="form-group col-md-4 col-sm-4">
 								
 									<select name="email" class="form-control ml-2" id="exampleFormControlSelect1">
@@ -105,7 +107,7 @@ if(isset($_POST['register_btn'])){
 							</div>	
 
 						<div class="form-row">
-								<label for="inputEmail4">Subject:</label>
+								<label class="mt-1" for="inputEmail4">Subject:</label>
 							<div class="form-group col-md-4 col-sm-4">							
 								<input type="textbox" class="form-control ml-2" id="inputEmail4" placeholder="Enter subject here" name="subject_title" required>
 							</div>
