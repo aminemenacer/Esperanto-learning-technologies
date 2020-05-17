@@ -141,7 +141,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				<br>
       <div class="row">
 						<!------->
-							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 ml-3" style="padding:5px">							
 									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
 							</div>
 
@@ -175,9 +175,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-																 echo "<th>Message</th>";
+															//	 echo "<th>Message</th>";
 																	echo "<th>Date</th>";
-																//	echo "<th>Seen</th>";
+																	echo "<th>Seen</th>";
                  echo "<th>Actions</th>";
 
 
@@ -186,9 +186,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
                  echo "<td>" . $row['subject_title'] . "</td>";
-                 echo "<td>" . $row['messages'] . "</td>";
+              //   echo "<td>" . $row['messages'] . "</td>";
 																	echo "<td>" . $row['date_created'] . "</td>";
-															//		echo "<td>" . $row['open'] . "</td>";
+																	echo "<td>" . $row['open'] . "</td>";
 	            echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_between_users.php?id=".$row['id']."\">View</a></button>                                 
                  ";

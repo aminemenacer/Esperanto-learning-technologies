@@ -94,11 +94,6 @@ a:hover {
 
 </style>
 
-<?php
-
-
-
- ?>
 
 <!doctype html>
 <html lang="en">
@@ -122,11 +117,20 @@ a:hover {
 				session_start();
 				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
+				$open = $_SESSION['open']; 
+
 				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
 
+				echo $open;
+
+				// if('open' == 0){
+				// 	echo 'closed';
+				// }
 
 				$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";				
+
+
 
     if(isset($_GET['id'])){
 						// escape sql chars
@@ -157,23 +161,10 @@ a:hover {
 							<!------->
 							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
 
-							<?php 
-								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-								if(!$conn){
-									echo 'Connection error: '. mysqli_connect_error();
-									}
-
-									if(isset($_POST['searchq'])){
-										$searchKey = $_POST['searchq'];
-										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%'";
-									}else
-										$sql = "SELECT * FROM messages";
-										$result = mysqli_query($conn,$sql);							
-								?>
+	
 
 									<form method="POST">
-										<input class="form-control" name="searchq" type="text" placeholder="Search" aria-label="Search">
+										<input class="form-control" name="searchqqqq" type="text" placeholder="Search" aria-label="Search">
 									</form>		
 
 							</div>
@@ -181,14 +172,14 @@ a:hover {
 
       <?php
 								
-         echo "<table class='table table-striped table-hover table-responsive'>";
+         echo "<table class='table table-striped table-responsive table-hover col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-                 echo "<th>Message</th>";
+                // echo "<th>Message</th>";
 																	echo "<th>Date</th>";
-																//	echo "<th>Seen</th>";
+																	echo "<th>Seen</th>";
 																	echo "<th>Actions</th>";
 
          while($row = mysqli_fetch_array($result)){
@@ -204,9 +195,9 @@ a:hover {
 															echo "<td>" . $row['sender_name'] . "</td>";
 															echo "<td>" . $row['email'] . "</td>";
 															echo "<td>" . $row['subject_title'] . "</td>";
-														 echo "<td>" . $row['messages'] . "</td>";
+													//	 echo "<td>" . $row['messages'] . "</td>";
 															echo "<td>" . $row['date_created'] . "</td>";
-													//		echo "<td>" . $row['open'] . "</td>";
+															echo "<td>" . $row['open'] . "</td>";
 														echo "<td>												
 
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"messages_view_from_admin_to_user.php?id=".$row['id']."\">View</a></button>                
@@ -232,17 +223,7 @@ a:hover {
 		
 		?>
 	
-<script>
-$(document).ready(function() {
-    $(".dropdown-toggle").dropdown();
-});
-</script>
 
-<style type="text/css">
-.btn_reg{
-  color: white;
-}
-</style>
 
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		<script src="sweetalert2.all.min.js"></script>
@@ -254,11 +235,7 @@ $(document).ready(function() {
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$('messages').datatables();
-			});
-		</script>
+
 		
 		</body>
 </html>

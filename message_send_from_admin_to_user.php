@@ -106,12 +106,12 @@ if(isset($_POST['register_btn'])){
 								</div>
 							</div>	
 
-						<div class="form-row">
-								<label class="mt-1" for="inputEmail4">Subject:</label>
-							<div class="form-group col-md-4 col-sm-4">							
-								<input type="textbox" class="form-control ml-2" id="inputEmail4" placeholder="Enter subject here" name="subject_title" required>
-							</div>
-						</div>
+							<div class="form-row">
+									<label for="inputPassword4">Subject:</label>
+										<div class="form-group col-md-4 col-sm-4">											
+												<input class="form-control ml-2" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required>
+										</div>
+								</div>
 
 								<div class="form-row">
 									<label for="inputPassword4">Message:</label>

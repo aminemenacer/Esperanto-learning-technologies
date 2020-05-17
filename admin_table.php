@@ -232,14 +232,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 							?>
 
 
-					<script>
-					$(document).ready(function(){
-						$('#alertbox').click(function(){
-								$("#error").html("You Clicked on Click here Button");
-										$('#myModal').modal("show");
-								});
-						});
-					</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

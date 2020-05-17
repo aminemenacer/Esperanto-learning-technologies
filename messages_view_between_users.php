@@ -19,6 +19,8 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		$email = $_SESSION['email'];
 		$sql = "UPDATE users SET date ='".$_POST['date']."' where name= '".$_POST['name']."'";
 
+		$sql = "UPDATE messages SET open='1' WHERE id='$id'";
+		$results = mysqli_query($conn, $sql);
 
 
 ?>
