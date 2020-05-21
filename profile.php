@@ -90,11 +90,7 @@ if(!$conn){
 																							<p><?php echo $_SESSION['date_created']; ?></p>
 																					</div>
 																			</div>
-																			<div class="form-group row">
-																				<div class="col-sm-4 mb-2">
-																					<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>
-																				</div>
-																			</div>
+																		
 																		
 
 																		<form action="profile.php">

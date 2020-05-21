@@ -109,7 +109,7 @@ if(isset($_POST['register_btn'])){
 							<div class="form-row">
 									<label for="inputPassword4">Subject:</label>
 										<div class="form-group col-md-4 col-sm-4">											
-												<input class="form-control ml-2" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="messages" rows="8" required>
+												<input class="form-control ml-2" id="exampleFormControlTextarea1"  placeholder="Enter message here" name="subject_title" rows="8" required>
 										</div>
 								</div>
 

@@ -21,11 +21,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		$sql = "UPDATE messages SET open='1' WHERE id='$id'";
 		$results = mysqli_query($conn, $sql);
 
-		if (open == 1){
-			echo 'opened';
-		}else{
-			echo 'not opened';
-		}
+
 ?>
 
 

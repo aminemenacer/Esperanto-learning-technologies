@@ -94,11 +94,6 @@ a:hover {
 
 </style>
 
-<?php
-
-include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
-
- ?>
 
 <!doctype html>
 <html lang="en">
@@ -112,26 +107,31 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Esperanto</title>
+
   </head>
   <body style="overflow-x: hidden;">
 
-    <div class="container">
+    <div class="container mb-5">
 
 		<?php 
 				session_start();
+				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
+
+				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
 
-    $sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
 				
-				$sql = "UPDATE messages SET open='1' WHERE id='$id'";
-				$results = mysqli_query($conn, $sql);
+				$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";				
+
+
 
     if(isset($_GET['id'])){
 						// escape sql chars
 						$id = mysqli_real_escape_string($conn, $_GET['id']);
 						// make sql
 						$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";
+
 						// get the query result
 						$result = mysqli_query($conn, $sql);
 						// fetch result in array format
@@ -142,93 +142,96 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
    if($result = mysqli_query($conn, $sql)){
        if(mysqli_num_rows($result) > 0){
-
+				
     ?>
 				
       <br>
       <div class="row">
+						<!------->
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
+									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
+							</div>
 
-        <div class="col-sm-6" style="padding:5px">							
-          <button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
-									</div>
+							<!------->
+							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+
+	
+
+									<form method="POST">
+										<input class="form-control" name="searchqqqq" type="text" placeholder="Search" aria-label="Search">
+									</form>		
+
+							</div>
       </div>
 
       <?php
 								
-         echo "<table class='table table-striped table-responsive'>";
+         echo "<table class='table table-striped table-hover col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-                 echo "<th>Message</th>";
+                // echo "<th>Message</th>";
 																	echo "<th>Date</th>";
 																	echo "<th>Seen</th>";
 																	echo "<th>Actions</th>";
 
          while($row = mysqli_fetch_array($result)){
-             echo "<tr>";
-																	echo "<td>" . $row['sender_name'] . "</td>";
-																	echo "<td>" . $row['email'] . "</td>";
-                 echo "<td>" . $row['subject_title'] . "</td>";
-                 echo "<td>" . $row['messages'] . "</td>";
-																	echo "<td>" . $row['date_created'] . "</td>";
-																	echo "<td>" . $row['seen'] . "</td>";
-              echo "<td>
-                 <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_from_user_to_admin.php?id=".$row['id']."\">View</a></button>                
-                 <button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"message_send_reply_from_user_to_admin.php?id=".$row['id']."\">Reply</a></button>
-                 
-                 ";
 
-               ?>
-  <?php
+													$id = $row['id'];
+													$sender_name = $row['sender_name'];
+													$email = $row['email'];
+													$subject_title = $row['subject_title'];
+													$messages = $row['messages'];
+													$date_created = $row['date_created'];
+					
+            	 echo "<tr>";
+															echo "<td>" . $row['sender_name'] . "</td>";
+															echo "<td>" . $row['email'] . "</td>";
+															echo "<td>" . $row['subject_title'] . "</td>";
+													//	 echo "<td>" . $row['messages'] . "</td>";
+															echo "<td>" . $row['date_created'] . "</td>";
+															echo "<td>" . $row['open'] . "</td>";
+														echo "<td>												
 
-echo "</tr>";
-         }
-         echo "</table>";
-         mysqli_free_result($result);
-     } else{
-      ?>
-      <button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button><br><br>
-      <?php
-         echo "Inbox messages box empty.";
-     }
- } else{
-     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
- }
+                 <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"messages_view_from_user_to_admin.php?id=".$row['id']."\">View</a></button>                
+                 <button style='background-color:#2D62F5' class='col_d'><a class='abtn' href=\"message_send_reply_from_user_to_admin.php?id=".$row['id']."\">Reply</a></button>               
+																	";
 
-?>
-
+																	?>
+				<?php
+		
+		echo "</tr>";
+											}
+											echo "</table>";
+											mysqli_free_result($result);
+							} else{
+								?>
+								<button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button><br><br>
+								<?php
+											echo "Inbox messages box empty.";
+							}
+			} else{
+							echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+			}
+		
+		?>
 	
-<script>
-$(document).ready(function() {
-    $(".dropdown-toggle").dropdown();
-});
-</script>
 
 
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="sweetalert2.all.min.js"></script>
+		<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 
-<style type="text/css">
-
-
-.btn_reg{
-  color: white;
-}
-
-
-</style>
-
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
-    <script src="sweetalert2.all.min.js"></script>
-    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+		
+		</body>
 </html>
 
 

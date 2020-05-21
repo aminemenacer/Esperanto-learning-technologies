@@ -17,7 +17,8 @@ if(isset($_POST['register_btn'])){
     $passwordconfirm=mysqli_real_escape_string($conn,$_POST['passwordconfirm']);
     $firstname=mysqli_real_escape_string($conn,$_POST['firstname']);
     $surname=mysqli_real_escape_string($conn,$_POST['surname']);
-    $phone=mysqli_real_escape_string($conn,$_POST['phone']);
+				$phone=mysqli_real_escape_string($conn,$_POST['phone']);
+				$gender=mysqli_real_escape_string($conn,$_POST['gender']);
     $date_of_birth=mysqli_real_escape_string($conn,$_POST['date_of_birth']);
 
     $query = "SELECT * FROM users WHERE email = '$email'";
@@ -35,8 +36,8 @@ if(isset($_POST['register_btn'])){
 							     //Create User
 							$password=sha1($password); //hash password before storing for security purposes
 							$passwordconfirm=sha1($passwordconfirm); //hash password before storing for security purposes
-							
-        $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth')";
+
+        $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth, gender)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth','$gender')";
 
         mysqli_query($conn,$sql);
 								$_SESSION['email']=$email;
@@ -121,11 +122,20 @@ if(isset($_POST['register_btn'])){
                    <input type="text" class="form-control" id="inputAddress2" placeholder="phone number" name="phone" required>
                  </div>
                </div>
+
                <div class="form-row">
                 <div class="form-group col-md-6">
                    <label>Date of birth:</label>
                    <input type="date" name="date_of_birth" min="1000-01-01" max="3000-12-31" class="form-control" required>
                 </div>
+                <div class="form-group col-md-4">
+																	<label for="exampleFormControlSelect1">Gender</label>
+																		<select class="form-control" name="gender" required>
+																				<option>Select</option>
+																				<option value="male">Male</option>
+																				<option value="female">Female</option>
+																		</select>
+																</div>
                </div>
                <!--
                <div class="form-row">

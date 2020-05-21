@@ -15,21 +15,21 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 		if(!$conn){
 			echo 'Connection error: '. mysqli_connect_error();
 		}
-		$salt = "sdfcdfsgdfsgsg234234ds";
 	
   if(isset($_POST['login_btn'])){
 
-      $email=mysqli_real_escape_string($conn,$_POST['email']);						
+						$email=mysqli_real_escape_string($conn,$_POST['email']);
+						$password=mysqli_real_escape_string($conn,$_POST['password']);											
 						$password = sha1($password);
 
-      $sql="SELECT * FROM users WHERE email='$email' AND new_password='$new_password'";
+      $sql="SELECT * FROM users WHERE email='$email' AND password='$password'";
 						$result=mysqli_query($conn,$sql);
 						
 					
       if ($sql = mysqli_fetch_array($result)) {
           // Now you can set the session variables
 										$_SESSION['email'] = $sql['email'];
-										$_SESSION['new_password'] = $sql['new_password'];										
+										$_SESSION['password'] = $sql['password'];										
 										$_SESSION['id'] = $sql['id'];
           $_SESSION['type'] = $sql['type'];
           $_SESSION['surname'] = $sql['surname'];
@@ -57,9 +57,8 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 												$result = mysqli_query($conn,$sql); 
 
           } else {
-														echo '';
+														echo 'error';
 												}										
-							
 					}
 				}
 		?>

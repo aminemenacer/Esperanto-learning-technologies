@@ -1,11 +1,13 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 if(!$conn){
 	echo 'Connection error: '. mysqli_connect_error();
 }
+
+
 
 
    ?>
@@ -83,7 +85,7 @@ if(!$conn){
 																					<div class="col-sm-8">
 																							<p><?php echo $_SESSION['phone']; ?></p>
 																					</div>
-																			</div>
+																			</div>																
 																			<div class="form-group row">
 																					<label for="email" class="col-sm-4 col-form-label"><b>Date:</b></label>
 																					<div class="col-sm-8">

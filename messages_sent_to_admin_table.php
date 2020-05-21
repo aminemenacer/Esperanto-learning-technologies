@@ -117,7 +117,6 @@ a:hover {
 				session_start();
 				include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 				$email = $_SESSION['email']; 
-				$open = $_SESSION['open']; 
 
 				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
@@ -167,12 +166,12 @@ a:hover {
 
       <?php
 								
-         echo "<table class='table table-striped table-responsive table-hover col-lg-12 col-xl-12'>";
+         echo "<table class='table table-striped table-hover col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-                // echo "<th>Message</th>";
+              //   echo "<th>Message</th>";
 																	echo "<th>Date</th>";
 																	echo "<th>Seen</th>";
 																	echo "<th>Actions</th>";

@@ -19,9 +19,11 @@ if(isset($_GET['id'])){
 		$email=$_POST['email'];
 		$date_of_birth=$_POST['date_of_birth'];
 		$phone=$_POST['phone'];
+		$gender=$_POST['gender'];
+
 
 		
-		$query3=mysqli_query($conn,"update users set firstname='$firstname', type='$type', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone' where email='$email'");
+		$query3=mysqli_query($conn,"update users set firstname='$firstname', type='$type', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', gender='$gender' where email='$email'");
 		if($query3){
 
 			?>
@@ -83,7 +85,7 @@ if(isset($_GET['id'])){
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Type:</b></label>
 													<div class="col-sm-4">
-													<input type="text" name="type" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['type']; ?>">
+													<input type="text" name="type" aria-label="text" class="form-control" placeholder="Type" value="<?php echo $query2['type']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -119,6 +121,18 @@ if(isset($_GET['id'])){
 														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $query2['phone']?>">
 													</div>
 												</div>
+
+												<div class="form-group row">
+												<label for="name" class="col-4 col-form-label"><b>Gender:</b></label>
+													<div class="col-sm-4">
+														<select class="form-control" name="gender" required>
+																<option>Select</option>
+																<option value="male">Male</option>
+																<option value="female">Female</option>
+														</select>
+													</div>
+												</div>
+
 												<div class="form-group row">
 													<div class="col-sm-4 mb-2">
 														<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>

@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
@@ -20,10 +20,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$date_of_birth = $_POST['date_of_birth'];
 		$type = $_POST['type'];
 		$phone = $_POST['phone'];
+		$gender = $_POST['gender'];
 		$password = $_POST['password'];
 		$passwordconfirm = $_POST['passwordconfirm'];
 
-		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', type='$type', phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
+		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', type='$type', gender='$gender' phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
 		$result = mysqli_query($conn, $query);
 
 		if($result){
@@ -91,13 +92,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												</div>
 												
 												<div class="form-group row">
-													<label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Type:</b></label>
-													<div class="col-sm-4 col-md-4">
-														<p><?php echo $_SESSION['type']; ?></p>
-													</div>
-												</div>
-												
-												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Firstname:</b></label>
 													<div class="col-sm-4 col-md-4">
 															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $_SESSION['firstname'] ?>"/>
@@ -136,6 +130,17 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Type:</b></label>
 													<div class="col-sm-4 col-md-4">
 														<input type="text" name="type" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $_SESSION['type']; ?>">
+													</div>
+												</div>
+
+												<div class="form-group row">
+												<label for="name" class="col-4 col-form-label"><b>Gender:</b></label>
+													<div class="col-sm-4">
+														<select class="form-control" name="gender">
+																<option>Select</option>
+																<option value="male">Male</option>
+																<option value="female">Female</option>
+														</select>
 													</div>
 												</div>
 
