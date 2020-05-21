@@ -139,37 +139,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     ?>
 
 				<br>
-      <div class="row">
-						<!------->
-							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 ml-3" style="padding:5px">							
-									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
-							</div>
-
-							<!------->
-							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
-
-							<?php 
-								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-								if(!$conn){
-									echo 'Connection error: '. mysqli_connect_error();
-									}
-
-									if(isset($_POST['searchqq'])){
-										$searchKey = $_POST['searchqq'];
-										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%' OR email LIKE '%$searchKey%'";
-									}else
-										$sql = "SELECT * FROM messages";
-										$result = mysqli_query($conn,$sql);							
-								?>
-
-									<form method="POST">
-										<input class="form-control" name="searchqq" type="text" placeholder="Search" aria-label="Search">
-									</form>		
-
-							</div>
-      </div>
+     
       <?php
+
          echo "<table class='table table-striped table-responsive col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
@@ -202,6 +174,42 @@ echo "</tr>";
 									
          mysqli_free_result($result);
      } else{
+								?>
+
+						<div class="row">
+						<!------->
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6 ml-3 mt-2" style="padding:5px">							
+									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+							</div>
+
+							<!------->
+							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3 mt-3">
+
+							<?php 
+								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+
+								if(!$conn){
+									echo 'Connection error: '. mysqli_connect_error();
+									}
+
+									if(isset($_POST['searchqq'])){
+										$searchKey = $_POST['searchqq'];
+										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%' OR email LIKE '%$searchKey%'";
+									}else
+										$sql = "SELECT * FROM messages";
+										$result = mysqli_query($conn,$sql);							
+								?>
+
+									<form method="POST">
+										<input class="form-control" name="searchqq" type="text" placeholder="Search" aria-label="Search">
+									</form>		
+
+							</div>
+      </div>
+
+
+								<?php
+						
          echo "Messages between users is empty.";
      }
  } else{
@@ -211,6 +219,13 @@ echo "</tr>";
 ?>
 
 </div>
+
+
+
+
+
+
+
 
 <style type="text/css">
 
@@ -222,20 +237,6 @@ echo "</tr>";
 
 </style>
 
-<script>
-jQuery(document).ready(function() {
-jQuery("#extId").select2({
-                width: 'element',
-                matcher: function(term, text) {
-                    return text === 'Add New Number' || $.fn.select2.defaults.matcher.apply(this, arguments);
-                },
-                sortResults: function(results) {
-                    if (results.length > 1) results.pop();
-                    return results;
-                }
-			});
-    });
-</script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 

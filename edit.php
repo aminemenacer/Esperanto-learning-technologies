@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -16,16 +15,13 @@ if(isset($_GET['id'])){
 	if(isset($_POST['btn-update'])){
 		$firstname=$_POST['firstname'];
 		$surname=$_POST['surname'];
+		$type=$_POST['type'];
 		$email=$_POST['email'];
 		$date_of_birth=$_POST['date_of_birth'];
 		$phone=$_POST['phone'];
-		$password=$_POST['password'];
-		$password2=$_POST['password2'];
 
-		$password=md5($password); //hash password before storing for security purposes
-		$password2=md5($password2); //hash password before storing for security purposes
 		
-		$query3=mysqli_query($conn,"update users set firstname='$firstname' where email='$email'");
+		$query3=mysqli_query($conn,"update users set firstname='$firstname', type='$type', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone' where email='$email'");
 		if($query3){
 
 			?>
@@ -87,7 +83,7 @@ if(isset($_GET['id'])){
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Type:</b></label>
 													<div class="col-sm-4">
-														<p><?php echo $_SESSION['type']; ?></p>
+													<input type="text" name="type" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['type']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
@@ -124,17 +120,11 @@ if(isset($_GET['id'])){
 													</div>
 												</div>
 												<div class="form-group row">
-													<label for="email" class="col-4 col-form-label"><b>New password:</b></label>
-													<div class="col-sm-4">
-														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" >
+													<div class="col-sm-4 mb-2">
+														<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>
 													</div>
 												</div>
-												<div class="form-group row">
-													<label for="email" class="col-4 col-form-label"><b>Confirm new password:</b></label>
-													<div class="col-sm-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password">
-													</div>
-												</div>
+												
 											
 														<button type="submit" name="btn-update" class="btn btn-primary">Update</button>
 														<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>

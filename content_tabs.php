@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 error_reporting(0);
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
@@ -36,7 +36,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		</nav>
 
 		<div class="tab-content" id="nav-tabContent">
-
 			<div class="tab-pane fade show active" id="nav-as" role="tabpanel" aria-labelledby="nav-as-tab"><?php require('academic_support_table.php'); ?></div>
 			<div class="tab-pane fade" id="nav-rd" role="tabpanel" aria-labelledby="nav-rd-tab"><?php require('r&d_table.php'); ?></div>
 			<div class="tab-pane fade" id="nav-services" role="tabpanel" aria-labelledby="nav-services-tab"><?php require('services_table.php'); ?></div>
@@ -44,10 +43,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 			<div class="tab-pane fade" id="nav-announcement" role="tabpanel" aria-labelledby="nav-announcement-tab"><?php require('announcment_table.php'); ?></div>
 		</div>
 
-		
-
-			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-			<script src="sweetalert2.all.min.js"></script>
 	<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
 			<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 			<!-- Optional JavaScript -->

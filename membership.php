@@ -31,9 +31,11 @@ if(isset($_POST['register_btn'])){
 							</div>
 						<?php
     }else{
-      if($password==$passwordconfirm){           //Create User
+      if($password==$passwordconfirm){      
+							     //Create User
 							$password=sha1($password); //hash password before storing for security purposes
 							$passwordconfirm=sha1($passwordconfirm); //hash password before storing for security purposes
+							
         $sql="INSERT INTO users(email, password, passwordconfirm, firstname, surname, phone, date_of_birth)VALUES('$email','$password','$passwordconfirm','$firstname','$surname','$phone','$date_of_birth')";
 
         mysqli_query($conn,$sql);

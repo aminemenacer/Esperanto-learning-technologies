@@ -19,13 +19,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$email = $_POST['email'];
 		$date_of_birth = $_POST['date_of_birth'];
 		$phone = $_POST['phone'];
-		$password = $_POST['password'];
-		$passwordconfirm = $_POST['passwordconfirm'];
-		
-		$password=sha1($password); //hash password before storing for security purposes
-		$passwordconfirm=sha1($passwordconfirm); //hash password before storing for security purposes
+		$gender = $_POST['gender'];
 
-		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
+		
+
+		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', phone='$phone', gender='$gender' WHERE id='$id'";
 		$result = mysqli_query($conn, $query);
 
 		if($result){
@@ -126,20 +124,24 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $_SESSION['phone']; ?>">
 													</div>
 												</div>
-												
-												<div class="form-group row">
-													<label for="email" class="col-sm-4 col-form-label"><b>New password:</b></label>
+
+												<div class="form-group row" value="<?php echo $_SESSION['gender']; ?>">
+												<label for="name" class="col-4 col-form-label"><b>Gender:</b></label>
 													<div class="col-sm-4">
-														<input type="password" name="password" aria-label="password" class="form-control" placeholder="Password" value="<?php echo $_SESSION['password']; ?>">
+														<select class="form-control" name="gender" value="<?php echo $_SESSION['gender']; ?>">
+																<option>Select</option>
+																<option value="male">Male</option>
+																<option value="female">Female</option>
+														</select>
 													</div>
 												</div>
+												
 												<div class="form-group row">
-													<label for="email" class="col-sm-4 col-form-label"><b>Confirm new password:</b></label>
-													<div class="col-sm-4">
-														<input type="password" name="passwordconfirm" aria-label="passwordconfirm" class="form-control" placeholder="Confirm password" value="<?php echo $_SESSION['passwordconfirm']; ?>">
+													<div class="col-sm-4 mb-2">
+														<a class="font-weight-bold " href="user_edit_password.php" type="text">Edit password</a>
 													</div>
 												</div>
-												
+
 														<button type="submit" name="update" class="btn btn-primary" value="submit" class="form-group">Submit</button>
 														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>

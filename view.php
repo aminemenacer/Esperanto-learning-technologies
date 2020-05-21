@@ -85,6 +85,12 @@ if(!$conn){
 		                                  <p><?php echo $row['phone']; ?></p>
 		                                </div>
 		                              </div>
+																																<div class="form-group row">
+		                                <label for="email" class="col-4 col-form-label"><b>Gender:</b></label>
+		                                <div class="col-8">
+		                                  <p><?php echo $row['gender']; ?></p>
+		                                </div>
+		                              </div>
                                   <div class="form-group row">
 		                                <label for="email" class="col-4 col-form-label"><b>Date of birth:</b></label>
 		                                <div class="col-8">

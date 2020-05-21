@@ -18,8 +18,12 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 		$surname = $_POST['surname'];
 		$email = $_POST['email'];
 		$date_of_birth = $_POST['date_of_birth'];
+		$type = $_POST['type'];
+		$phone = $_POST['phone'];
+		$password = $_POST['password'];
+		$passwordconfirm = $_POST['passwordconfirm'];
 
-		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email' WHERE id='$id'";
+		$query = "UPDATE users SET firstname='$firstname', surname='$surname', email='$email', date_of_birth='$date_of_birth', type='$type', phone='$phone', password='$password', passwordconfirm='$passwordconfirm' WHERE id='$id'";
 		$result = mysqli_query($conn, $query);
 
 		if($result){
@@ -85,6 +89,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 														<p><?php echo $_SESSION['date_created']; ?></p>
 													</div>
 												</div>
+												
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Type:</b></label>
 													<div class="col-sm-4 col-md-4">
@@ -126,16 +131,17 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $_SESSION['phone']; ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label for="email" class="col-sm-4 col-md-4col-form-label"><b>New password:</b></label>
+													<label for="name" class="col-sm-4 col-md-4 col-form-label"><b>Type:</b></label>
 													<div class="col-sm-4 col-md-4">
-														<input type="password" name="password" aria-label="password1" class="form-control" placeholder="Password">
+														<input type="text" name="type" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $_SESSION['type']; ?>">
 													</div>
 												</div>
+
 												<div class="form-group row">
-													<label for="email" class="col-sm-4 col-md-4 col-form-label"><b>Confirm new password:</b></label>
-													<div class="col-sm-4 col-md-4">
-														<input type="password" name="password2" aria-label="password2" class="form-control" placeholder="Confirm password">
+													<div class="col-sm-4 mb-2">
+														<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>
 													</div>
 												</div>
 												

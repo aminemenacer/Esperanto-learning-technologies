@@ -89,13 +89,8 @@ if(!$conn){
 																					<div class="col-sm-8">
 																							<p><?php echo $_SESSION['date_created']; ?></p>
 																					</div>
-																			</div>
-																			<div class="form-group row">
-																					<label for="email" class="col-sm-4 col-form-label"><b>Type:</b></label>
-																					<div class="col-sm-8">
-																							<p><?php echo $_SESSION['type']; ?></p>
-																					</div>
-																			</div>													
+																			</div>																			
+																															
 
 																		<form action="admin_profile.php">
 																				<a href="admin_profile_edit.php" class="btn btn-primary" role="button" aria-pressed="true">Edit profile</a>

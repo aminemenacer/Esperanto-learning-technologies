@@ -91,10 +91,9 @@ if(!$conn){
 																					</div>
 																			</div>
 																			<div class="form-group row">
-																					<label for="email" class="col-sm-4 col-form-label"><b>Type:</b></label>
-																					<div class="col-sm-8">
-																							<p><?php echo $_SESSION['type']; ?></p>
-																					</div>
+																				<div class="col-sm-4 mb-2">
+																					<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>
+																				</div>
 																			</div>
 																		
 

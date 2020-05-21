@@ -122,12 +122,7 @@ a:hover {
 				$_SESSION['subject_title'] = $subject_title;
 				error_reporting(0); 
 
-				echo $open;
-
-				// if('open' == 0){
-				// 	echo 'closed';
-				// }
-
+				
 				$sql = "SELECT * FROM messages WHERE email='$email' ORDER BY date_created DESC LIMIT 0, 1000";				
 
 
@@ -148,7 +143,7 @@ a:hover {
 
    if($result = mysqli_query($conn, $sql)){
        if(mysqli_num_rows($result) > 0){
-
+				
     ?>
 				
       <br>

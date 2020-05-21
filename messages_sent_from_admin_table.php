@@ -117,8 +117,8 @@ a:hover {
 				<br>
       <div class="row">
 						<!------->
-							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding:5px">							
-									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" >							
+									<button type="button" class="btn btn-primary mb-1"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
 							</div>
 
 							<!------->
@@ -209,7 +209,6 @@ echo "</tr>";
          mysqli_free_result($result);
      } else{
 						?>
-							<button type="button" class="btn btn-primary mt-3"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button><br><br>
 						<?php
          echo "Reply messages empty.";
      }

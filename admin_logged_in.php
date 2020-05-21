@@ -43,6 +43,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<a class="nav-link" id="v-pills-content-tab" data-toggle="pill" href="#v-pills-content" role="tab" aria-controls="v-pills-content" aria-selected="true">Content</a>
 
+									<a class="nav-link" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab" aria-controls="v-pills-academic" aria-selected="true">Academic</a>
+
 
 									<a class="btn btn-outline-primary nav-link active"  href="logout.php" role="button">Logout</a>
 
@@ -61,7 +63,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>
 
-									<div class="tab-pane fade" id="v-pills-content" role="tabpanel" aria-labelledby="v-pills-content-tab"><?php require('content_table.php'); ?></div>
+									<div class="tab-pane fade" id="v-pills-content" role="tabpanel" aria-labelledby="v-pills-content-tab"><?php require('content_tabs.php'); ?></div>
+
+									<div class="tab-pane fade" id="v-pills-academic" role="tabpanel" aria-labelledby="v-pills-academic-tab">under development</div>
 
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 
