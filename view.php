@@ -38,6 +38,9 @@ if(!$conn){
 <!DOCTYPE html>
 <html>
 <head>
+</head>
+
+<body>
   <link rel="shortcut icon"  href="images/favicon.ico" />
 
 		<div class="container" style="padding: 20px">
@@ -125,16 +128,15 @@ if(!$conn){
 
     </div>
   </div>
-</head>
-</html>
+		<?php
+      include_once('C:\xampp\htdocs\esperanto\template\footer.php');
+    ?>
+		</body>
 
     </div>
+	</html>
 
-		<?php
-        include_once('C:\xampp\htdocs\esperanto\template\footer.php');
-      ?>
 
-</html>
 
 
 

@@ -102,12 +102,12 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 							<div class="card-body">
 
 							<div class="form-row">
-								<div class="form-group col-md-4 col-sm-4">									
+								<div class="form-group">									
 								<input type="hidden" class="form-control" name="sender_name" placeholder="Enter email here" value="<?php echo $row['email']; ?>">
 								</div>
 							</div>
 
-							<div class="form-row">
+							<div class="form-row ">
 								<label for="inputEmail4" class="col-md-2 mt-1 col-sm-2 font-weight-bold">Subject: RE</label>
 								<div class="form-group col-md-4 col-sm-4">									
 									<input type="text" class="form-control" name="subject_title" placeholder="Enter email here" value="<?php echo $row['subject_title']; ?>">

@@ -35,11 +35,11 @@ if(!$conn){
 
 		<div class="container">
 
-  <div class="row">
+  <div class="row ml-3" style="padding-left:15px">
 
-    <div class="col-sm-12">
+    <div class="col-sm-12" >
         <div class="card">
-            <div class="card-body">
+            <div class="card-body ">
                 <div class="row">
                     <div class="col-sm-12">
                         <h4>My Profile</h4>

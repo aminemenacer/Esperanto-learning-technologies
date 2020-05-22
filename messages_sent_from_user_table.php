@@ -92,6 +92,15 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 a:hover {
 }
 
+#cut{ 
+ width: 280px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
 </style>
 
 <?php
@@ -157,7 +166,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       </div>
 
       <?php								
-         echo "<table class='table table-striped table-responsive'>";
+         echo "<table class='table table-striped text-nowrap table-responsive'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
@@ -171,7 +180,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 																	echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
 																	echo "<td>" . $row['subject_title'] . "</td>";
-																	echo "<td>" . $row['messages'] . "</td>";
+																	echo "<td id='cut'>" . $row['messages'] . "</td>";
                  echo "<td>" . $row['date_created'] . "</td>";
               echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_user.php?id=".$row['id']."\">View</a></button>";

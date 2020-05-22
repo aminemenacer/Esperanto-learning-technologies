@@ -91,11 +91,6 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 </style>
 
-<?php
-//header("Location:protect.php");
-include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
-
- ?>
 
 <!doctype html>
 <html lang="en">
@@ -114,7 +109,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 
     <?php
-	
+	include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
+
     $sql = "SELECT id, email, firstname, surname, phone, date_of_birth, date_created, type from users";
 
     if(isset($_GET['id'])){
@@ -136,15 +132,15 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 
 				<br>
-				<div class="row">
+				<div class="row ml-3">
 
 							<!-- new button -->
-						<div class="col-sm-5 col-md-5 col-lg-5 col-xl-5">
+						<div class="col-sm-4 col-md-4">
 								<button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
 						</div>
 
 							<!-- total users -->
-						<div class="col-md-auto col-sm-auto col-lg-auto col-xl-auto">
+						<div class=" ml-3 col-sm-3 col-md-3">
 									<?php 
 
 										$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -162,7 +158,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 						<!-- search -->
 						<br>	
-						<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+						<div class="ml-3 col-md-4 col-sm-4">
 
 							<?php 
 								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -190,10 +186,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 							
       <?php								
-									echo "<table class='table table-striped ml-3 table-hover overflow-hidden'>";
+									echo "<table class='table table-striped table-responsive ml-5 table-hover overflow-hidden'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";
+														echo "<th>Surame</th>";
 														echo "<th>Email</th>";
 														echo "<th>Date of birth</th>";
 														echo "<th>Type</th>";
@@ -202,8 +199,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 										
          while($row = mysqli_fetch_array($result)){									
              echo "<tr>";
-                // echo "<td>" . $row['id'] . "</td>";
-                 echo "<td>" . $row['firstname'] . "</td>";
+																// echo "<td>" . $row['id'] . "</td>";                 
+																	echo "<td>" . $row['firstname'] . "</td>";
+																	echo "<td>" . $row['surname'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
 																	echo "<td>" . $row['date_of_birth'] . "</td>";
 																	echo "<td>" . $row['type'] . "</td>";		

@@ -23,7 +23,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 		<div class="ml-3 mr-3 mt-3" style="padding: 20px">
 
-      <div class="row ">
+      <div class="row">
 						
        <div class="col-sm-2">
          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -36,7 +36,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
            <a class="nav-link" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab" aria-controls="v-pills-academic" aria-selected="true">Academic</a>
 
-           <a class="btn btn-outline-primary" href="logout.php" role="button">Logout</a>
+           <a class="btn btn-outline-primary mt-3" href="logout.php" role="button">Logout</a>
 
          </div>
        </div>

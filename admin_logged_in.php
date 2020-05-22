@@ -38,20 +38,20 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									<a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
 
 									<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="true">Messages</a>
-
+<!--
 									<a class="nav-link" id="v-pills-feedback-tab" data-toggle="pill" href="#v-pills-feedback" role="tab" aria-controls="v-pills-feedback" aria-selected="true">Feedback</a>
 
 									<a class="nav-link" id="v-pills-content-tab" data-toggle="pill" href="#v-pills-content" role="tab" aria-controls="v-pills-content" aria-selected="true">Content</a>
 
 									<a class="nav-link" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab" aria-controls="v-pills-academic" aria-selected="true">Academic</a>
+-->
 
-
-									<a class="btn btn-outline-primary nav-link active"  href="logout.php" role="button">Logout</a>
+									<a class="btn btn-outline-primary nav-link active mt-3"  href="logout.php" role="button">Logout</a>
 
 							</div>
 					</div>
 
-					<div class="col-10">
+					<div class="col-9">
 
 							<div class="tab-content" id="v-pills-tabContent">
 
@@ -60,12 +60,6 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									<div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('admin_profile.php'); ?></div>
 
 									<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><?php require('message_tabs.php'); ?></div>
-
-									<div class="tab-pane fade" id="v-pills-feedback" role="tabpanel" aria-labelledby="v-pills-feedback-tab"><?php require('feedback_table.php'); ?></div>
-
-									<div class="tab-pane fade" id="v-pills-content" role="tabpanel" aria-labelledby="v-pills-content-tab"><?php require('content_tabs.php'); ?></div>
-
-									<div class="tab-pane fade" id="v-pills-academic" role="tabpanel" aria-labelledby="v-pills-academic-tab">under development</div>
 
 									<div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab"></div>
 

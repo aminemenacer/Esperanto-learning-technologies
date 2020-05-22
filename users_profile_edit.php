@@ -80,47 +80,47 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									<div class="col-sm-12">
 											<form method="POST" action="users_profile_edit.php">
 												<div class="form-group row">
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="hidden" name="id" aria-label="text" class="form-control" placeholder="ID" value="<?php echo $_SESSION['id'] ?>"/>
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Date:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<p><?php echo $_SESSION['date_created']; ?></p>
 													</div>
 												</div>										
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Firstname:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $_SESSION['firstname'] ?>"/>
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Surname:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo $_SESSION['surname'] ?>">
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Date of birth:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="date" name="date_of_birth" id="date_of_birth" aria-label="text"  placeholder="Date of birth" class="form-control" value="<?php echo $_SESSION['date_of_birth']; ?>">
 													</div>
 												</div>
 											
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Email:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
  														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>"/>
 													</div>
 												</div>
 											
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Phone:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $_SESSION['phone']; ?>">
 													</div>
 												</div>

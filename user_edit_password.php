@@ -74,21 +74,21 @@ if(isset($_POST['update'])){
 									<div class="col-sm-12">
 											<form method="POST" action="edit_password.php">
 												<div class="form-group row">
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="hidden" name="id" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $_SESSION['id'] ?>">
 													</div>
 												</div>
 
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>New password:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 															<input type="password" name="password" aria-label="text" class="form-control" placeholder="New password" >
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Confirm new password:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="password" name="passwordconfirm" aria-label="text" class="form-control" placeholder="Confirm new password" >
 													</div>
 												</div>

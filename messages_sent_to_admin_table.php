@@ -62,6 +62,13 @@ transition: all 0.12s linear 0s !important;
 font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.trunc{
+  width:250px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
 .col_e{
  background-color: blue;
  display: inline-block;
@@ -91,6 +98,16 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 a:hover {
 }
+
+#cut{ 
+ width: 280px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
 
 </style>
 
@@ -166,12 +183,12 @@ a:hover {
 
       <?php
 								
-         echo "<table class='table table-striped table-hover col-lg-12 col-xl-12'>";
+         echo "<table class='table table-striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12'> ";
              echo "<tr>";
                  echo "<th>Sender</th>";
-                 echo "<th>Reciever</th>";
+              //   echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-              //   echo "<th>Message</th>";
+                 echo "<th>Message</th>";
 																	echo "<th>Date</th>";
 																	echo "<th>Seen</th>";
 																	echo "<th>Actions</th>";
@@ -187,9 +204,9 @@ a:hover {
 					
             	 echo "<tr>";
 															echo "<td>" . $row['sender_name'] . "</td>";
-															echo "<td>" . $row['email'] . "</td>";
+												//			echo "<td>" . $row['email'] . "</td>";
 															echo "<td>" . $row['subject_title'] . "</td>";
-													//	 echo "<td>" . $row['messages'] . "</td>";
+														 echo "<td id='cut'>" . $row['messages'] . "</td>";
 															echo "<td>" . $row['date_created'] . "</td>";
 															echo "<td>" . $row['open'] . "</td>";
 														echo "<td>												

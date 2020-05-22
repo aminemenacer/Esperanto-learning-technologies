@@ -55,7 +55,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 								<label><b>Sender:</b></label>
 									<p><?php echo $row['sender_name']; ?></p>
 							</div>
-							<div class="col-sm-5 col-md-5 mt-1">
+							<div class="col-sm-6 col-md-6">
 								<label><b>Receiver:</b></label>
 								<p><?php echo $row['email']; ?></p>
 							</div>
@@ -67,7 +67,7 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 								<label><b>Subject:</b></label>
 									<p><?php echo $row['subject_title']; ?></p>
 							</div>
-							<div class="col-md-4 col-sm-4 mt-1">
+							<div class="col-sm-6 col-md-6">
 								<label><b>Date:</b></label>
 								<p><?php echo $row['date_created']; ?></p>
 							</div>
