@@ -135,12 +135,13 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 														</select>
 													</div>
 												</div>
-												
-												<div class="form-group row">
+
+												<div class="form-group row outline-primary">
 													<div class="col-sm-4 mb-2">
-														<a class="font-weight-bold " href="user_edit_password.php" type="text">Edit password</a>
+														<a class="hollow button" href="user_edit_password.php">Edit password</a>
 													</div>
 												</div>
+											
 
 														<button type="submit" name="update" class="btn btn-primary" value="submit" class="form-group">Submit</button>
 														<a href="user_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>

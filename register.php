@@ -74,15 +74,15 @@ if(isset($_POST['register_btn'])){
 
     <div class="container" >
 
-    <p class="h1 text-center" style="padding:30px" >Membership fees</p>
+    <p class="h1 text-center" style="padding:20px" >Membership fees</p>
     <div class="table-responsive">
-      <table class="table table-bordered table-responsive" style="padding:30px">
+      <table class="table table-bordered table-responsive" style="padding:20px">
         <thead style="text-align:center">
           <tr style="text-align:center">
             <th scope="col" style="text-align:center"><b>Number of children</b></th>
             <th scope="col" style="text-align:center"><b>Weekly attendance</b><p style="text-align:center">(Contributions per week)</p></th>
-            <th scope="col"><b>Monthly attendance</b><p style="text-align:center">(Contributions per month)</p></th>
-            <th scope="col"><b>Online attendance</b><p style="text-align:center">(Contributions per month)</p></th>
+            <th scope="col" style="text-align:center"><b>Monthly attendance</b><p style="text-align:center">(Contributions per month)</p></th>
+            <th scope="col" style="text-align:center"><b>Online attendance</b><p style="text-align:center">(Contributions per month)</p></th>
           </tr>
         </thead>
         <tbody>
@@ -127,6 +127,35 @@ if(isset($_POST['register_btn'])){
     </div>
 
 
+
+
+
+
+
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+		<!-- Compressed CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+		<!-- Compressed JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+				
+		<!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+
+		<!-- foundation-prototype.min.css: Compressed CSS with prototyping classes -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css" integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+
+		<!-- foundation-rtl.min.css: Compressed CSS with right-to-left reading direction -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-rtl.min.css" integrity="sha256-F+9Ns8Z/1ZISonBbojH743hsmF3x3AlQdJEeD8DhQsE=" crossorigin="anonymous">
+		<script>$('#element').foundation('_handleTabChange', $target, historyHandled);
+</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

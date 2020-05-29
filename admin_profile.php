@@ -30,10 +30,7 @@ if(!$conn){
 
 
 
-	<div class="container">
 
-
-		<div class="container">
 
   <div class="row ml-3" style="padding-left:15px">
 
@@ -105,10 +102,6 @@ if(!$conn){
 
             </div>
         </div>
-
-    </div>
-
-  </div>
 
     </div>
 

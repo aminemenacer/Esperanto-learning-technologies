@@ -78,7 +78,7 @@
   	?>
 
   <?php
-						echo "<table class='table table-striped table-responsive' id='table-size' ";
+						echo "<table class='table responsive-card-table striped table-responsive' id='table-size' ";
 
 							echo "<tr>";
 								echo "<th class='bg-primary text-light' style='text-align: center'>Num of children</th>";

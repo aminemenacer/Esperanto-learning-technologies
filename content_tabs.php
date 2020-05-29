@@ -22,6 +22,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 	</head>
 
 	<body style="overflow-x: hidden;">
+
+	
 	
 	<br>
 			<nav>

@@ -166,7 +166,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       </div>
 
       <?php								
-         echo "<table class='table table-striped text-nowrap table-responsive'>";
+         echo "<table class='table table striped table-responsive table-scroll table-striped text-nowrap table-responsive'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
@@ -235,5 +235,6 @@ $(document).ready(function() {
   </body>
 </html>
 
+</div>
+				</div>
 
-   </div>

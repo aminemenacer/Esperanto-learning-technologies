@@ -78,53 +78,53 @@ if(isset($_GET['id'])){
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Date:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<p><?php echo $_SESSION['date_created']; ?></p>
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="email" class="col-sm-4 col-form-label"><b>Type:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 													<input type="text" name="type" aria-label="text" class="form-control" placeholder="Type" value="<?php echo $query2['type']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Firstname:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 															<input type="text" name="firstname" aria-label="text" class="form-control" placeholder="Firstname" value="<?php echo $query2['firstname']; ?>">
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Surname:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="text" name="surname" aria-label="text" class="form-control" placeholder="Surname" value="<?php echo $query2['surname']; ?>">
 													</div>
 												</div>
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Date of birth:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="date" name="date_of_birth" id="date_of_birth" aria-label="text"  placeholder="Date of birth" class="form-control" value="<?php echo $query2['date_of_birth']?>">
 													</div>
 												</div>
 
 												<div class="form-group row">
 													<label for="email" class="col-4 col-form-label"><b>Email:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="text" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $query2['email']?>"/>
 													</div>
 												</div>
 
 												<div class="form-group row">
 													<label for="name" class="col-4 col-form-label"><b>Phone:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="text" name="phone" aria-label="Phone" class="form-control" placeholder="Phone" value="<?php echo $query2['phone']?>">
 													</div>
 												</div>
 
 												<div class="form-group row">
 												<label for="name" class="col-4 col-form-label"><b>Gender:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<select class="form-control" name="gender" required>
 																<option>Select</option>
 																<option value="male">Male</option>

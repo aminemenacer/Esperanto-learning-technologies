@@ -172,7 +172,7 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
       <?php
 								
-         echo "<table class='table table-striped table-responsive text-nowrap table-hover col-lg-12 col-xl-12'>";
+         echo "<table class='table striped table-responsive table-scroll text-nowrap table-hover col-lg-12 col-xl-12'>";
              echo "<tr>";
                  echo "<th>Sender</th>";
               //   echo "<th>Reciever</th>";
@@ -224,6 +224,32 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 		?>
 	
 
+
+
+
+	<script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+		<!-- Compressed CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+		<!-- Compressed JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+				
+		<!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+
+		<!-- foundation-prototype.min.css: Compressed CSS with prototyping classes -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css" integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+
+		<!-- foundation-rtl.min.css: Compressed CSS with right-to-left reading direction -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-rtl.min.css" integrity="sha256-F+9Ns8Z/1ZISonBbojH743hsmF3x3AlQdJEeD8DhQsE=" crossorigin="anonymous">
+		<script>$('#element').foundation('_handleTabChange', $target, historyHandled);
+</script>
 
 		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 		<script src="sweetalert2.all.min.js"></script>

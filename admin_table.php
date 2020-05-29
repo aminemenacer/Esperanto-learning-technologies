@@ -89,6 +89,11 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
  color: white;
 }
 
+body{
+	overflow: auto;
+	overflow-x: auto;
+}
+
 </style>
 
 
@@ -105,7 +110,7 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
     <title>Esperanto</title>
   </head>
-  <body style="overflow-x: hidden;">
+  <body>
 
 
     <?php
@@ -136,7 +141,7 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 							<!-- new button -->
 						<div class="col-sm-4 col-md-4">
-								<button type="button" class="btn btn-primary ml-3"><a class='abtn' href="admin_add_user.php">Add new user</a></button>
+								<button type="button" class="btn btn-primary "><a class='abtn' href="admin_add_user.php">Add new user</a></button>
 						</div>
 
 							<!-- total users -->
@@ -186,7 +191,7 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 							
       <?php								
-									echo "<table class='table table-striped table-responsive ml-5 table-hover overflow-hidden'>";
+									echo "<table class='table responsive-card-table striped table-hover ml-3 overflow-hidden'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";
@@ -227,9 +232,10 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 					} else{
 									echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
 					}
+
 							?>
 
-
+						
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

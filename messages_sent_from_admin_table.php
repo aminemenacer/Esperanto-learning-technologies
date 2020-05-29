@@ -140,8 +140,8 @@ a:hover {
 									echo 'Connection error: '. mysqli_connect_error();
 									}
 
-									if(isset($_POST['searchqqq'])){
-										$searchKey = $_POST['searchqqq'];
+									if(isset($_POST['s'])){
+										$searchKey = $_POST['s'];
 										$sql = "SELECT * FROM messages WHERE email LIKE '%$searchKey%'";
 									}else
 										$sql = "SELECT * FROM messages";
@@ -149,7 +149,7 @@ a:hover {
 								?>
 
 									<form method="POST">
-										<input class="form-control" name="searchqqq" type="text" placeholder="Search" aria-label="Search">
+										<input class="form-control" name="s" type="text" placeholder="Search" aria-label="Search">
 									</form>		
 
 							</div>
@@ -187,7 +187,7 @@ a:hover {
   
       <?php
 								
-         echo "<table class='table table-striped table-responsive text-nowrap col-lg-12 col-xl-12'>";
+         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12'>";
              echo "<tr>";
              //    echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";

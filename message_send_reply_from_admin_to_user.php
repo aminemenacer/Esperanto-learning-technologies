@@ -131,11 +131,11 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 						<div class="card-header"><b>Original message</b></div>
 							<div class="ml-4 mt-3 mb-3">
-								<h6 class="">Email from: <?php echo $row['sender_name']; ?><br></h6>
-								<h6 class="">Email to: <?php echo $row['email']; ?><br></h6>
-								<h6 class="">Subject: <?php echo $row['subject_title']; ?><br></h6>
-								<h6 class="">Message: <?php echo $row['messages']; ?><br></h6>
-								<h6 class="">Date: <?php echo $row['date_created']; ?><br></h6>
+								<h6 class="font-weight-normal"><b>Email from:</b> <?php  echo $row['sender_name']; ?><br></h6>
+								<h6 class="font-weight-normal"><b>Email to:</b> <?php echo $row['email']; ?><br></h6>
+								<h6 class="font-weight-normal"><b>Subject:</b> <?php echo $row['subject_title']; ?><br></h6>
+								<h6 class="font-weight-normal"><b>Message:</b> <?php echo $row['messages']; ?><br></h6>
+								<h6 class="font-weight-normal"><b>Date:</b> <?php echo $row['date_created']; ?><br></h6>
 							</div>						
 						</div>
 

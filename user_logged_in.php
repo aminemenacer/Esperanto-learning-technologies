@@ -19,8 +19,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
     <title>Esperanto</title>
   </head>
-  <body style="overflow-x: hidden;">
 
+
+  <body style="overflow-x: hidden;">
+  </body>
+  <!--
 		<div class="ml-3 mr-3 mt-3" style="padding: 20px">
 
       <div class="row">
@@ -44,9 +47,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
        <div class="col-sm-9">
          <div class="tab-content" id="v-pills-tabContent">
 
-           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><?php require('profile.php'); ?></div>
+           <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>
 
-           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"><?php require('user_message_tabs.php'); ?></div>
+           <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"></div>
 
            <div class="tab-pane fade" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-payment-tab"><p3>Under development</p3></div>
 
@@ -56,10 +59,52 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
        </div>
 					</div>
     </div>
+    -->
 
-    <?php
-      include_once('C:\xampp\htdocs\esperanto\template\footer.php');
-    ?>
+  <div class="grid-x mt-3 mb-3 ml-3 mr-3">
+    <div class="cell medium-2">
+      <ul class="vertical tabs" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1v"><b>Profile</b></a></li>
+        <li class="tabs-title"><a href="#panel2v"><b>Messages</b></a></li>
+								<li class="tabs-title"><a href="#panel6v"><b>Academic</b></a></li> 
+								<li class="tabs-title"><a href="#panel7v"><b>Payment</b></a></li>      
+      </ul>
+						<ul class="vertical tabs" data-tabs id="example-tabs">
+							<li class="tabs-title"><a href="logout.php">Logout</a></li>
+						</ul>
+						
+    </div>
+    <div class="cell medium-10 ">
+      <div class="tabs-content vertical"  data-tabs-content="example-tabs">
+
+        <div class="tabs-panel is-active" id="panel1v">
+										<p><?php require('profile.php'); ?></p>
+        </div>
+
+								<div class="tabs-panel" id="panel2v">
+										<p><?php require('user_message_tabs.php'); ?></p>
+        </div>
+
+								<div class="tabs-panel" id="panel6v">
+										Under development
+        </div>
+
+								<div class="tabs-panel" id="panel7v">
+								Under development
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+		<?php
+				include_once('C:\xampp\htdocs\esperanto\template\footer.php');
+		?>
+
+
+    
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -67,4 +112,33 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
+
+  <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      $(document).foundation('tab', 'reflow');
+    </script>
+    <script type="text/javascript"> $(function(){ $(document).foundation() }); </script>
+
+
+		<!-- Compressed CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+		<!-- Compressed JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+				
+		<!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+
+		<!-- foundation-prototype.min.css: Compressed CSS with prototyping classes -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css" integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+
+		<!-- foundation-rtl.min.css: Compressed CSS with right-to-left reading direction -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-rtl.min.css" integrity="sha256-F+9Ns8Z/1ZISonBbojH743hsmF3x3AlQdJEeD8DhQsE=" crossorigin="anonymous">
+		<script>
+      $('#element').foundation('_handleTabChange', $target, historyHandled);
+    </script>
 </html>
+</div>

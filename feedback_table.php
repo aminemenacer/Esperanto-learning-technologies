@@ -1,3 +1,115 @@
+<style type="text/css">
+table {
+}
+
+th {
+
+  text-align: center;
+  background-color: #1D65EC;
+  color: white;
+}
+
+table, th, td, tr {
+
+  margin-top: 30px
+}
+
+.col_d{
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_v{
+ background-color: green;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_e{
+ background-color: blue;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.abtn{
+ color: white;
+}
+
+body{
+	overflow: hidden;
+	overflow-x: hidden;
+}
+
+
+.item {
+    display:inline-block;
+    width:150px;
+    height:150px;
+    text-align:center;
+    line-height:150px;
+}
+
+.scroll{
+	data-smooth-scroll;
+}
+
+</style>
+
+
+
+
 <?php
 	//	session_start();
   $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -43,8 +155,8 @@
 		</head>
 </html>
 
-	<body>
-				<div id="scrollmenu" >
+	<body class="scroll">
+				<div id="columns data-smooth-scroll" >
 
 									<?php
 
@@ -75,9 +187,9 @@
 									?>
 
 								<?php
-												echo "<table class='table table-striped' id='table-size' ";
+												echo "<table class='table responsive-card-table striped columns column data-smooth-scroll' id='table-size' ";
 
-													echo "<tr>";
+													echo "<tr class='columns data-smooth-scroll'>";
 														echo "<th class='bg-primary text-light' style='text-align: center'>Full name</th>";
 														echo "<th class='bg-primary text-light' style='text-align: center'>Email</th>";
 														echo "<th class='bg-primary text-light' style='text-align: center'>Feedback</th>";

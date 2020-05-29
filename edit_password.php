@@ -81,20 +81,20 @@ if(isset($_POST['update'])){
 
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>New password:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 															<input type="password" name="password" aria-label="text" class="form-control" placeholder="New password" >
 													</div>
 												</div>
 												
 												<div class="form-group row">
 													<label for="name" class="col-sm-4 col-form-label"><b>Confirm new password:</b></label>
-													<div class="col-sm-4">
+													<div class="col-sm-6">
 														<input type="password" name="passwordconfirm" aria-label="text" class="form-control" placeholder="Confirm new password" >
 													</div>
 												</div>
 												
 														<button type="submit" name="update" class="btn btn-primary">Update</button>
-														<a href="edit.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
+														<a href="admin_profile_edit.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
 												</form>
 							</div>
 
