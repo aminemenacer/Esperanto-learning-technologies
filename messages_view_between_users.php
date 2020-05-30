@@ -85,9 +85,9 @@ $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
 
 				</card>
 						
-					<div class="form-group btn pull-left">
+					<div class="form-group btn pull-left" data-deep-link="true" data-tabs id="example-tabs">
 							<form action="messages_view_between_users.php">
-									<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true">Back</a>
+									<a href="#panel2"><a href="admin_logged_in.php" class="btn btn-primary" id="panel2" role="button" aria-pressed="true">Back</a></a>
 							</form>	
 						</div>
 					</div>

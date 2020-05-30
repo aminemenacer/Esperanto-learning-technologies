@@ -152,7 +152,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 												</div>
 												
 													<button type="submit" name="update" class="btn btn-primary" value="Update Data" class="form-group">Submit</button>
-													<a href="admin_logged_in.php" class="btn btn-primary" role="button" aria-pressed="true" name="btn-update">Back</a>
+													<a href="admin_logged_in.php" class="btn btn-primary" data-tabs-content="deeplinked-tabs" id="panel2v" role="button" aria-pressed="true" name="btn-update">Back</a>
 													
 										</form>
 							</div>

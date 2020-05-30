@@ -191,7 +191,7 @@ body{
 
 							
       <?php								
-									echo "<table class='table responsive-card-table striped table-hover ml-3 overflow-hidden'>";
+									echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";

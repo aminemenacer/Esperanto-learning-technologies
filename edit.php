@@ -133,9 +133,9 @@ if(isset($_GET['id'])){
 													</div>
 												</div>
 
-												<div class="form-group row">
+												<div class="form-group row outline-primary">
 													<div class="col-sm-4 mb-2">
-														<a class="font-weight-bold " href="edit_password.php" type="text">Edit password</a>
+														<a class="hollow button" href="edit_password.php">Edit password</a>
 													</div>
 												</div>
 												

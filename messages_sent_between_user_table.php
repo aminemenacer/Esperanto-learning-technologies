@@ -165,8 +165,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 									}
 
 									if(isset($_POST['s'])){
-										$searchKey = $_POST['s'];
-										$sql = "SELECT * FROM messages WHERE email LIKE '%$searchKey%'";
+                    $searchKey = $_POST['s'];
+										$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%'";
 									}else
 										$sql = "SELECT * FROM messages";
 										$result = mysqli_query($conn,$sql);							

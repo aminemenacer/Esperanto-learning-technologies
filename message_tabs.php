@@ -22,12 +22,13 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 	</head>
 	<body style="overflow-x: hidden;">
 	
-	<ul class="tabs" data-tabs id="example-tabs">
-  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Inbox messages</a></li>
-  <li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Sent messages</a></li>
-		<li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">All messages</a></li>
-
-</ul> 
+	<div style="text-align: left">
+		<ul class="tabs" data-tabs id="example-tabs" data-deep-link="true" style="text-align: left">
+			<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Inbox messages</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Sent messages</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">All messages</a></li>
+		</ul> 
+	</div>
 
 <div class="tabs-content" data-tabs-content="example-tabs">
   <div class="tabs-panel is-active" id="panel1">

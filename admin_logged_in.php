@@ -1,3 +1,4 @@
+
 <?php
 //include_once('C:\xampp\htdocs\esperanto\template\header.php');
 session_start();
@@ -25,36 +26,23 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
   </body>
   <!--
 		<div class="ml-3 mr-3 mt-3" style="padding: 20px">
-
       <div class="row">
 						
        <div class="col-sm-2">
          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-
            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
-
            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="true">Messages</a>
-
            <a class="nav-link" id="v-pills-payment-tab" data-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-payment" aria-selected="true">Payment</a>
-
            <a class="nav-link" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab" aria-controls="v-pills-academic" aria-selected="true">Academic</a>
-
            <a class="btn btn-outline-primary mt-3" href="logout.php" role="button">Logout</a>
-
          </div>
        </div>
-
        <div class="col-sm-9">
          <div class="tab-content" id="v-pills-tabContent">
-
            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>
-
            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"></div>
-
            <div class="tab-pane fade" id="v-pills-payment" role="tabpanel" aria-labelledby="v-pills-payment-tab"><p3>Under development</p3></div>
-
            <div class="tab-pane fade" id="v-pills-academic" role="tabpanel" aria-labelledby="v-pills-academic-tab"><p3>Under development</p3></div>
-
          </div>
        </div>
 					</div>
@@ -63,8 +51,8 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
   <div class="grid-x mt-3 mb-3 ml-3 mr-3">
     <div class="cell medium-2">
-      <ul class="vertical tabs" data-tabs id="example-tabs">
-        <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true"><b>Users</b></a></li>
+      <ul class="vertical tabs" data-deep-link="true" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1v" ><b>Users</b></a></li>
         <li class="tabs-title"><a href="#panel2v"><b>Profile</b></a></li>
         <li class="tabs-title"><a href="#panel3v"><b>Messages</b></a></li>
         <li class="tabs-title"><a href="#panel4v"><b>Feedback</b></a></li>
@@ -72,15 +60,16 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 								<li class="tabs-title"><a href="#panel6v"><b>Academic</b></a></li> 
 								<li class="tabs-title"><a href="#panel7v"><b>Payment</b></a></li>      
       </ul>
-						<ul class="vertical tabs" data-tabs id="example-tabs">
-							<li class="tabs-title"><a href="logout.php">Logout</a></li>
-						</ul>
-						
-    </div>
-    <div class="cell medium-10 ">
-      <div class="tabs-content vertical"  data-tabs-content="example-tabs">
 
-        <div class="tabs-panel is-active" style="overflow-x:scroll;" id="panel1v">
+						<ul class="vertical tabs" data-tabs id="example-tabs">
+							<li class="tabs-title"><a href="logout.php"><b>Logout</b></a></li>
+						</ul>					
+    </div>
+
+    <div class="cell medium-10">
+      <div class="tabs-content vertical" data-tabs-content="example-tabs">
+
+        <div class="tabs-panel is-active" id="panel1v">
 										<p><?php require('admin_table.php'); ?></p>
         </div>
 
@@ -92,14 +81,13 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 										<p><?php require('feedback_table.php'); ?></p>
         </div>
 								
-        <div class="tabs-panel" id="panel3v">
+        <div class="tabs-panel" id="panel3v" style="text-align: left">
         		<p><?php require('message_tabs.php'); ?></p>
         </div>
         
         <div class="tabs-panel" id="panel5v">
 										<p><?php require('content_tabs.php'); ?></p>
         </div>
-
 
 								<div class="tabs-panel" id="panel6v">
 										Under development
@@ -111,6 +99,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
       </div>
     </div>
+
   </div>
 
 

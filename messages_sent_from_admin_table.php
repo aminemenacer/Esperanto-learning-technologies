@@ -140,8 +140,8 @@ a:hover {
 									echo 'Connection error: '. mysqli_connect_error();
 									}
 
-									if(isset($_POST['s'])){
-										$searchKey = $_POST['s'];
+									if(isset($_POST['se'])){
+										$searchKey = $_POST['se'];
 										$sql = "SELECT * FROM messages WHERE email LIKE '%$searchKey%'";
 									}else
 										$sql = "SELECT * FROM messages";
@@ -149,7 +149,7 @@ a:hover {
 								?>
 
 									<form method="POST">
-										<input class="form-control" name="s" type="text" placeholder="Search" aria-label="Search">
+										<input class="form-control" name="se" type="text" placeholder="Search" aria-label="Search">
 									</form>		
 
 							</div>

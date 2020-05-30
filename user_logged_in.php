@@ -63,11 +63,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
   <div class="grid-x mt-3 mb-3 ml-3 mr-3">
     <div class="cell medium-2">
-      <ul class="vertical tabs" data-tabs id="example-tabs">
+      <ul class="vertical tabs" data-deep-link="true" data-tabs id="example-tabs">
         <li class="tabs-title is-active"><a href="#panel1v"><b>Profile</b></a></li>
         <li class="tabs-title"><a href="#panel2v"><b>Messages</b></a></li>
-								<li class="tabs-title"><a href="#panel6v"><b>Academic</b></a></li> 
-								<li class="tabs-title"><a href="#panel7v"><b>Payment</b></a></li>      
+								<li class="tabs-title"><a href="#panel3v"><b>Academic</b></a></li> 
+								<li class="tabs-title"><a href="#panel4v"><b>Payment</b></a></li>      
       </ul>
 						<ul class="vertical tabs" data-tabs id="example-tabs">
 							<li class="tabs-title"><a href="logout.php">Logout</a></li>
@@ -75,7 +75,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 						
     </div>
     <div class="cell medium-10 ">
-      <div class="tabs-content vertical"  data-tabs-content="example-tabs">
+      <div class="tabs-content vertical" data-deep-link="true" data-tabs id="example-tabs" data-tabs-content="example-tabs">
 
         <div class="tabs-panel is-active" id="panel1v">
 										<p><?php require('profile.php'); ?></p>
@@ -85,11 +85,11 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 										<p><?php require('user_message_tabs.php'); ?></p>
         </div>
 
-								<div class="tabs-panel" id="panel6v">
+								<div class="tabs-panel" id="panel3v">
 										Under development
         </div>
 
-								<div class="tabs-panel" id="panel7v">
+								<div class="tabs-panel" id="panel4v">
 								Under development
         </div>
 

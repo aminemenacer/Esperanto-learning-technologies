@@ -187,7 +187,7 @@ body{
 									?>
 
 								<?php
-												echo "<table class='table responsive-card-table striped columns column data-smooth-scroll' id='table-size' ";
+												echo "<table class='table responsive-card-table striped table-responsive table-hover' ";
 
 													echo "<tr class='columns data-smooth-scroll'>";
 														echo "<th class='bg-primary text-light' style='text-align: center'>Full name</th>";
