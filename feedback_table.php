@@ -105,13 +105,15 @@ body{
 	data-smooth-scroll;
 }
 
-#cut{ 
- width: 280px;
-	white-space: nowrap;
-	overflow: hidden;
-	display: inline-block;
-	text-overflow: ellipsis;
-	margin: 0;
+#cut{
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 20px;
+  padding-right: 1rem; /* space for ellipsis */
+		overflow-y: hidden;
+		overflow-x: hidden;
 }
 
 </style>
@@ -194,18 +196,10 @@ body{
 																if(mysqli_num_rows($result) > 0){
 
 									?>
-
-
-
-
-
-
-
-
-									
+		
 
 <?php								
-									echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12'>";
+									echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12  overflow-x: hidden;'>";
              echo "<tr>";
 													// echo "<th>id</th>";
 														echo "<th>Firstame</th>";
@@ -219,12 +213,12 @@ body{
 																// echo "<td>" . $row['id'] . "</td>";                 
 																	echo "<td>" . $row['firstname'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
-																	echo "<td>" . $row['feedback'] . "</td>";
+																	echo "<td id='cut' style='width:350px'>" . $row['feedback'] . "</td>";
 																	echo "<td>" . $row['date_created'] . "</td>";
 
               echo "<td>
                  <button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"feedback_view.php?id=".$row['id']."\">View</a></button>
-																	<button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"mailto:?edit_id=".$row['id']."\">Edit</a></button>																
+																	<button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"mailto:?edit_id=".$row['id']."\">Reply</a></button>																
                 ";
 
                ?>

@@ -92,14 +92,17 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 a:hover {
 }
 
-#cut{ 
- width: 180px;
-	white-space: nowrap;
-	overflow: hidden;
-	display: inline-block;
-	text-overflow: ellipsis;
-	margin: 0;
+#cut{
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 20px;
+  padding-right: 1rem; /* space for ellipsis */
+		overflow-y: hidden;
+		overflow-x: hidden;
 }
+
 </style>
 
 <?php
@@ -172,7 +175,7 @@ a:hover {
   
       <?php
 								
-         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12'>";
+         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12 overflow-y:hidden'>";
              echo "<tr>";
              //    echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
@@ -186,7 +189,7 @@ a:hover {
 												//					echo "<td>" . $row['sender_name'] . "</td>";
 																	echo "<td>" . $row['email'] . "</td>";
 																	echo "<td>" . $row['subject_title'] . "</td>";
-																	echo "<td id='cut'>" . $row['messages'] . "</td>";
+																	echo "<td id='cut' style='width:350px'>" . $row['messages'] . "</td>";
                  echo "<td>" . $row['date_created'] . "</td>";
               echo "<td>
                  <button style='background-color:#5AE339'  class='col_v'><a class='abtn' href=\"messages_view_sent_from_admin.php?id=".$row['id']."\">View</a></button>";

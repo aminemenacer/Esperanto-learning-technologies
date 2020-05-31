@@ -135,7 +135,7 @@ body{
 
 
 				<br>
-				<div class="row ml-3">
+				<div class="row ">
 
 							<!-- new button -->
 						<div class="col-sm-4 col-md-4">
@@ -161,7 +161,7 @@ body{
 
 						<!-- search -->
 						<br>	
-						<div class="ml-3 col-md-4 col-sm-4">
+						<div class=" col-md-4 col-sm-4">
 
 							<?php 
 								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -175,7 +175,8 @@ body{
 										$sql = "SELECT * FROM users WHERE firstname LIKE '%$searchKey%'";
 									}else
 										$sql = "SELECT * FROM users";
-										$result = mysqli_query($conn,$sql);							
+										$result = mysqli_query($conn,$sql);				
+									
 								?>
 
 									<form method="POST" >

@@ -92,14 +92,17 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 a:hover {
 }
 
-#cut{ 
- width: 180px;
-	white-space: nowrap;
-	overflow: hidden;
-	display: inline-block;
-	text-overflow: ellipsis;
-	margin: 0;
+#cut{
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 20px;
+  padding-right: 1rem; /* space for ellipsis */
+		overflow-y: hidden;
+		overflow-x: hidden;
 }
+
 
 </style>
 		
@@ -155,23 +158,9 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 						</div>
 
         <div class="col-sm-6">
-          <form action="messages_sent_between_user_table.php" method="post" class="form-inline md-form mr-auto">
+          <form  method="post" class="form-inline md-form mr-auto">
             <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
-												
-												<?php 
-														$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
-
-														if(!$conn){
-															echo 'Connection error: '. mysqli_connect_error();
-															}
-
-															if(isset($_POST['s'])){
-																										$searchKey = $_POST['s'];
-																$sql = "SELECT * FROM messages WHERE sender_name LIKE '%$searchKey%'";
-															}else
-																$sql = "SELECT * FROM messages";
-																$result = mysqli_query($conn,$sql);							
-												?>
+	
           </form>
         </div>
 
@@ -186,7 +175,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                  echo "<th>Sender</th>";
                  echo "<th>Reciever</th>";
                  echo "<th>Subject</th>";
-																 echo "<th>Message</th>";
+																 echo "<th >Message</th>";
 																	echo "<th>Date</th>";
 																	echo "<th>Seen</th>";
                  echo "<th>Actions</th>";
@@ -194,10 +183,10 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
          while($row = mysqli_fetch_array($result)){
              echo "<tr>";
-																	echo "<td>" . $row['sender_name'] . "</td>";
-																	echo "<td>" . $row['email'] . "</td>";
+																	echo "<td style='width:200px'>" . $row['sender_name'] . "</td>";
+																	echo "<td style='width:200px'>" . $row['email'] . "</td>";
                  echo "<td>" . $row['subject_title'] . "</td>";
-                 echo "<td id='cut'>" . $row['messages'] . "</td>";
+                 echo "<td id='cut' style='width:200px'>" . $row['messages'] . "</td>";
 																	echo "<td>" . $row['date_created'] . "</td>";
 																	echo "<td>" . $row['open'] . "</td>";
 	            echo "<td>

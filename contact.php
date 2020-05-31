@@ -69,7 +69,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
                <textarea name="feedback" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
              </div>
 
-             <button type="submit" name="contact_btn" class="btn btn-primary" style="margin-bottom: 10px">Submit</button>
+             <button type="submit" name="contact_btn" class="btn btn-primary mb-5" style="margin-bottom: 10px">Submit</button>
              </form>
         </div>
         <div class="col-1">

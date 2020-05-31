@@ -81,18 +81,21 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 										<p><?php require('profile.php'); ?></p>
         </div>
 
-								<div class="tabs-panel" id="panel2v">
-										<p><?php require('user_message_tabs.php'); ?></p>
-        </div>
-
 								<div class="tabs-panel" id="panel3v">
 										Under development
         </div>
 
 								<div class="tabs-panel" id="panel4v">
-								Under development
+										Under development
         </div>
 
+								<div class="tabs-panel" id="panel2v">
+										<p><?php require('user_message_tabs.php'); ?></p>
+        </div>
+
+							
+
+								
       </div>
     </div>
   </div>

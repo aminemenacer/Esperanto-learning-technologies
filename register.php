@@ -74,9 +74,9 @@ if(isset($_POST['register_btn'])){
 
     <div class="container" >
 
-    <p class="h1 text-center" style="padding:20px" >Membership fees</p>
+    <p class="h1 text-center" style="padding:30px" >Membership fees</p>
     <div class="table-responsive">
-      <table class="table table-bordered table-responsive" style="padding:20px">
+      <table class="table table-bordered table-responsive" style="padding:30px">
         <thead style="text-align:center">
           <tr style="text-align:center">
             <th scope="col" style="text-align:center"><b>Number of children</b></th>

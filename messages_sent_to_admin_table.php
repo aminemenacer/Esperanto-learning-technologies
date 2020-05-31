@@ -172,7 +172,11 @@ a:hover {
 
         <div class="col-sm-6">
           <form action="" method="post" class="form-inline md-form mr-auto">
-            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+
+
+									<form method="POST" >
+										<input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+									</form>	
 												
 												
           </form>
@@ -205,11 +209,10 @@ a:hover {
 															echo "<td>" . $row['sender_name'] . "</td>";
 												//			echo "<td>" . $row['email'] . "</td>";
 															echo "<td>" . $row['subject_title'] . "</td>";
-														 echo "<td id='cut'>" . $row['messages'] . "</td>";
+														 echo "<td style='width:350px' >" . $row['messages'] . "</td>";
 															echo "<td>" . $row['date_created'] . "</td>";
 															echo "<td>" . $row['open'] . "</td>";
 														echo "<td>												
-
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"messages_view_from_admin_to_user.php?id=".$row['id']."\">View</a></button>                
                  <button style='background-color:#2D62F5' class='col_d'><a class='abtn' href=\"message_send_reply_from_admin_to_user.php?id=".$row['id']."\">Reply</a></button>               
 																	";

@@ -55,7 +55,7 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
         <li class="tabs-title"><a href="#panel2v"><b>Profile</b></a></li>
         <li class="tabs-title"><a href="#panel3v"><b>Messages</b></a></li>
         <li class="tabs-title"><a href="#panel4v"><b>Feedback</b></a></li>
-        <li class="tabs-title"><a href="#panel5v"><b>Content</b></a></li> 
+        <li class="tabs-title"><a href="#panelv"><b>Content</b></a></li> 
       </ul>
 
 						<ul class="vertical tabs" data-tabs id="example-tabs">
@@ -67,31 +67,31 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       <div class="tabs-content vertical" data-tabs-content="example-tabs">
 
 							<div class="tabs-panel is-active" id="panel1v">
-								<form method="get" action="admin_logged_in.php">
+								<form method="post" action="admin_logged_in.php">
 										<?php include('admin_table.php'); ?>
 								</form>
 							</div>
 
 							<div class="tabs-panel" id="panel2v">
-								<form method="get" action="admin_logged_in.php">
+								<form method="post" action="admin_logged_in.php">
 										<?php include('admin_profile.php'); ?>
 								</form>
 							</div>
 
 							<div class="tabs-panel" id="panel4v">
-								<form method="get" action="admin_logged_in.php">
+								<form method="post" action="admin_logged_in.php">
 										<?php include('feedback_table.php'); ?>
 								</form>
 							</div>
 								
    				<div class="tabs-panel" id="panel3v" >
-								<form method="get" action="admin_logged_in.php">
+								<form method="post" action="admin_logged_in.php">
 										<?php include('message_tabs.php'); ?>
 								</form>
 							</div>
 
-        <div class="tabs-panel" id="panel5v">
-									<form method="get" action="admin_logged_in.php">
+        <div class="tabs-panel" id="panelv">
+									<form method="post" action="admin_logged_in.php">
 										<?php include('content_tabs.php'); ?>
 									</form>
         </div>
