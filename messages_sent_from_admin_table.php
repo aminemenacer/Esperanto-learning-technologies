@@ -93,14 +93,13 @@ a:hover {
 }
 
 #cut{ 
- width: 280px;
+ width: 180px;
 	white-space: nowrap;
 	overflow: hidden;
 	display: inline-block;
 	text-overflow: ellipsis;
 	margin: 0;
 }
-
 </style>
 
 <?php
@@ -125,34 +124,20 @@ a:hover {
 
 				<br>
       <div class="row">
-						<!------->
-							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" >							
-									<button type="button" class="btn btn-primary mb-1"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
-							</div>
 
-							<!------->
-							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+						<div class="col-sm-6">
+								<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
+						</div>
 
-							<?php 
-								$conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
+        <div class="col-sm-6">
+          <form action="" method="post" class="form-inline md-form mr-auto">
+            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+												
+												
+          </form>
+        </div>
 
-								if(!$conn){
-									echo 'Connection error: '. mysqli_connect_error();
-									}
-
-									if(isset($_POST['se'])){
-										$searchKey = $_POST['se'];
-										$sql = "SELECT * FROM messages WHERE email LIKE '%$searchKey%'";
-									}else
-										$sql = "SELECT * FROM messages";
-										$result = mysqli_query($conn,$sql);							
-								?>
-
-									<form method="POST">
-										<input class="form-control" name="se" type="text" placeholder="Search" aria-label="Search">
-									</form>		
-
-							</div>
+				
       </div>
 
 		<?php 

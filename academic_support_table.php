@@ -95,11 +95,12 @@ body{
 }
 
 #cut{
-	overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 50rem;
+  padding-right: 1rem; /* space for ellipsis */
 }
 
 </style>
@@ -177,37 +178,24 @@ display: -webkit-box;
 										if(mysqli_num_rows($result) > 0){
 
   	?>
-<!--
-									<div class="row">
-        <div class="col-5">
-          <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_announcement.php">Add Academic support text</a></button>
-        </div>
 
-        <div class="col-7">
-          <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
-            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" name="query" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
--->
 
   <?php
 
-         echo "<table class='table table-striped table-responsive' ";
+         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
 
              echo "<tr>";
-              echo "<th class='bg-primary text-light text-center' width='50px'>Title</th>";
-           	  echo "<th class='bg-primary text-light' width='500px'>Description</th>";
-														echo "<th class='bg-primary text-light text-center' width='50px'>Actions</th>";
+              echo "<th class='bg-primary text-light text-center'>Title</th>";
+           	  echo "<th class='bg-primary text-light'>Description</th>";
+														echo "<th class='bg-primary text-light text-center'>Actions</th>";
 
              echo "</tr>";
 
          while($row = mysqli_fetch_array($result)){
-                 echo "<td style='text-align: center' width='50px'>" . $row['academic_title'] . "</td>";
+                 echo "<td style='text-align: center'>" . $row['academic_title'] . "</td>";
                  echo "<td id='cut' style='text-align: center' >" . $row['academic_desc'] . "</td>";
-														echo "
-														<td style='text-align: center' width='50px'>
+														echo"
+														<td style='text-align: center'>
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"academic_support_view.php?id=".$row['id']."\">View</a></button>
 																	<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"academic_support_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
                ?>

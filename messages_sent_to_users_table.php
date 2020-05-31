@@ -151,23 +151,22 @@ font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
 				
     ?>
 				
-      <br>
+				<br>
       <div class="row">
-						<!------->
-							<div class="col-sm-6 col-md-6 " style="padding:5px">							
-									<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
-							</div>
 
-							<!------->
-							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+						<div class="col-sm-6">
+								<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
+						</div>
 
-	
+        <div class="col-sm-6">
+          <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
+            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+												
+												
+          </form>
+        </div>
 
-									<form method="POST"">
-										<input class="form-control" name="searchqqqq" type="text" placeholder="Search" aria-label="Search">
-									</form>		
-
-							</div>
+				
       </div>
 
       <?php

@@ -1,3 +1,113 @@
+
+
+<style type="text/css">
+table {
+}
+
+th {
+
+  text-align: center;
+  background-color: #1D65EC;
+  color: white;
+}
+
+table, th, td, tr {
+
+  margin-top: 30px
+}
+
+.col_d{
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_v{
+ background-color: green;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_e{
+ background-color: blue;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.abtn{
+ color: white;
+}
+
+body{
+	overflow: auto;
+	overflow-x: auto;
+}
+
+#cut{
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 40rem;
+  padding-right: 1rem; /* space for ellipsis */
+}
+
+</style>
+ 
+
+
+
 <?php
 
   $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -94,11 +204,11 @@
   <?php
 
 
-         echo "<table class='table table-striped' id='table-size' ";
+         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
 
              echo "<tr>";
               echo "<th class='bg-primary text-light text-center'>Title</th>";
-           	 // echo "<th class='bg-primary text-light'>Description</th>";
+           	  echo "<th class='bg-primary text-light'>Description</th>";
               echo "<th class='bg-primary text-light text-center'>Date</th>";
 														echo "<th class='bg-primary text-light text-center'>Actions</th>";
 
@@ -106,9 +216,9 @@
 
          while($row = mysqli_fetch_array($result)){
 												echo "<td style='text-align: center' >" . $row['news_title'] . "</td>";
-              //   echo "<td style='white-space: pre-line;' style='text-align: center' >" . $row['news_desc'] . "</td>";
+            echo "<td id='cut' >" . $row['news_desc'] . "</td>";
 												echo "<td style='text-align: center' >" . $row['news_date'] . "</td>";
-												echo "<td style='text-align: center'>
+												echo "<td class='d-block d-md-inline-block' style='text-align: center'>
 													<button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"announcment_view.php?id=".$row['id']."\">View</a></button>
 													<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"announcment_edit.php?edit_id=".$row['id']."\">Edit</a></button> 
 													<button style='background-color:#F94040'  class='col_d'><a class='abtn' href=\"announcment_delete.php?id=".$row['id']."\">Delete</a></button> </td>";

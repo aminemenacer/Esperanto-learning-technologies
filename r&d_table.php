@@ -1,3 +1,113 @@
+
+
+<style type="text/css">
+table {
+}
+
+th {
+
+  text-align: center;
+  background-color: #1D65EC;
+  color: white;
+}
+
+table, th, td, tr {
+
+  margin-top: 30px
+}
+
+.col_d{
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_v{
+ background-color: green;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.col_e{
+ background-color: blue;
+ display: inline-block;
+padding: 9px 12px;
+padding-top: 7px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #5e5e5e;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #d1dade;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
+background-image: none !important;
+border: none;
+text-shadow: none;
+box-shadow: none;
+transition: all 0.12s linear 0s !important;
+font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.abtn{
+ color: white;
+}
+
+body{
+	overflow: auto;
+	overflow-x: auto;
+}
+
+#cut{
+		max-lines: 3;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
+  overflow: hidden;
+		width: 48rem;
+  padding-right: 1rem; /* space for ellipsis */
+}
+
+</style>
+
+
+
+
 <?php
 
   $conn = mysqli_connect('localhost', 'amine', 'test1234', 'esperanto' );
@@ -70,41 +180,28 @@
 										if(mysqli_num_rows($result) > 0){
 
   	?>
-<!--
-									<div class="row">
-        <div class="col-5">
-          <button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_announcement.php">Add Academic support text</a></button>
-        </div>
-
-        <div class="col-7">
-          <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
-            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" name="query" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
--->
-
-  <?php
 
 
-									echo "<table class='table table-striped table-responsive' id='table-size' ";
+<?php
 
-									echo "<tr>";
-										echo "<th class='bg-primary text-light text-center' width='50px'>Title</th>";
-										echo "<th class='bg-primary text-light' width='500px'>Description</th>";
-										echo "<th class='bg-primary text-light text-center' width='50px'>Actions</th>";
-									echo "</tr>";
+echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
 
-         while($row = mysqli_fetch_array($result)){
-                 echo "<td style='text-align: center' width='50px'>" . $row['rd_title'] . "</td>";
-                 echo "<td style='white-space: pre-line;' style='text-align: center'>" . $row['rd_desc'] . "</td>";
-              echo "<td style='text-align: center' width='50px'>
-                 <button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"r&d_view.php?id=".$row['id']."\">View</a></button>
-																	<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"r&d_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
+				echo "<tr>";
+					echo "<th class='bg-primary text-light text-center'>Title</th>";
+					echo "<th class='bg-primary text-light'>Description</th>";
+					echo "<th class='bg-primary text-light text-center'>Actions</th>";
 
-               ?>
-  <?php
+				echo "</tr>";
+
+while($row = mysqli_fetch_array($result)){
+								echo "<td style='text-align: center'>" . $row['rd_title'] . "</td>";
+								echo "<td id='cut' style='text-align: center' >" . $row['rd_desc'] . "</td>";
+					echo"
+					<td style='text-align: center'>
+								<button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"r&d_view.php?id=".$row['id']."\">View</a></button>
+								<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"r&d_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
+						?>
+<?php
 
 echo "</tr>";
          }

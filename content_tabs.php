@@ -20,33 +20,60 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
 
 			<title>Esperanto</title>
 	</head>
-
 	<body style="overflow-x: hidden;">
-
 	
-	
-	<br>
-			<nav>
-				<div class="nav nav-tabs" id="nav-tab" role="tablist">
+	<div style="text-align: left">
+		<ul class="tabs align-right display:flex;" data-tabs id="example-tabs" data-deep-link="true" style="text-align: left">
+			<li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Academic support</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel2" href="#panel2">Research & development</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel3" href="#panel3">Services</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel4" href="#panel4">Membership</a></li>
+			<li class="tabs-title"><a data-tabs-target="panel5" href="#panel5">Announcements</a></li>
+		</ul> 
+	</div>
 
-						<a class="nav-item nav-link active" id="nav-as-tab" data-toggle="tab" href="#nav-as" role="tab" aria-controls="nav-as" aria-selected="true">Academic support</a>
-						<a class="nav-item nav-link" id="nav-rd-tab" data-toggle="tab" href="#nav-rd" role="tab" aria-controls="nav-rd" aria-selected="false">Research & development</a>
-						<a class="nav-item nav-link" id="nav-services-tab" data-toggle="tab" href="#nav-services" role="tab" aria-controls="nav-services" aria-selected="false">Services</a>
-						<a class="nav-item nav-link" id="nav-membership-tab" data-toggle="tab" href="#nav-membership" role="tab" aria-controls="nav-membership" aria-selected="false">Membership</a>
-						<a class="nav-item nav-link" id="nav-announcement-tab" data-toggle="tab" href="#nav-announcement" role="tab" aria-controls="nav-announcement" aria-selected="false">Announcements</a>
-				</div>
-		</nav>
+<div class="tabs-content" data-tabs-content="example-tabs">
+  <div class="tabs-panel is-active" id="panel1">
+		<?php require('academic_support_table.php'); ?>
+  </div>
+  <div class="tabs-panel" id="panel2">
+		<?php require('r&d_table.php'); ?>
+  </div>
+		<div class="tabs-panel" id="panel3">
+		<?php require('services_table.php'); ?>
+  </div>
+		<div class="tabs-panel" id="panel4">
+		<?php require('content_update_table.php'); ?>
+  </div>
+		<div class="tabs-panel" id="panel5">
+		<?php require('announcment_table.php'); ?>
+  </div>
+</div>
 
-		<div class="tab-content" id="nav-tabContent">
-			<div class="tab-pane fade show active" id="nav-as" role="tabpanel" aria-labelledby="nav-as-tab"><?php require('academic_support_table.php'); ?></div>
-			<div class="tab-pane fade" id="nav-rd" role="tabpanel" aria-labelledby="nav-rd-tab"><?php require('r&d_table.php'); ?></div>
-			<div class="tab-pane fade" id="nav-services" role="tabpanel" aria-labelledby="nav-services-tab"><?php require('services_table.php'); ?></div>
-			<div class="tab-pane fade" id="nav-membership" role="tabpanel" aria-labelledby="nav-membership-tab"><?php require('content_update_table.php'); ?></div>
-			<div class="tab-pane fade" id="nav-announcement" role="tabpanel" aria-labelledby="nav-announcement-tab"><?php require('announcment_table.php'); ?></div>
-		</div>
 
-	<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
-			<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+		<script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+		<!-- Compressed CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+		<!-- Compressed JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+				
+		<!-- foundation-float.min.css: Compressed CSS with legacy Float Grid -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+
+		<!-- foundation-prototype.min.css: Compressed CSS with prototyping classes -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css" integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+
+		<!-- foundation-rtl.min.css: Compressed CSS with right-to-left reading direction -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-rtl.min.css" integrity="sha256-F+9Ns8Z/1ZISonBbojH743hsmF3x3AlQdJEeD8DhQsE=" crossorigin="anonymous">
+		<script>$('#element').foundation('_handleTabChange', $target, historyHandled);
+</script>
 			<!-- Optional JavaScript -->
 			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

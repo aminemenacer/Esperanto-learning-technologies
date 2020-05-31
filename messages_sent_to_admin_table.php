@@ -100,13 +100,14 @@ a:hover {
 }
 
 #cut{ 
- width: 280px;
+ width: 180px;
 	white-space: nowrap;
 	overflow: hidden;
 	display: inline-block;
 	text-overflow: ellipsis;
 	margin: 0;
 }
+
 
 
 </style>
@@ -162,23 +163,23 @@ a:hover {
 				
     ?>
 				
-      <br>
+				<br>
       <div class="row">
-						<!------->
-							<div class="col-sm-6 col-md-6 col-xl-6 col-lg-6" >							
-									<button type="button" class="btn btn-primary mb-1"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
-							</div>
 
-							<!------->
-							<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3">
+						<div class="col-sm-6">
+								<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_admin_to_user.php">Send new message</a></button>
+						</div>
 
-									<form method="POST">
-										<input class="form-control" name="s" type="text" placeholder="Search" aria-label="Search">
-									</form>		
+        <div class="col-sm-6">
+          <form action="" method="post" class="form-inline md-form mr-auto">
+            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
+												
+												
+          </form>
+        </div>
 
-							</div>
+				
       </div>
-
       <?php
 								
          echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12'> ";

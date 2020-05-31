@@ -105,6 +105,15 @@ body{
 	data-smooth-scroll;
 }
 
+#cut{ 
+ width: 280px;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
 </style>
 
 
@@ -186,45 +195,56 @@ body{
 
 									?>
 
-								<?php
-												echo "<table class='table responsive-card-table striped table-responsive table-hover' ";
-
-													echo "<tr class='columns data-smooth-scroll'>";
-														echo "<th class='bg-primary text-light' style='text-align: center'>Full name</th>";
-														echo "<th class='bg-primary text-light' style='text-align: center'>Email</th>";
-														echo "<th class='bg-primary text-light' style='text-align: center'>Feedback</th>";
-														echo "<th class='bg-primary text-light' style='text-align: center'>Date</th>";
-														echo "<th class='bg-primary text-light' style='text-align: center'>Actions</th>";
-													echo "</tr>";
-
-									while($row = mysqli_fetch_array($result)){
-																	echo "<td style='text-align: center' >" . $row['firstname'] . "</td>";
-																	echo "<td style='text-align: center' >" . $row['email'] . "</td>";
-																	echo "<td style='text-align: center' >" . $row['feedback'] . "</td>";
-																	echo "<td style='text-align: center' >" . $row['date_created'] . "</td>";
-														echo "<td style='text-align: center'>
-																	<button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"feedback_view.php?id=".$row['id']."\">View</a></button>
-																	<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"mailto:?edit_id=".$row['id']."\">Reply</a></button> </td>";
-
-															?>
-
-								<?php
-
-						echo "</tr>";
-															}
-															echo "</table>";
-															mysqli_free_result($result);
-															
-
-											} else{
-															echo "No records matching your query were found.";
-											}
-							} else{
-											echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-							}
 
 
-									?>
+
+
+
+
+
+									
+
+<?php								
+									echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap display:block col-lg-12 col-xl-12'>";
+             echo "<tr>";
+													// echo "<th>id</th>";
+														echo "<th>Firstame</th>";
+														echo "<th>Email</th>";
+														echo "<th>Feedback</th>";
+														echo "<th>Date</th>";
+														echo "<th>Actions</th>";
+										
+         while($row = mysqli_fetch_array($result)){									
+             echo "<tr>";
+																// echo "<td>" . $row['id'] . "</td>";                 
+																	echo "<td>" . $row['firstname'] . "</td>";
+																	echo "<td>" . $row['email'] . "</td>";
+																	echo "<td>" . $row['feedback'] . "</td>";
+																	echo "<td>" . $row['date_created'] . "</td>";
+
+              echo "<td>
+                 <button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"feedback_view.php?id=".$row['id']."\">View</a></button>
+																	<button style='background-color:#2D62F5'  class='col_d'><a class='abtn' href=\"mailto:?edit_id=".$row['id']."\">Edit</a></button>																
+                ";
+
+               ?>
+									<?php
+
+							echo "</tr>";
+									}
+									echo "</table>";
+         mysqli_free_result($result);
+     } else{
+						?>
+							<button type="button" class="btn btn-primary"><a class='abtn' href="admin_add_user.php">Add new user</a></button><br><br>
+						<?php
+         echo "No users available.";
+									}
+					} else{
+									echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+					}
+
+							?>
 
 					</div>
 			</body>

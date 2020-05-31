@@ -66,26 +66,26 @@
       </div>
 -->
 
-  <?php
+<?php
 
+		echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
 
-         echo "<table class='table table-striped table-responsive' id='table-size' ";
+						echo "<tr>";
+							echo "<th class='bg-primary text-light text-center'>Title</th>";
+							echo "<th class='bg-primary text-light'>Description</th>";
+							echo "<th class='bg-primary text-light text-center'>Actions</th>";
 
-             echo "<tr>";
-              echo "<th class='bg-primary text-light text-center' width='50px'>Title</th>";
-														echo "<th class='bg-primary text-light' width='500px'>Description</th>";
-														echo "<th class='bg-primary text-light text-center' width='50px'>Actions</th>";
-             echo "</tr>";
+						echo "</tr>";
 
-         while($row = mysqli_fetch_array($result)){
-                 echo "<td style='text-align: center' width='50px'>" . $row['services_title'] . "</td>";
-                 echo "<td style='white-space: pre-line;'  style='text-align: center'>" . $row['services_desc'] . "</td>";
-              echo "<td style='text-align: center' width='50px'>
-                 <button style='background-color:#5AE339' style='display:inline-block' onclick='test()' class='col_v'><a class='abtn' href=\"services_view.php?id=".$row['id']."\">View</a></button>
-																	<button style='background-color:#618AD6' style='display:inline-block' class='col_e'><a class='abtn' href=\"services_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
-
-               ?>
-  <?php
+		while($row = mysqli_fetch_array($result)){
+										echo "<td style='text-align: center'>" . $row['services_title'] . "</td>";
+										echo "<td id='cut' style='text-align: center' >" . $row['services_desc'] . "</td>";
+							echo"
+							<td style='text-align: center'>
+										<button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"services_view.php?id=".$row['id']."\">View</a></button>
+										<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"services_edit.php?edit_id=".$row['id']."\">Edit</a></button> ";
+								?>
+		<?php
 
 
 echo "</tr>";

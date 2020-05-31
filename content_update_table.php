@@ -78,7 +78,7 @@
   	?>
 
   <?php
-						echo "<table class='table responsive-card-table striped table-responsive' id='table-size' ";
+						echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
 
 							echo "<tr>";
 								echo "<th class='bg-primary text-light' style='text-align: center'>Num of children</th>";
@@ -94,7 +94,7 @@
 											echo "<td style='text-align: center' >" . $row['weekly_attendance'] . "</td>";
 											echo "<td style='text-align: center' >" . $row['monthly_attendance'] . "</td>";
 											echo "<td style='text-align: center' >" . $row['online_attendance'] . "</td>";
-								echo "<td style='text-align: center'>
+								echo "<td class='d-block d-md-inline-block' style='text-align: center'>
 											<button style='background-color:#5AE339' onclick='test()' class='col_v'><a class='abtn' href=\"content_update_view.php?id=".$row['id']."\">View</a></button>
 											<button style='background-color:#618AD6' class='col_e'><a class='abtn' href=\"content_update_edit.php?edit_id=".$row['id']."\">Edit</a></button> </td>";
 

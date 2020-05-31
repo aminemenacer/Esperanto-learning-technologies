@@ -154,15 +154,19 @@ include_once('C:\xampp\htdocs\esperanto\navbar_check.php');
       <br>
       <div class="row">
 
+						<div class="col-sm-6">
+								<button type="button" class="btn btn-primary"><a class='abtn' href="message_send_from_user_to_admin.php">Send new message</a></button>
+						</div>
+
         <div class="col-sm-6">
           <form action="admin_table.php" method="post" class="form-inline md-form mr-auto">
             <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search" aria-label="Search">
-												<!--
-            <button class="btn btn-primary" name="query" type="submit">Search</button>
-												-->
+												
+												
           </form>
         </div>
 
+				
       </div>
 
       <?php								
