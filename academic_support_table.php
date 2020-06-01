@@ -99,8 +99,10 @@ body{
   position: relative;
   max-height: calc(var(--lh) * var(--max-lines));
   overflow: hidden;
-		width: 50rem;
+		width: 20px;
   padding-right: 1rem; /* space for ellipsis */
+		overflow-y: hidden;
+		overflow-x: hidden;
 }
 
 </style>
@@ -182,7 +184,7 @@ body{
 
   <?php
 
-         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12' ";
+         echo "<table class='table responsive-card-table striped table-responsive table-hover text-nowrap col-lg-12 col-xl-12 overflow-x:hidden' ";
 
              echo "<tr>";
               echo "<th class='bg-primary text-light text-center'>Title</th>";
@@ -193,7 +195,7 @@ body{
 
          while($row = mysqli_fetch_array($result)){
                  echo "<td style='text-align: center'>" . $row['academic_title'] . "</td>";
-                 echo "<td id='cut' style='text-align: center' >" . $row['academic_desc'] . "</td>";
+                 echo "<td id='cut' style='width:200px' >" . $row['academic_desc'] . "</td>";
 														echo"
 														<td style='text-align: center'>
                  <button style='background-color:#5AE339' class='col_v'><a class='abtn' href=\"academic_support_view.php?id=".$row['id']."\">View</a></button>
